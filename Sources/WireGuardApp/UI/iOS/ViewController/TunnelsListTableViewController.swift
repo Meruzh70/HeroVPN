@@ -148,6 +148,35 @@ class TunnelsListTableViewController: UIViewController {
         }
         alert.addAction(scanQRCodeAction)
 
+        let scanVpnAction = UIAlertAction(title: "Scan vpn://", style: .default) { [weak self] _ in
+            let base64Encoded = "AAAHBXiclVTbbtpAEP2V1ahvUMc2Nr5IlkoIrU0UcOo2tM1WaGMW2ILXri9cEuXfq1mnkD70IVrJmjk7c_bMeDRPkOayZkLysgL__unsgg8sk_xRsPdsv4Iu4Nd_gtAAHzzDsx3Hs1zoQmiCD4br4bGcPiI98ME1bLvvWbaDgAU-WLrXdyzdQ2Ccgg89NDJ2wHRd15UnJPhgo53gO6aHFj7gYPSWVfU8zeVSrMCHJwqhQcGnZzkUuhRCU4FnSS3aU-hJVgtaCjxJU-A4VWCvdTJ2aOl0XX9BhFSI3fpJq8H0Wq993Gmz063gsp6L4oVCczVdM4zXd0UpdvMNP6qI0cd6F_YnjeNMN14zkcNB3Fm5a0P-YHKZXX_TR3pss_Fg1LsJ_iFpHk4c7nTC5U0crR49cbuLO0vTyjqP0-thXkzNL1_Hn9jHsGn6yc32-wuHaqjKvY9kzcslS_lPSuVgsSh5VZGAnJRf9ExK5dUkIQF5F3-Obgafv8-vJkmXvEtGw-nk6sWnVMal2LGaX_MjCcibCqNynJKA9NDIhCQBsXVls4PSoqOXGCQgpoeWSQLiYHSI2HkYqAzx6tUgUBn2SEDOQ0BlaJGAnAeASkrlfcx5iR2Im4etSNsSmmOfP67FepN7F9-OkRmVziF2v04Os8somzWz37PLL3eD9DZK9oEqn1drVvJFmy2t7CDvHuTGcDub_cy4G1jxeP-QrKP41_BHNBuOO78vc1t-unUxe7Dd5nu-iGLsvq6pc6F3ie9fYPEjuShyIWuszrM109Y1x9M8w7ds18SAmJeVqGou62vOC7YVO47tsrE-_OfrvKonLOPtXL6mUNdFXtYUWjZ0q81pvN5UCHJVvNzx8p8RfVMr4Rm6StBfPVCXTFaIzIsyr3PwoVkU8Pz8swsLvmTNth7-d4steJWWoqhFjpum1aZJlnHynuxYdWQfVhkTWy3NM4yWFa4hQ1OnBdS6U38Egb-NRPB1G-H5D6EgkXA"
+            if let decodedData = Data(base64Encoded: base64Encoded) {
+                let decodedString = String(data: decodedData, encoding: .utf8)
+
+                print(decodedString)
+            }
+
+
+
+//            let binaryData = strData.data(using: .utf8)
+//            if let data = binaryData {
+//                do {
+//                    let decoded = try JSONSerialization.jsonObject(with: data, options: [])
+//                    // here "decoded" is of type `Any`, decoded from JSON data
+//                    print(decoded)
+//
+//
+//                    // you can now cast it with the right type
+//                    if let dictFromJSON = decoded as? [String:String] {
+//                        // use dictFromJSON
+//                    }
+//                } catch {
+//                    print(error.localizedDescription)
+//                }
+//            }
+        }
+        alert.addAction(scanVpnAction)
+
         let createFromScratchAction = UIAlertAction(title: tr("addTunnelMenuFromScratch"), style: .default) { [weak self] _ in
             if let self = self, let tunnelsManager = self.tunnelsManager {
                 self.presentViewControllerForTunnelCreation(tunnelsManager: tunnelsManager)

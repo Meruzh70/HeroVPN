@@ -1,0 +1,32 @@
+PODS:
+  - Alamofire (5.6.4)
+  - ProgressHUD (14.1.1)
+  - SwiftGen (6.6.3)
+  - SwiftGifOrigin (1.7.0)
+  - SwiftyJSON (5.0.2)
+
+DEPENDENCIES:
+  - Alamofire (~> 5.6.4)
+  - ProgressHUD (~> 14.1.1)
+  - SwiftGen (~> 6.6.2)
+  - SwiftGifOrigin (~> 1.7.0)
+  - SwiftyJSON (~> 5.0.1)
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - ProgressHUD
+    - SwiftGen
+    - SwiftGifOrigin
+    - SwiftyJSON
+
+SPEC CHECKSUMS:
+  Alamofire: 4e95d97098eacb88856099c4fc79b526a299e48c
+  ProgressHUD: abb9136ae23c85204236828562cb9a8ec98efb44
+  SwiftGen: 4993cbf71cbc4886f775e26f8d5c3a1188ec9f99
+  SwiftGifOrigin: fbd6cf37afcfcf97a5c3db996ddc0492e5c5c145
+  SwiftyJSON: f5b1bf1cd8dd53cd25887ac0eabcfd92301c6a5a
+
+PODFILE CHECKSUM: ccf8d25aab7a818254fcf97092d3ac63e77ea243
+
+COCOAPODS: 1.14.2

@@ -20,16 +20,59 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
 
-        let window = UIWindow(frame: UIScreen.main.bounds)
-        self.window = window
+        NotificationCenter.default.addObserver(self, selector: #selector(openChooseVCForLogin), name: .needOpenChooseVCForLogin, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(openMainTabBar), name: .needOpenMainTabBar, object: nil)
 
-        let mainVC = MainViewController()
-        window.rootViewController = mainVC
-        window.makeKeyAndVisible()
 
-        self.mainVC = mainVC
+
+//        if UserDefaultsManager.shared.isFirstOpeningApp {
+//            self.openVCAsRoot(vc: OnboardingVC.self)
+//        } else if let _ = KeychainManager.shared.authToken {
+            self.openVCAsRoot(vc: MainTabBar.self)
+//        } else {
+//            self.openVCAsRoot(vc: ChooseVC.self)
+//        }
+
+//        let window = UIWindow(frame: UIScreen.main.bounds)
+//        self.window = window
+//
+//        let mainVC = MainViewController()
+//        window.rootViewController = mainVC
+//        window.makeKeyAndVisible()
+//
+//        self.mainVC = mainVC
+
+
+//        self.openVCAsRoot(vc: HomeVC.self)
 
         return true
+    }
+
+    func openVCAsRoot(vc: UIViewController.Type) {
+        let vc = Utils.shared.mainStoryboard().instantiateViewController(withIdentifier: vc.className)
+        if self.window?.rootViewController?.className != vc.className {
+            self.window?.rootViewController = vc
+            self.window?.makeKeyAndVisible()
+        }
+    }
+
+    @objc
+    func openChooseVCForLogin() {
+        guard let vc = Utils.shared.mainStoryboard().instantiateViewController(withIdentifier: ChooseVC.className) as? ChooseVC else { return }
+        vc.openLogin = true
+        if self.window?.rootViewController?.className != vc.className {
+            self.window?.rootViewController = vc
+            self.window?.makeKeyAndVisible()
+        }
+    }
+
+    @objc
+    func openMainTabBar() {
+        self.openVCAsRoot(vc: MainTabBar.self)
+    }
+
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
 
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
@@ -62,7 +105,7 @@ extension AppDelegate {
         return true
     }
 
-    func application(_ application: UIApplication, shouldRestoreApplicationState coder: NSCoder) -> Bool {
+    func application(_ application: UIApplication, shouldRestoreSecureApplicationState coder: NSCoder) -> Bool {
         return !self.isLaunchedForSpecificAction
     }
 

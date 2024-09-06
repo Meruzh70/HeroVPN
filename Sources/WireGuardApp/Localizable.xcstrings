@@ -607,25 +607,25 @@
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Add a new AmneziaWG tunnel"
+            "value" : "Add a new VPN Hero - Super Fast tunnel"
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWG-Tunnel hinzufügen"
+            "value" : "VPN Hero - Super Fast-Tunnel hinzufügen"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Add a new AmneziaWG tunnel"
+            "value" : "Add a new VPN Hero - Super Fast tunnel"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Añadir un nuevo túnel AmneziaWG"
+            "value" : "Añadir un nuevo túnel VPN Hero - Super Fast"
           }
         },
         "fa" : {
@@ -637,85 +637,85 @@
         "fi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Lisää uusi AmneziaWG tunneli"
+            "value" : "Lisää uusi VPN Hero - Super Fast tunneli"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ajouter un nouveau tunnel AmneziaWG"
+            "value" : "Ajouter un nouveau tunnel VPN Hero - Super Fast"
           }
         },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Tambahkan tunnel AmneziaWG"
+            "value" : "Tambahkan tunnel VPN Hero - Super Fast"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Aggiungi un nuovo tunnel AmneziaWG"
+            "value" : "Aggiungi un nuovo tunnel VPN Hero - Super Fast"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWGトンネルの追加"
+            "value" : "VPN Hero - Super Fastトンネルの追加"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Add a new AmneziaWG tunnel"
+            "value" : "Add a new VPN Hero - Super Fast tunnel"
           }
         },
         "pa" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ਨਵੀਂ AmneziaWG ਟਨਲ ਬਣਾਓ"
+            "value" : "ਨਵੀਂ VPN Hero - Super Fast ਟਨਲ ਬਣਾਓ"
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Dodaj nowy tunel AmneziaWG"
+            "value" : "Dodaj nowy tunel VPN Hero - Super Fast"
           }
         },
         "ro" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Adaugă un nou tunel AmneziaWG"
+            "value" : "Adaugă un nou tunel VPN Hero - Super Fast"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Добавить новый туннель AmneziaWG"
+            "value" : "Добавить новый туннель VPN Hero - Super Fast"
           }
         },
         "sl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Dodaj nov tunel AmneziaWG"
+            "value" : "Dodaj nov tunel VPN Hero - Super Fast"
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Yeni bir AmneziaWG tüneli ekle"
+            "value" : "Yeni bir VPN Hero - Super Fast tüneli ekle"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "新建 AmneziaWG 隧道"
+            "value" : "新建 VPN Hero - Super Fast 隧道"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "新增一個 AmneziaWG 通道"
+            "value" : "新增一個 VPN Hero - Super Fast 通道"
           }
         }
       }
@@ -1202,91 +1202,91 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Die Datei ‘%@’ enthält keine gültige AmneziaWG-Konfiguration"
+            "value" : "Die Datei ‘%@’ enthält keine gültige VPN Hero - Super Fast-Konfiguration"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "The file ‘%@’ does not contain a valid AmneziaWG configuration"
+            "value" : "The file ‘%@’ does not contain a valid VPN Hero - Super Fast configuration"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "El archivo ‘%@’ no contiene una configuración válida de AmneziaWG"
+            "value" : "El archivo ‘%@’ no contiene una configuración válida de VPN Hero - Super Fast"
           }
         },
         "fi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Tiedosto ”%@” ei sisällä kelvollista AmneziaWG konfiguraatiota"
+            "value" : "Tiedosto ”%@” ei sisällä kelvollista VPN Hero - Super Fast konfiguraatiota"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Le fichier ‘%@’ contient une de configuration AmneziaWG invalide"
+            "value" : "Le fichier ‘%@’ contient une de configuration VPN Hero - Super Fast invalide"
           }
         },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "File ini ‘%@’ tidak terdapat pengaturan AmneziaWG yang benar"
+            "value" : "File ini ‘%@’ tidak terdapat pengaturan VPN Hero - Super Fast yang benar"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Il file “%@” non contiene una configurazione di AmneziaWG valida"
+            "value" : "Il file “%@” non contiene una configurazione di VPN Hero - Super Fast valida"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ファイル ‘%@’ には有効な AmneziaWG の設定がありません"
+            "value" : "ファイル ‘%@’ には有効な VPN Hero - Super Fast の設定がありません"
           }
         },
         "pa" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ਫ਼ਾਇਲ ‘%@’ ਵਿੱਚ ਵਾਜਬ AmneziaWG ਸੰਰਚਨਾ ਨਹੀਂ ਰੱਖਦੀ ਹੈ"
+            "value" : "ਫ਼ਾਇਲ ‘%@’ ਵਿੱਚ ਵਾਜਬ VPN Hero - Super Fast ਸੰਰਚਨਾ ਨਹੀਂ ਰੱਖਦੀ ਹੈ"
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Plik „%@” nie zawiera prawidłowej konfiguracji AmneziaWG"
+            "value" : "Plik „%@” nie zawiera prawidłowej konfiguracji VPN Hero - Super Fast"
           }
         },
         "ro" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Fișierul „%@” nu conține o configurație AmneziaWG validă"
+            "value" : "Fișierul „%@” nu conține o configurație VPN Hero - Super Fast validă"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Файл ‘%@’ не содержит корректной конфигурации AmneziaWG"
+            "value" : "Файл ‘%@’ не содержит корректной конфигурации VPN Hero - Super Fast"
           }
         },
         "sl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Datoteka \"%@\" ne vsebuje veljavne konfiguracije AmneziaWG"
+            "value" : "Datoteka \"%@\" ne vsebuje veljavne konfiguracije VPN Hero - Super Fast"
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "‘%@’ dosyası geçerli bir AmneziaWG konfigürasyonu içermiyor"
+            "value" : "‘%@’ dosyası geçerli bir VPN Hero - Super Fast konfigürasyonu içermiyor"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "在文件 ‘%@’ 中未发现有效的 AmneziaWG 配置"
+            "value" : "在文件 ‘%@’ 中未发现有效的 VPN Hero - Super Fast 配置"
           }
         }
       }
@@ -5271,115 +5271,115 @@
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "El QR escanejat no és una configuració de AmneziaWG vàlida"
+            "value" : "El QR escanejat no és una configuració de VPN Hero - Super Fast vàlida"
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Der gescannte QR-Code ist keine gültige AmneziaWG-Konfiguration"
+            "value" : "Der gescannte QR-Code ist keine gültige VPN Hero - Super Fast-Konfiguration"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "The scanned QR code is not a valid AmneziaWG configuration"
+            "value" : "The scanned QR code is not a valid VPN Hero - Super Fast configuration"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "El código QR escaneado no es una configuración válida de AmneziaWG"
+            "value" : "El código QR escaneado no es una configuración válida de VPN Hero - Super Fast"
           }
         },
         "fa" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "The scanned QR code is not a valid AmneziaWG configuration"
+            "value" : "The scanned QR code is not a valid VPN Hero - Super Fast configuration"
           }
         },
         "fi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "The scanned QR code is not a valid AmneziaWG configuration"
+            "value" : "The scanned QR code is not a valid VPN Hero - Super Fast configuration"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Le code QR scanné est une configuration AmneziaWG invalide"
+            "value" : "Le code QR scanné est une configuration VPN Hero - Super Fast invalide"
           }
         },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "The scanned QR code is not a valid AmneziaWG configuration"
+            "value" : "The scanned QR code is not a valid VPN Hero - Super Fast configuration"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Il codice QR analizzato non è una configurazione valida di AmneziaWG"
+            "value" : "Il codice QR analizzato non è una configurazione valida di VPN Hero - Super Fast"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "スキャンしたQRコードは有効なAmneziaWGの設定ではありません"
+            "value" : "スキャンしたQRコードは有効なVPN Hero - Super Fastの設定ではありません"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "스캔된 QR코드는 유효한 AmneziaWG 설정이 아닙니다"
+            "value" : "스캔된 QR코드는 유효한 VPN Hero - Super Fast 설정이 아닙니다"
           }
         },
         "pa" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ਸਕੈਨ ਕੀਤਾ QR ਕੋਡ ਵਾਜਬ AmneziaWG ਸੰਰਚਨਾ ਨਹੀਂ ਹੈ"
+            "value" : "ਸਕੈਨ ਕੀਤਾ QR ਕੋਡ ਵਾਜਬ VPN Hero - Super Fast ਸੰਰਚਨਾ ਨਹੀਂ ਹੈ"
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Zeskanowany kod QR nie jest poprawną konfiguracją AmneziaWG"
+            "value" : "Zeskanowany kod QR nie jest poprawną konfiguracją VPN Hero - Super Fast"
           }
         },
         "ro" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Codul QR scanat nu este o configurație AmneziaWG validă"
+            "value" : "Codul QR scanat nu este o configurație VPN Hero - Super Fast validă"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Отсканированный QR-код не является конфигурацией AmneziaWG"
+            "value" : "Отсканированный QR-код не является конфигурацией VPN Hero - Super Fast"
           }
         },
         "sl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Skenirana koda QR ni veljavna konfiguracija AmneziaWG"
+            "value" : "Skenirana koda QR ni veljavna konfiguracija VPN Hero - Super Fast"
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Taranan QR kodu geçerli bir AmneziaWG yapılandırması değil"
+            "value" : "Taranan QR kodu geçerli bir VPN Hero - Super Fast yapılandırması değil"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "扫描的二维码不是有效的 AmneziaWG 配置"
+            "value" : "扫描的二维码不是有效的 VPN Hero - Super Fast 配置"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "The scanned QR code is not a valid AmneziaWG configuration"
+            "value" : "The scanned QR code is not a valid VPN Hero - Super Fast configuration"
           }
         }
       }
@@ -10453,115 +10453,115 @@
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "♥ Donate to the AmneziaWG Project"
+            "value" : "♥ Donate to the VPN Hero - Super Fast Project"
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "♥ Spende an das AmneziaWG Projekt"
+            "value" : "♥ Spende an das VPN Hero - Super Fast Projekt"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "♥ Donate to the AmneziaWG Project"
+            "value" : "♥ Donate to the VPN Hero - Super Fast Project"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "♥ Donar al Proyecto AmneziaWG"
+            "value" : "♥ Donar al Proyecto VPN Hero - Super Fast"
           }
         },
         "fa" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "♥ کمک مالی به پروژه AmneziaWG"
+            "value" : "♥ کمک مالی به پروژه VPN Hero - Super Fast"
           }
         },
         "fi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "♥ Lahjoita AmneziaWG projektille"
+            "value" : "♥ Lahjoita VPN Hero - Super Fast projektille"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "♥ Faire un don au projet AmneziaWG"
+            "value" : "♥ Faire un don au projet VPN Hero - Super Fast"
           }
         },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "♥ Donate to the AmneziaWG Project"
+            "value" : "♥ Donate to the VPN Hero - Super Fast Project"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "♥ Fai una donazione al progetto AmneziaWG"
+            "value" : "♥ Fai una donazione al progetto VPN Hero - Super Fast"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "♥ AmneziaWG プロジェクトに寄付する"
+            "value" : "♥ VPN Hero - Super Fast プロジェクトに寄付する"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "♥ Donate to the AmneziaWG Project"
+            "value" : "♥ Donate to the VPN Hero - Super Fast Project"
           }
         },
         "pa" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "♥ AmneziaWG ਪਰੋਜੈਕਟ ਨੂੰ ਦਾਨ ਦਿਓ"
+            "value" : "♥ VPN Hero - Super Fast ਪਰੋਜੈਕਟ ਨੂੰ ਦਾਨ ਦਿਓ"
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "♥ Dotacja dla projektu AmneziaWG"
+            "value" : "♥ Dotacja dla projektu VPN Hero - Super Fast"
           }
         },
         "ro" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "♥ Donează pentru proiectul AmneziaWG"
+            "value" : "♥ Donează pentru proiectul VPN Hero - Super Fast"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "♥ Пожертвовать проекту AmneziaWG"
+            "value" : "♥ Пожертвовать проекту VPN Hero - Super Fast"
           }
         },
         "sl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "♥ Donirajte projektu AmneziaWG"
+            "value" : "♥ Donirajte projektu VPN Hero - Super Fast"
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "♥ AmneziaWG Projesine Bağış Yapın"
+            "value" : "♥ VPN Hero - Super Fast Projesine Bağış Yapın"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "♥ 为 AmneziaWG 捐赠"
+            "value" : "♥ 为 VPN Hero - Super Fast 捐赠"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "♥ Donate to the AmneziaWG Project"
+            "value" : "♥ Donate to the VPN Hero - Super Fast Project"
           }
         }
       }
@@ -13181,115 +13181,115 @@
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWG is exiting with an active tunnel"
+            "value" : "VPN Hero - Super Fast is exiting with an active tunnel"
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWG wird beendet, mit einem aktiven Tunnel"
+            "value" : "VPN Hero - Super Fast wird beendet, mit einem aktiven Tunnel"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWG is exiting with an active tunnel"
+            "value" : "VPN Hero - Super Fast is exiting with an active tunnel"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWG is exiting with an active tunnel"
+            "value" : "VPN Hero - Super Fast is exiting with an active tunnel"
           }
         },
         "fa" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWG is exiting with an active tunnel"
+            "value" : "VPN Hero - Super Fast is exiting with an active tunnel"
           }
         },
         "fi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWG is exiting with an active tunnel"
+            "value" : "VPN Hero - Super Fast is exiting with an active tunnel"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWG se termine avec un tunnel actif"
+            "value" : "VPN Hero - Super Fast se termine avec un tunnel actif"
           }
         },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWG is exiting with an active tunnel"
+            "value" : "VPN Hero - Super Fast is exiting with an active tunnel"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWG sta per essere chiuso con un tunnel attivo"
+            "value" : "VPN Hero - Super Fast sta per essere chiuso con un tunnel attivo"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "有効化中のトンネルが残ったまま AmneziaWG を終了しようとしています"
+            "value" : "有効化中のトンネルが残ったまま VPN Hero - Super Fast を終了しようとしています"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWG is exiting with an active tunnel"
+            "value" : "VPN Hero - Super Fast is exiting with an active tunnel"
           }
         },
         "pa" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWG ਸਰਗਰਮ ਟਨਲ ਨਾਲ ਮੌਜੂਦ ਹੈ"
+            "value" : "VPN Hero - Super Fast ਸਰਗਰਮ ਟਨਲ ਨਾਲ ਮੌਜੂਦ ਹੈ"
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWG jest wyłączany wraz z aktywnym tunelem"
+            "value" : "VPN Hero - Super Fast jest wyłączany wraz z aktywnym tunelem"
           }
         },
         "ro" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWG iese cu un tunel activ"
+            "value" : "VPN Hero - Super Fast iese cu un tunel activ"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Выход из AmneziaWG с активным туннелем"
+            "value" : "Выход из VPN Hero - Super Fast с активным туннелем"
           }
         },
         "sl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWG se končuje z aktivnim tunelom"
+            "value" : "VPN Hero - Super Fast se končuje z aktivnim tunelom"
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWG aktif bir tünelle çıkıyor"
+            "value" : "VPN Hero - Super Fast aktif bir tünelle çıkıyor"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWG 正在退出，且还有一个激活的隧道。"
+            "value" : "VPN Hero - Super Fast 正在退出，且还有一个激活的隧道。"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWG is exiting with an active tunnel"
+            "value" : "VPN Hero - Super Fast is exiting with an active tunnel"
           }
         }
       }
@@ -13455,115 +13455,115 @@
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "App Store would like to update AmneziaWG"
+            "value" : "App Store would like to update VPN Hero - Super Fast"
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "App Store möchte AmneziaWG aktualisieren"
+            "value" : "App Store möchte VPN Hero - Super Fast aktualisieren"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "App Store would like to update AmneziaWG\n"
+            "value" : "App Store would like to update VPN Hero - Super Fast\n"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "App Store desea actualizar AmneziaWG"
+            "value" : "App Store desea actualizar VPN Hero - Super Fast"
           }
         },
         "fa" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "App Store would like to update AmneziaWG"
+            "value" : "App Store would like to update VPN Hero - Super Fast"
           }
         },
         "fi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "App Store haluaa päivittää AmneziaWGin"
+            "value" : "App Store haluaa päivittää VPN Hero - Super Fastin"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "App Store aimerait mettre à jour AmneziaWG"
+            "value" : "App Store aimerait mettre à jour VPN Hero - Super Fast"
           }
         },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "App Store would like to update AmneziaWG"
+            "value" : "App Store would like to update VPN Hero - Super Fast"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "App Store vuole aggiornare AmneziaWG"
+            "value" : "App Store vuole aggiornare VPN Hero - Super Fast"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "App Store に AmneziaWG の更新版があります"
+            "value" : "App Store に VPN Hero - Super Fast の更新版があります"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "App Store would like to update AmneziaWG"
+            "value" : "App Store would like to update VPN Hero - Super Fast"
           }
         },
         "pa" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "App Store AmneziaWG ਨੂੰ ਅੱਪਡੇਟ ਕਰਨਾ ਚਾਹੁੰਦਾ ਹੈ"
+            "value" : "App Store VPN Hero - Super Fast ਨੂੰ ਅੱਪਡੇਟ ਕਰਨਾ ਚਾਹੁੰਦਾ ਹੈ"
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "App Store chce zaktualizować AmneziaWG"
+            "value" : "App Store chce zaktualizować VPN Hero - Super Fast"
           }
         },
         "ro" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "App Store dorește să actualizeze AmneziaWG"
+            "value" : "App Store dorește să actualizeze VPN Hero - Super Fast"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "App Store хотел бы обновить AmneziaWG"
+            "value" : "App Store хотел бы обновить VPN Hero - Super Fast"
           }
         },
         "sl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "App Store bi rad posodobil AmneziaWG"
+            "value" : "App Store bi rad posodobil VPN Hero - Super Fast"
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "App Store, AmneziaWG güncellemek istiyor"
+            "value" : "App Store, VPN Hero - Super Fast güncellemek istiyor"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "App Store 想要更新 AmneziaWG"
+            "value" : "App Store 想要更新 VPN Hero - Super Fast"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "App Store would like to update AmneziaWG"
+            "value" : "App Store would like to update VPN Hero - Super Fast"
           }
         }
       }
@@ -14116,115 +14116,115 @@
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "If you close the tunnels manager, AmneziaWG will continue to be available from the menu bar icon."
+            "value" : "If you close the tunnels manager, VPN Hero - Super Fast will continue to be available from the menu bar icon."
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Wenn Sie den Tunnelmanager schließen, wird AmneziaWG weiterhin über das Symbol in der Menüleiste zur Verfügung stehen."
+            "value" : "Wenn Sie den Tunnelmanager schließen, wird VPN Hero - Super Fast weiterhin über das Symbol in der Menüleiste zur Verfügung stehen."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "If you close the tunnels manager, AmneziaWG will continue to be available from the menu bar icon."
+            "value" : "If you close the tunnels manager, VPN Hero - Super Fast will continue to be available from the menu bar icon."
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "If you close the tunnels manager, AmneziaWG will continue to be available from the menu bar icon."
+            "value" : "If you close the tunnels manager, VPN Hero - Super Fast will continue to be available from the menu bar icon."
           }
         },
         "fa" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "If you close the tunnels manager, AmneziaWG will continue to be available from the menu bar icon."
+            "value" : "If you close the tunnels manager, VPN Hero - Super Fast will continue to be available from the menu bar icon."
           }
         },
         "fi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "If you close the tunnels manager, AmneziaWG will continue to be available from the menu bar icon."
+            "value" : "If you close the tunnels manager, VPN Hero - Super Fast will continue to be available from the menu bar icon."
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Si vous fermez le gestionnaire de tunnels, AmneziaWG continuera d'être disponible à partir de l'icône de la barre de menus."
+            "value" : "Si vous fermez le gestionnaire de tunnels, VPN Hero - Super Fast continuera d'être disponible à partir de l'icône de la barre de menus."
           }
         },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "If you close the tunnels manager, AmneziaWG will continue to be available from the menu bar icon."
+            "value" : "If you close the tunnels manager, VPN Hero - Super Fast will continue to be available from the menu bar icon."
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Se chiudi il gestore dei tunnel, AmneziaWG continuerà a essere disponibile dall'icona della barra dei menu."
+            "value" : "Se chiudi il gestore dei tunnel, VPN Hero - Super Fast continuerà a essere disponibile dall'icona della barra dei menu."
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "トンネル管理画面を閉じても、メニューバーアイコンからAmneziaWGを操作できます。"
+            "value" : "トンネル管理画面を閉じても、メニューバーアイコンからVPN Hero - Super Fastを操作できます。"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "If you close the tunnels manager, AmneziaWG will continue to be available from the menu bar icon."
+            "value" : "If you close the tunnels manager, VPN Hero - Super Fast will continue to be available from the menu bar icon."
           }
         },
         "pa" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ਜੇ ਤੁਸੀਂ ਟਨਲ ਮੈਨੇਜਰ ਬੰਦ ਕਰਦੇ ਹੋ ਤਾਂ AmneziaWG ਮੇਨੂ ਪੱਟੀ ਆਈਕਾਨ ਵਿੱਚ ਉਪਲੱਬਧ ਰਹੇਗਾ।"
+            "value" : "ਜੇ ਤੁਸੀਂ ਟਨਲ ਮੈਨੇਜਰ ਬੰਦ ਕਰਦੇ ਹੋ ਤਾਂ VPN Hero - Super Fast ਮੇਨੂ ਪੱਟੀ ਆਈਕਾਨ ਵਿੱਚ ਉਪਲੱਬਧ ਰਹੇਗਾ।"
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Jeśli zamkniesz menedżera tuneli, AmneziaWG będzie nadal dostępny z ikony w pasku menu."
+            "value" : "Jeśli zamkniesz menedżera tuneli, VPN Hero - Super Fast będzie nadal dostępny z ikony w pasku menu."
           }
         },
         "ro" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Dacă închizi managerul de tuneluri, AmneziaWG va fi în continuare disponibil din pictograma barei de meniu."
+            "value" : "Dacă închizi managerul de tuneluri, VPN Hero - Super Fast va fi în continuare disponibil din pictograma barei de meniu."
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Если вы закроете менеджер туннелей, AmneziaWG будет по-прежнему доступен из значка в строке меню."
+            "value" : "Если вы закроете менеджер туннелей, VPN Hero - Super Fast будет по-прежнему доступен из значка в строке меню."
           }
         },
         "sl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Če zaprete upravljalca tunelov, bo AmneziaWG še naprej na voljo preko ikone v meniju."
+            "value" : "Če zaprete upravljalca tunelov, bo VPN Hero - Super Fast še naprej na voljo preko ikone v meniju."
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Tünel yöneticisini kapatırsanız, AmneziaWG menü çubuğu simgesinden kullanılmaya devam edecektir."
+            "value" : "Tünel yöneticisini kapatırsanız, VPN Hero - Super Fast menü çubuğu simgesinden kullanılmaya devam edecektir."
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "如果您关闭了隧道管理器，可继续从菜单栏图标使用 AmneziaWG 。"
+            "value" : "如果您关闭了隧道管理器，可继续从菜单栏图标使用 VPN Hero - Super Fast 。"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "If you close the tunnels manager, AmneziaWG will continue to be available from the menu bar icon."
+            "value" : "If you close the tunnels manager, VPN Hero - Super Fast will continue to be available from the menu bar icon."
           }
         }
       }
@@ -14236,115 +14236,115 @@
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Do you want to close the tunnels manager or quit AmneziaWG entirely?"
+            "value" : "Do you want to close the tunnels manager or quit VPN Hero - Super Fast entirely?"
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Möchten Sie den Tunnelmanager schließen oder AmneziaWG ganz beenden?"
+            "value" : "Möchten Sie den Tunnelmanager schließen oder VPN Hero - Super Fast ganz beenden?"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Do you want to close the tunnels manager or quit AmneziaWG entirely?"
+            "value" : "Do you want to close the tunnels manager or quit VPN Hero - Super Fast entirely?"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Do you want to close the tunnels manager or quit AmneziaWG entirely?"
+            "value" : "Do you want to close the tunnels manager or quit VPN Hero - Super Fast entirely?"
           }
         },
         "fa" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Do you want to close the tunnels manager or quit AmneziaWG entirely?"
+            "value" : "Do you want to close the tunnels manager or quit VPN Hero - Super Fast entirely?"
           }
         },
         "fi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Do you want to close the tunnels manager or quit AmneziaWG entirely?"
+            "value" : "Do you want to close the tunnels manager or quit VPN Hero - Super Fast entirely?"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Voulez-vous fermer le gestionnaire de tunnels ou quitter AmneziaWG complètement ?"
+            "value" : "Voulez-vous fermer le gestionnaire de tunnels ou quitter VPN Hero - Super Fast complètement ?"
           }
         },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Do you want to close the tunnels manager or quit AmneziaWG entirely?"
+            "value" : "Do you want to close the tunnels manager or quit VPN Hero - Super Fast entirely?"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Vuoi chiudere il gestore dei tunnel o chiudere completamente AmneziaWG?"
+            "value" : "Vuoi chiudere il gestore dei tunnel o chiudere completamente VPN Hero - Super Fast?"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "トンネル管理画面を閉じますか？それともAmneziaWG自体を終了しますか？"
+            "value" : "トンネル管理画面を閉じますか？それともVPN Hero - Super Fast自体を終了しますか？"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Do you want to close the tunnels manager or quit AmneziaWG entirely?"
+            "value" : "Do you want to close the tunnels manager or quit VPN Hero - Super Fast entirely?"
           }
         },
         "pa" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ਕੀ ਤੁਸੀਂ ਟਨਲ ਮੈਨੇਜਰ ਨੂੰ ਬੰਦ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ ਜਾਂ ਪੂਰੇ AmneziaWG ਤੋਂ ਬਾਹਰ ਜਾਣਾ ਚਾਹੁੰਦੇ ਹੋ?"
+            "value" : "ਕੀ ਤੁਸੀਂ ਟਨਲ ਮੈਨੇਜਰ ਨੂੰ ਬੰਦ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ ਜਾਂ ਪੂਰੇ VPN Hero - Super Fast ਤੋਂ ਬਾਹਰ ਜਾਣਾ ਚਾਹੁੰਦੇ ਹੋ?"
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Czy chcesz zamknąć menedżera tuneli czy wyłączyć całkowicie AmneziaWG?"
+            "value" : "Czy chcesz zamknąć menedżera tuneli czy wyłączyć całkowicie VPN Hero - Super Fast?"
           }
         },
         "ro" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Dorești să închizi managerul de tuneluri sau să ieși complet din AmneziaWG?"
+            "value" : "Dorești să închizi managerul de tuneluri sau să ieși complet din VPN Hero - Super Fast?"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Вы хотите закрыть менеджер туннелей или полностью выйти из AmneziaWG?"
+            "value" : "Вы хотите закрыть менеджер туннелей или полностью выйти из VPN Hero - Super Fast?"
           }
         },
         "sl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ali želite zapreti upravljalca tunelov ali končati AmneziaWG v celoti?"
+            "value" : "Ali želite zapreti upravljalca tunelov ali končati VPN Hero - Super Fast v celoti?"
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Tünel yöneticisini kapatmak mı yoksa AmneziaWG’dan tamamen çıkmak mı istiyorsunuz?"
+            "value" : "Tünel yöneticisini kapatmak mı yoksa VPN Hero - Super Fast’dan tamamen çıkmak mı istiyorsunuz?"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "您想要关闭隧道管理器还是完全退出 AmneziaWG？"
+            "value" : "您想要关闭隧道管理器还是完全退出 VPN Hero - Super Fast？"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Do you want to close the tunnels manager or quit AmneziaWG entirely?"
+            "value" : "Do you want to close the tunnels manager or quit VPN Hero - Super Fast entirely?"
           }
         }
       }
@@ -14355,115 +14355,115 @@
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Quit AmneziaWG"
+            "value" : "Quit VPN Hero - Super Fast"
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWG beenden"
+            "value" : "VPN Hero - Super Fast beenden"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Quit AmneziaWG"
+            "value" : "Quit VPN Hero - Super Fast"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Salir de AmneziaWG"
+            "value" : "Salir de VPN Hero - Super Fast"
           }
         },
         "fa" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "خروج از AmneziaWG"
+            "value" : "خروج از VPN Hero - Super Fast"
           }
         },
         "fi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Sulje AmneziaWG"
+            "value" : "Sulje VPN Hero - Super Fast"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Quitter AmneziaWG"
+            "value" : "Quitter VPN Hero - Super Fast"
           }
         },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Quit AmneziaWG"
+            "value" : "Quit VPN Hero - Super Fast"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Chiudi AmneziaWG"
+            "value" : "Chiudi VPN Hero - Super Fast"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWGを終了"
+            "value" : "VPN Hero - Super Fastを終了"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Quit AmneziaWG"
+            "value" : "Quit VPN Hero - Super Fast"
           }
         },
         "pa" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWG ਚੋਂ ਬਾਹਰ ਜਾਓ"
+            "value" : "VPN Hero - Super Fast ਚੋਂ ਬਾਹਰ ਜਾਓ"
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Wyjdź z programu AmneziaWG"
+            "value" : "Wyjdź z programu VPN Hero - Super Fast"
           }
         },
         "ro" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ieși din AmneziaWG"
+            "value" : "Ieși din VPN Hero - Super Fast"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Выйти из AmneziaWG"
+            "value" : "Выйти из VPN Hero - Super Fast"
           }
         },
         "sl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Končaj AmneziaWG"
+            "value" : "Končaj VPN Hero - Super Fast"
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWG’dan Çık"
+            "value" : "VPN Hero - Super Fast’dan Çık"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "退出 AmneziaWG"
+            "value" : "退出 VPN Hero - Super Fast"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Quit AmneziaWG"
+            "value" : "Quit VPN Hero - Super Fast"
           }
         }
       }
@@ -14474,73 +14474,73 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Wenn Sie den Tunnelmanager schließen, wird AmneziaWG weiterhin über das Symbol in der Menüleiste zur Verfügung stehen.\n\nBeachten Sie, dass der derzeit aktive Tunnel ('%@') weiterhin aktiv bleibt (auch wenn Sie AmneziaWG ganz beenden), bis Sie ihn von dieser Anwendung oder über das Netzwerk-Panel in den Systemeinstellungen deaktivieren."
+            "value" : "Wenn Sie den Tunnelmanager schließen, wird VPN Hero - Super Fast weiterhin über das Symbol in der Menüleiste zur Verfügung stehen.\n\nBeachten Sie, dass der derzeit aktive Tunnel ('%@') weiterhin aktiv bleibt (auch wenn Sie VPN Hero - Super Fast ganz beenden), bis Sie ihn von dieser Anwendung oder über das Netzwerk-Panel in den Systemeinstellungen deaktivieren."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "If you close the tunnels manager, AmneziaWG will continue to be available from the menu bar icon.\n\nNote that if you quit AmneziaWG entirely the currently active tunnel ('%@') will still remain active until you deactivate it from this application or through the Network panel in System Preferences."
+            "value" : "If you close the tunnels manager, VPN Hero - Super Fast will continue to be available from the menu bar icon.\n\nNote that if you quit VPN Hero - Super Fast entirely the currently active tunnel ('%@') will still remain active until you deactivate it from this application or through the Network panel in System Preferences."
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Si vous fermez le gestionnaire de tunnels, AmneziaWG continuera d'être disponible à partir de l'icône de la barre de menus.\n\nNotez que si vous quittez AmneziaWG entièrement le tunnel actuellement actif ('%@') restera actif jusqu'à ce que vous le désactiviez de cette application ou via le panneau Réseau dans les Préférences Système."
+            "value" : "Si vous fermez le gestionnaire de tunnels, VPN Hero - Super Fast continuera d'être disponible à partir de l'icône de la barre de menus.\n\nNotez que si vous quittez VPN Hero - Super Fast entièrement le tunnel actuellement actif ('%@') restera actif jusqu'à ce que vous le désactiviez de cette application ou via le panneau Réseau dans les Préférences Système."
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Se chiudi il gestore dei tunnel, AmneziaWG continuerà a essere disponibile dall'icona della barra dei menu.\n\nNota che se vuoi chiudere completamente AmneziaWG il tunnel attualmente attivo ('%@') rimarrà attivo fino a quando lo disabiliti da questa applicazione o tramite il pannello Rete nelle Preferenze di Sistema."
+            "value" : "Se chiudi il gestore dei tunnel, VPN Hero - Super Fast continuerà a essere disponibile dall'icona della barra dei menu.\n\nNota che se vuoi chiudere completamente VPN Hero - Super Fast il tunnel attualmente attivo ('%@') rimarrà attivo fino a quando lo disabiliti da questa applicazione o tramite il pannello Rete nelle Preferenze di Sistema."
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "トンネル管理画面を閉じても、メニューバーアイコンからAmneziaWGを操作できます。\n\n注意：AmneziaWG自体を終了しても、現在有効化済みのトンネル ('%@') はこのアプリケーションかシステム環境設定のネットワークパネルから無効化するまでは有効なままです。"
+            "value" : "トンネル管理画面を閉じても、メニューバーアイコンからVPN Hero - Super Fastを操作できます。\n\n注意：VPN Hero - Super Fast自体を終了しても、現在有効化済みのトンネル ('%@') はこのアプリケーションかシステム環境設定のネットワークパネルから無効化するまでは有効なままです。"
           }
         },
         "pa" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ਜੇ ਤੁਸੀਂ ਟਨਲ ਮੈਨੇਜਰ ਬੰਦ ਕਰਦੇ ਹੋ ਤਾਂ AmneziaWG ਮੇਨੂ ਪੱਟੀ ਆਈਕਾਨ ਵਿੱਚ ਉਪਲੱਬਧ ਰਹੇਗਾ।\n\nਯਾਦ ਰੱਕੋ ਕਿ ਜੇ ਤੁਸੀਂ ਪੂਰੇ AmneziaWG ਨੂੰ ਬੰਦ ਕਰਦੇ ਹੋ ਤਾਂ ਪੂਰੀ ਸਰਗਰਮ ਟਨਲ ('%@') ਫੇਰ ਵੀ ਸਰਗਰਮ ਰਹੇਗਾ, ਜਦੋਂ ਤੱਕ ਕਿ ਤੁਸੀਂ ਇਸ ਨੂੰ ਐਪਲੀਕੇਸ਼ਨ ਤੋਂ ਜਾਂ ਸਿਸਟਮ ਪਸੰਦਾਂ (System Preferences) ਵਿੱਚ ਨੈੱਟਵਰਕ (Network) ਪੈਨਲ ਰਾਹੀਂ ਨਾ-ਸਰਗਰਮ ਕਰ ਦਿੰਦੇ ਹੋ।"
+            "value" : "ਜੇ ਤੁਸੀਂ ਟਨਲ ਮੈਨੇਜਰ ਬੰਦ ਕਰਦੇ ਹੋ ਤਾਂ VPN Hero - Super Fast ਮੇਨੂ ਪੱਟੀ ਆਈਕਾਨ ਵਿੱਚ ਉਪਲੱਬਧ ਰਹੇਗਾ।\n\nਯਾਦ ਰੱਕੋ ਕਿ ਜੇ ਤੁਸੀਂ ਪੂਰੇ VPN Hero - Super Fast ਨੂੰ ਬੰਦ ਕਰਦੇ ਹੋ ਤਾਂ ਪੂਰੀ ਸਰਗਰਮ ਟਨਲ ('%@') ਫੇਰ ਵੀ ਸਰਗਰਮ ਰਹੇਗਾ, ਜਦੋਂ ਤੱਕ ਕਿ ਤੁਸੀਂ ਇਸ ਨੂੰ ਐਪਲੀਕੇਸ਼ਨ ਤੋਂ ਜਾਂ ਸਿਸਟਮ ਪਸੰਦਾਂ (System Preferences) ਵਿੱਚ ਨੈੱਟਵਰਕ (Network) ਪੈਨਲ ਰਾਹੀਂ ਨਾ-ਸਰਗਰਮ ਕਰ ਦਿੰਦੇ ਹੋ।"
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Jeśli zamkniesz menedżera tuneli, AmneziaWG będzie nadal dostępny z ikony w pasku menu.\n\nZauważ, że jeśli opuścisz AmneziaWG całkowicie aktywny tunel („%@”) pozostanie aktywny, dopóki nie wyłączysz go z tej aplikacji lub przez panel sieci w ustawieniach systemowych."
+            "value" : "Jeśli zamkniesz menedżera tuneli, VPN Hero - Super Fast będzie nadal dostępny z ikony w pasku menu.\n\nZauważ, że jeśli opuścisz VPN Hero - Super Fast całkowicie aktywny tunel („%@”) pozostanie aktywny, dopóki nie wyłączysz go z tej aplikacji lub przez panel sieci w ustawieniach systemowych."
           }
         },
         "ro" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Dacă închizi managerul de tuneluri, AmneziaWG va fi în continuare disponibil din pictograma barei de meniu.\n\nReține că dacă ieși complet din AmneziaWG, tunelul activ în prezent („%@”) va rămâne activ până îl dezactivezi din această aplicație sau prin intermediul panoului Rețea din preferințele de sistem."
+            "value" : "Dacă închizi managerul de tuneluri, VPN Hero - Super Fast va fi în continuare disponibil din pictograma barei de meniu.\n\nReține că dacă ieși complet din VPN Hero - Super Fast, tunelul activ în prezent („%@”) va rămâne activ până îl dezactivezi din această aplicație sau prin intermediul panoului Rețea din preferințele de sistem."
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Если вы закроете менеджер туннелей, AmneziaWG будет по-прежнему доступен из значка в строке меню.\n\nОбратите внимание, что если вы выйдете из AmneziaWG полностью, текущий активный туннель (’%@’) будет оставаться активным до тех пор, пока вы не отключите его из этого приложения или через панель «Сеть» в Системных настройках."
+            "value" : "Если вы закроете менеджер туннелей, VPN Hero - Super Fast будет по-прежнему доступен из значка в строке меню.\n\nОбратите внимание, что если вы выйдете из VPN Hero - Super Fast полностью, текущий активный туннель (’%@’) будет оставаться активным до тех пор, пока вы не отключите его из этого приложения или через панель «Сеть» в Системных настройках."
           }
         },
         "sl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Če zaprete upravljalca tunelov, bo AmneziaWG še naprej na voljo preko ikone v meniju.\n\nPomnite: če zaprete AmneziaWG bo trenutni aktiven tunel (\"%@\") ostal aktiven dokler ga ne deaktivirate preko te aplikacije ali preko omrežne plošče v sistemskih nastavitvah."
+            "value" : "Če zaprete upravljalca tunelov, bo VPN Hero - Super Fast še naprej na voljo preko ikone v meniju.\n\nPomnite: če zaprete VPN Hero - Super Fast bo trenutni aktiven tunel (\"%@\") ostal aktiven dokler ga ne deaktivirate preko te aplikacije ali preko omrežne plošče v sistemskih nastavitvah."
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Tünel yöneticisini kapatırsanız, AmneziaWG menü çubuğu simgesinden kullanılmaya devam edecektir.\n\nAmneziaWG’dan tamamen çıkarsanız, o anda aktif olan tünelin ('%@') siz bu uygulamadan veya Sistem Tercihlerindeki Ağ paneli aracılığıyla devre dışı bırakana kadar hâlâ etkin kalacağını unutmayın."
+            "value" : "Tünel yöneticisini kapatırsanız, VPN Hero - Super Fast menü çubuğu simgesinden kullanılmaya devam edecektir.\n\nVPN Hero - Super Fast’dan tamamen çıkarsanız, o anda aktif olan tünelin ('%@') siz bu uygulamadan veya Sistem Tercihlerindeki Ağ paneli aracılığıyla devre dışı bırakana kadar hâlâ etkin kalacağını unutmayın."
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "如果您关闭了隧道管理器，可继续从菜单栏图标使用 AmneziaWG 。\n\n请注意，如果您完全退出 AmneziaWG ，当前活动的隧道('%@')将仍然有效，直到您从此应用程序或通过系统偏好设置中的网络面板停用。"
+            "value" : "如果您关闭了隧道管理器，可继续从菜单栏图标使用 VPN Hero - Super Fast 。\n\n请注意，如果您完全退出 VPN Hero - Super Fast ，当前活动的隧道('%@')将仍然有效，直到您从此应用程序或通过系统偏好设置中的网络面板停用。"
           }
         }
       }
@@ -15946,7 +15946,7 @@
         "sl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Verzija amneziawg-go: %@"
+            "value" : "Verzija VPN Hero - Super Fast-go: %@"
           }
         },
         "tr" : {
@@ -16446,115 +16446,115 @@
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "About AmneziaWG"
+            "value" : "About VPN Hero - Super Fast"
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Über AmneziaWG"
+            "value" : "Über VPN Hero - Super Fast"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "About AmneziaWG"
+            "value" : "About VPN Hero - Super Fast"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Acerca de AmneziaWG"
+            "value" : "Acerca de VPN Hero - Super Fast"
           }
         },
         "fa" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "درباره AmneziaWG"
+            "value" : "درباره VPN Hero - Super Fast"
           }
         },
         "fi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Tietoa AmneziaWGista"
+            "value" : "Tietoa VPN Hero - Super Fastista"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "À propos du AmneziaWG"
+            "value" : "À propos du VPN Hero - Super Fast"
           }
         },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "About AmneziaWG"
+            "value" : "About VPN Hero - Super Fast"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Informazioni su AmneziaWG"
+            "value" : "Informazioni su VPN Hero - Super Fast"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWG について"
+            "value" : "VPN Hero - Super Fast について"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "About AmneziaWG"
+            "value" : "About VPN Hero - Super Fast"
           }
         },
         "pa" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWG ਬਾਰੇ"
+            "value" : "VPN Hero - Super Fast ਬਾਰੇ"
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Informacje o AmneziaWG"
+            "value" : "Informacje o VPN Hero - Super Fast"
           }
         },
         "ro" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Despre AmneziaWG"
+            "value" : "Despre VPN Hero - Super Fast"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Об AmneziaWG"
+            "value" : "Об VPN Hero - Super Fast"
           }
         },
         "sl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "O aplikaciji AmneziaWG"
+            "value" : "O aplikaciji VPN Hero - Super Fast"
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWG Hakkında"
+            "value" : "VPN Hero - Super Fast Hakkında"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "关于 AmneziaWG"
+            "value" : "关于 VPN Hero - Super Fast"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "關於 AmneziaWG"
+            "value" : "關於 VPN Hero - Super Fast"
           }
         }
       }
@@ -17636,115 +17636,115 @@
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Hide AmneziaWG"
+            "value" : "Hide VPN Hero - Super Fast"
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWG ausblenden"
+            "value" : "VPN Hero - Super Fast ausblenden"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Hide AmneziaWG"
+            "value" : "Hide VPN Hero - Super Fast"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ocultar AmneziaWG"
+            "value" : "Ocultar VPN Hero - Super Fast"
           }
         },
         "fa" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWG را پنهان کن"
+            "value" : "VPN Hero - Super Fast را پنهان کن"
           }
         },
         "fi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Piilota AmneziaWG"
+            "value" : "Piilota VPN Hero - Super Fast"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Masquer AmneziaWG"
+            "value" : "Masquer VPN Hero - Super Fast"
           }
         },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Hide AmneziaWG"
+            "value" : "Hide VPN Hero - Super Fast"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nascondi AmneziaWG"
+            "value" : "Nascondi VPN Hero - Super Fast"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWG を隠す"
+            "value" : "VPN Hero - Super Fast を隠す"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Hide AmneziaWG"
+            "value" : "Hide VPN Hero - Super Fast"
           }
         },
         "pa" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWG ਲੁਕਾਓ"
+            "value" : "VPN Hero - Super Fast ਲੁਕਾਓ"
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ukryj program AmneziaWG"
+            "value" : "Ukryj program VPN Hero - Super Fast"
           }
         },
         "ro" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ascunde AmneziaWG"
+            "value" : "Ascunde VPN Hero - Super Fast"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Скрыть AmneziaWG"
+            "value" : "Скрыть VPN Hero - Super Fast"
           }
         },
         "sl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Skrij AmneziaWG"
+            "value" : "Skrij VPN Hero - Super Fast"
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWG’ı Gizle"
+            "value" : "VPN Hero - Super Fast’ı Gizle"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "隐藏 AmneziaWG"
+            "value" : "隐藏 VPN Hero - Super Fast"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "隱藏 AmneziaWG"
+            "value" : "隱藏 VPN Hero - Super Fast"
           }
         }
       }
@@ -18559,115 +18559,115 @@
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Quit AmneziaWG"
+            "value" : "Quit VPN Hero - Super Fast"
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWG beenden"
+            "value" : "VPN Hero - Super Fast beenden"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Quit AmneziaWG"
+            "value" : "Quit VPN Hero - Super Fast"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Salir de AmneziaWG"
+            "value" : "Salir de VPN Hero - Super Fast"
           }
         },
         "fa" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "خروج از AmneziaWG"
+            "value" : "خروج از VPN Hero - Super Fast"
           }
         },
         "fi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Sulje AmneziaWG"
+            "value" : "Sulje VPN Hero - Super Fast"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Quitter AmneziaWG"
+            "value" : "Quitter VPN Hero - Super Fast"
           }
         },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Quit AmneziaWG"
+            "value" : "Quit VPN Hero - Super Fast"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Chiudi AmneziaWG"
+            "value" : "Chiudi VPN Hero - Super Fast"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWGを終了"
+            "value" : "VPN Hero - Super Fastを終了"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Quit AmneziaWG"
+            "value" : "Quit VPN Hero - Super Fast"
           }
         },
         "pa" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWG ਚੋਂ ਬਾਹਰ ਜਾਓ"
+            "value" : "VPN Hero - Super Fast ਚੋਂ ਬਾਹਰ ਜਾਓ"
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Wyjdź z programu AmneziaWG"
+            "value" : "Wyjdź z programu VPN Hero - Super Fast"
           }
         },
         "ro" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ieși din AmneziaWG"
+            "value" : "Ieși din VPN Hero - Super Fast"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Выйти из AmneziaWG"
+            "value" : "Выйти из VPN Hero - Super Fast"
           }
         },
         "sl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Končaj AmneziaWG"
+            "value" : "Končaj VPN Hero - Super Fast"
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWG’dan Çık"
+            "value" : "VPN Hero - Super Fast’dan Çık"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "退出 AmneziaWG"
+            "value" : "退出 VPN Hero - Super Fast"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "離開 AmneziaWG"
+            "value" : "離開 VPN Hero - Super Fast"
           }
         }
       }
@@ -18916,115 +18916,115 @@
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWG"
+            "value" : "VPN Hero - Super Fast"
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWG"
+            "value" : "VPN Hero - Super Fast"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWG"
+            "value" : "VPN Hero - Super Fast"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWG"
+            "value" : "VPN Hero - Super Fast"
           }
         },
         "fa" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWG"
+            "value" : "VPN Hero - Super Fast"
           }
         },
         "fi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWG"
+            "value" : "VPN Hero - Super Fast"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWG"
+            "value" : "VPN Hero - Super Fast"
           }
         },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWG"
+            "value" : "VPN Hero - Super Fast"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWG"
+            "value" : "VPN Hero - Super Fast"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWG"
+            "value" : "VPN Hero - Super Fast"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWG"
+            "value" : "VPN Hero - Super Fast"
           }
         },
         "pa" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWG"
+            "value" : "VPN Hero - Super Fast"
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWG"
+            "value" : "VPN Hero - Super Fast"
           }
         },
         "ro" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWG"
+            "value" : "VPN Hero - Super Fast"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWG"
+            "value" : "VPN Hero - Super Fast"
           }
         },
         "sl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWG"
+            "value" : "VPN Hero - Super Fast"
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWG"
+            "value" : "VPN Hero - Super Fast"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWG"
+            "value" : "VPN Hero - Super Fast"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWG"
+            "value" : "VPN Hero - Super Fast"
           }
         }
       }
@@ -22041,67 +22041,67 @@
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Manage AmneziaWG Tunnels"
+            "value" : "Manage VPN Hero - Super Fast Tunnels"
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWG-Tunnel verwalten"
+            "value" : "VPN Hero - Super Fast-Tunnel verwalten"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Manage AmneziaWG Tunnels"
+            "value" : "Manage VPN Hero - Super Fast Tunnels"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Gestionar Túneles AmneziaWG"
+            "value" : "Gestionar Túneles VPN Hero - Super Fast"
           }
         },
         "fa" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "مدیریت تونل‌های AmneziaWG"
+            "value" : "مدیریت تونل‌های VPN Hero - Super Fast"
           }
         },
         "fi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Hallitse AmneziaWG tunneleita"
+            "value" : "Hallitse VPN Hero - Super Fast tunneleita"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Gérer les tunnels AmneziaWG"
+            "value" : "Gérer les tunnels VPN Hero - Super Fast"
           }
         },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Manage AmneziaWG Tunnels"
+            "value" : "Manage VPN Hero - Super Fast Tunnels"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Gestisci i tunnel di AmneziaWG"
+            "value" : "Gestisci i tunnel di VPN Hero - Super Fast"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWGトンネルの管理"
+            "value" : "VPN Hero - Super Fastトンネルの管理"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Manage AmneziaWG Tunnels"
+            "value" : "Manage VPN Hero - Super Fast Tunnels"
           }
         },
         "pa" : {
@@ -22113,43 +22113,43 @@
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Zarządzaj tunelami AmneziaWG"
+            "value" : "Zarządzaj tunelami VPN Hero - Super Fast"
           }
         },
         "ro" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Gestionare tuneluri AmneziaWG"
+            "value" : "Gestionare tuneluri VPN Hero - Super Fast"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Управлять туннелями AmneziaWG"
+            "value" : "Управлять туннелями VPN Hero - Super Fast"
           }
         },
         "sl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Upravljaj tunele AmneziaWG"
+            "value" : "Upravljaj tunele VPN Hero - Super Fast"
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWG Tünellerini Yönet"
+            "value" : "VPN Hero - Super Fast Tünellerini Yönet"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "管理 AmneziaWG 隧道"
+            "value" : "管理 VPN Hero - Super Fast 隧道"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Manage AmneziaWG Tunnels"
+            "value" : "Manage VPN Hero - Super Fast Tunnels"
           }
         }
       }
@@ -22995,115 +22995,115 @@
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWG for iOS"
+            "value" : "VPN Hero - Super Fast for iOS"
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWG für iOS"
+            "value" : "VPN Hero - Super Fast für iOS"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWG for iOS"
+            "value" : "VPN Hero - Super Fast for iOS"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWG para iOS"
+            "value" : "VPN Hero - Super Fast para iOS"
           }
         },
         "fa" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWG برای iOS"
+            "value" : "VPN Hero - Super Fast برای iOS"
           }
         },
         "fi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWG iOS:lle"
+            "value" : "VPN Hero - Super Fast iOS:lle"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWG pour iOS"
+            "value" : "VPN Hero - Super Fast pour iOS"
           }
         },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWG for iOS"
+            "value" : "VPN Hero - Super Fast for iOS"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWG per iOS"
+            "value" : "VPN Hero - Super Fast per iOS"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWG for iOS"
+            "value" : "VPN Hero - Super Fast for iOS"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWG for iOS"
+            "value" : "VPN Hero - Super Fast for iOS"
           }
         },
         "pa" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "iOS ਲਈ AmneziaWG"
+            "value" : "iOS ਲਈ VPN Hero - Super Fast"
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWG dla iOS"
+            "value" : "VPN Hero - Super Fast dla iOS"
           }
         },
         "ro" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWG pentru iOS"
+            "value" : "VPN Hero - Super Fast pentru iOS"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWG для iOS"
+            "value" : "VPN Hero - Super Fast для iOS"
           }
         },
         "sl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWG za iOS"
+            "value" : "VPN Hero - Super Fast za iOS"
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "iOS için AmneziaWG"
+            "value" : "iOS için VPN Hero - Super Fast"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWG for iOS"
+            "value" : "VPN Hero - Super Fast for iOS"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWG for iOS"
+            "value" : "VPN Hero - Super Fast for iOS"
           }
         }
       }
@@ -23114,115 +23114,115 @@
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWG Go Backend"
+            "value" : "VPN Hero - Super Fast Go Backend"
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWG Go Backend"
+            "value" : "VPN Hero - Super Fast Go Backend"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWG Go Backend"
+            "value" : "VPN Hero - Super Fast Go Backend"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWG Go Backend"
+            "value" : "VPN Hero - Super Fast Go Backend"
           }
         },
         "fa" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWG Go Backend"
+            "value" : "VPN Hero - Super Fast Go Backend"
           }
         },
         "fi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWG Go -moottori"
+            "value" : "VPN Hero - Super Fast Go -moottori"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Backend de l'application AmneziaWG en Go"
+            "value" : "Backend de l'application VPN Hero - Super Fast en Go"
           }
         },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWG Go Backend"
+            "value" : "VPN Hero - Super Fast Go Backend"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Backend Go di AmneziaWG"
+            "value" : "Backend Go di VPN Hero - Super Fast"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWG Go Backend"
+            "value" : "VPN Hero - Super Fast Go Backend"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWG Go Backend"
+            "value" : "VPN Hero - Super Fast Go Backend"
           }
         },
         "pa" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWG ਗੋ ਬੈਕਐਂਡ"
+            "value" : "VPN Hero - Super Fast ਗੋ ਬੈਕਐਂਡ"
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWG Go Backend"
+            "value" : "VPN Hero - Super Fast Go Backend"
           }
         },
         "ro" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Bibliotecă Go AmneziaWG"
+            "value" : "Bibliotecă Go VPN Hero - Super Fast"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Бэкенд AmneziaWG"
+            "value" : "Бэкенд VPN Hero - Super Fast"
           }
         },
         "sl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Verzija amneziawg-go"
+            "value" : "Verzija VPN Hero - Super Fast-go"
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWG Go Backend"
+            "value" : "VPN Hero - Super Fast Go Backend"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWG Go Backend"
+            "value" : "VPN Hero - Super Fast Go Backend"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWG Go Backend"
+            "value" : "VPN Hero - Super Fast Go Backend"
           }
         }
       }
@@ -32102,115 +32102,115 @@
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWG"
+            "value" : "VPN Hero - Super Fast"
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWG"
+            "value" : "VPN Hero - Super Fast"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWG"
+            "value" : "VPN Hero - Super Fast"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWG"
+            "value" : "VPN Hero - Super Fast"
           }
         },
         "fa" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWG"
+            "value" : "VPN Hero - Super Fast"
           }
         },
         "fi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWG"
+            "value" : "VPN Hero - Super Fast"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWG"
+            "value" : "VPN Hero - Super Fast"
           }
         },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWG"
+            "value" : "VPN Hero - Super Fast"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWG"
+            "value" : "VPN Hero - Super Fast"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWG"
+            "value" : "VPN Hero - Super Fast"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWG"
+            "value" : "VPN Hero - Super Fast"
           }
         },
         "pa" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWG"
+            "value" : "VPN Hero - Super Fast"
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWG"
+            "value" : "VPN Hero - Super Fast"
           }
         },
         "ro" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWG"
+            "value" : "VPN Hero - Super Fast"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWG"
+            "value" : "VPN Hero - Super Fast"
           }
         },
         "sl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWG"
+            "value" : "VPN Hero - Super Fast"
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWG"
+            "value" : "VPN Hero - Super Fast"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWG"
+            "value" : "VPN Hero - Super Fast"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AmneziaWG"
+            "value" : "VPN Hero - Super Fast"
           }
         }
       }

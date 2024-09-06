@@ -20,43 +20,43 @@ class ManageTunnelsRootViewController: NSViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
-    override func loadView() {
-        view = NSView()
+//    override func loadView() {
+//        view = NSView()
+//
+//        let horizontalSpacing: CGFloat = 20
+//        let verticalSpacing: CGFloat = 20
+//        let centralSpacing: CGFloat = 10
 
-        let horizontalSpacing: CGFloat = 20
-        let verticalSpacing: CGFloat = 20
-        let centralSpacing: CGFloat = 10
+//        let container = NSLayoutGuide()
+//        view.addLayoutGuide(container)
+//        NSLayoutConstraint.activate([
+//            container.topAnchor.constraint(equalTo: view.topAnchor, constant: verticalSpacing),
+//            view.bottomAnchor.constraint(equalTo: container.bottomAnchor, constant: verticalSpacing),
+//            container.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: horizontalSpacing),
+//            view.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: horizontalSpacing)
+//        ])
 
-        let container = NSLayoutGuide()
-        view.addLayoutGuide(container)
-        NSLayoutConstraint.activate([
-            container.topAnchor.constraint(equalTo: view.topAnchor, constant: verticalSpacing),
-            view.bottomAnchor.constraint(equalTo: container.bottomAnchor, constant: verticalSpacing),
-            container.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: horizontalSpacing),
-            view.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: horizontalSpacing)
-        ])
-
-        tunnelsListVC = TunnelsListTableViewController(tunnelsManager: tunnelsManager)
-        tunnelsListVC!.delegate = self
-        let tunnelsListView = tunnelsListVC!.view
-
-        addChild(tunnelsListVC!)
-        view.addSubview(tunnelsListView)
-        view.addSubview(tunnelDetailContainerView)
-
-        tunnelsListView.translatesAutoresizingMaskIntoConstraints = false
-        tunnelDetailContainerView.translatesAutoresizingMaskIntoConstraints = false
-
-        NSLayoutConstraint.activate([
-            tunnelsListView.topAnchor.constraint(equalTo: container.topAnchor),
-            tunnelsListView.bottomAnchor.constraint(equalTo: container.bottomAnchor),
-            tunnelsListView.leadingAnchor.constraint(equalTo: container.leadingAnchor),
-            tunnelDetailContainerView.topAnchor.constraint(equalTo: container.topAnchor),
-            tunnelDetailContainerView.bottomAnchor.constraint(equalTo: container.bottomAnchor),
-            tunnelDetailContainerView.leadingAnchor.constraint(equalTo: tunnelsListView.trailingAnchor, constant: centralSpacing),
-            tunnelDetailContainerView.trailingAnchor.constraint(equalTo: container.trailingAnchor)
-        ])
-    }
+//        tunnelsListVC = TunnelsListTableViewController(tunnelsManager: tunnelsManager)
+//        tunnelsListVC!.delegate = self
+//        let tunnelsListView = tunnelsListVC!.view
+//
+//        addChild(tunnelsListVC!)
+//        view.addSubview(tunnelsListView)
+//        view.addSubview(tunnelDetailContainerView)
+//
+//        tunnelsListView.translatesAutoresizingMaskIntoConstraints = false
+//        tunnelDetailContainerView.translatesAutoresizingMaskIntoConstraints = false
+//
+//        NSLayoutConstraint.activate([
+//            tunnelsListView.topAnchor.constraint(equalTo: container.topAnchor),
+//            tunnelsListView.bottomAnchor.constraint(equalTo: container.bottomAnchor),
+//            tunnelsListView.leadingAnchor.constraint(equalTo: container.leadingAnchor),
+//            tunnelDetailContainerView.topAnchor.constraint(equalTo: container.topAnchor),
+//            tunnelDetailContainerView.bottomAnchor.constraint(equalTo: container.bottomAnchor),
+//            tunnelDetailContainerView.leadingAnchor.constraint(equalTo: tunnelsListView.trailingAnchor, constant: centralSpacing),
+//            tunnelDetailContainerView.trailingAnchor.constraint(equalTo: container.trailingAnchor)
+//        ])
+//    }
 
     private func setTunnelDetailContentVC(_ contentVC: NSViewController) {
         if let currentContentVC = tunnelDetailContentVC {

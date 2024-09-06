@@ -398,6 +398,7 @@ class TunnelsManager {
     }
 
     func numberOfTunnels() -> Int {
+        print("numberOfTunnels: \(tunnels.count)")
         return tunnels.count
     }
 
@@ -547,6 +548,43 @@ class TunnelsManager {
 
     static func tunnelNameIsLessThan(_ lhs: String, _ rhs: String) -> Bool {
         return lhs.compare(rhs, options: [.caseInsensitive, .diacriticInsensitive, .widthInsensitive, .numeric]) == .orderedAscending
+    }
+
+    func getTraffic() {
+        guard let session = self.tunnels.first?.tunnelProvider.connection as? NETunnelProviderSession else {
+           print("Tunnel manager or session is not available")
+           return
+       }
+
+       let messageKey = ["action": "GET_TRAFFIC_STATS"]
+       guard let messageData = try? JSONSerialization.data(withJSONObject: messageKey, options: []) else {
+           print("Failed to encode message")
+           return
+       }
+
+       do {
+           try session.sendProviderMessage(messageData) { data in
+               if let data = data,
+                  let dict = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+
+                   let bytesIn = dict["bytesIn"] as? UInt64 ?? 0
+                   let bytesOut = dict["bytesOut"] as? UInt64 ?? 0
+
+                   let prevBtyesIn = Double(bytesIn)
+                   let prevBytesOut = Double(bytesOut)
+
+                   print("BYTES IN = \(prevBtyesIn), BYTES OUT = \( prevBytesOut)")
+
+//                   self.downloadSpeed.text = self.getFormatedbytes(bytes:  self.prevBytesOut - 100000)
+//                   self.uploadSpeed.text = self.getFormatedbytes(bytes:  self.prevBytesOut)
+
+               } else {
+                   print("Received nil data or failed to decode data")
+               }
+           }
+       } catch {
+           print("Failed to send message to VpnExtension: \(error)")
+       }
     }
 }
 

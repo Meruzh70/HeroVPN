@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Qpp-sg-V1h">
+    <device id="ipad9_7" orientation="landscape" layout="fullscreen" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="L4A-0p-uNB">
+            <objects>
+                <viewController id="Qpp-sg-V1h" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="KnG-5X-YEH">
+                        <rect key="frame" x="0.0" y="0.0" width="400" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="world (1) 1" translatesAutoresizingMaskIntoConstraints="NO" id="PKw-mo-A26">
+                                <rect key="frame" x="0.0" y="0.0" width="400" height="768"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Newicon" translatesAutoresizingMaskIntoConstraints="NO" id="GiR-Kd-22L">
+                                <rect key="frame" x="124" y="318" width="152" height="152"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="152" id="60h-kh-61y"/>
+                                    <constraint firstAttribute="height" constant="152" id="sOa-du-Vxr"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="AaN-oP-GPe"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="PKw-mo-A26" firstAttribute="top" secondItem="KnG-5X-YEH" secondAttribute="top" id="6Kk-Fh-Jxp"/>
+                            <constraint firstItem="GiR-Kd-22L" firstAttribute="centerX" secondItem="AaN-oP-GPe" secondAttribute="centerX" id="8V8-j3-J7N"/>
+                            <constraint firstItem="AaN-oP-GPe" firstAttribute="trailing" secondItem="PKw-mo-A26" secondAttribute="trailing" id="L9F-Sq-giT"/>
+                            <constraint firstItem="PKw-mo-A26" firstAttribute="leading" secondItem="AaN-oP-GPe" secondAttribute="leading" id="cno-rY-KLC"/>
+                            <constraint firstAttribute="bottom" secondItem="PKw-mo-A26" secondAttribute="bottom" id="rUm-IU-2Rr"/>
+                            <constraint firstItem="GiR-Kd-22L" firstAttribute="centerY" secondItem="AaN-oP-GPe" secondAttribute="centerY" id="tfN-QB-BnC"/>
+                        </constraints>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="400" height="768"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nih-X1-ZAB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1665" y="-1991"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Newicon" width="1024" height="1024"/>
+        <image name="world (1) 1" width="393" height="610"/>
+    </resources>
+</document>
