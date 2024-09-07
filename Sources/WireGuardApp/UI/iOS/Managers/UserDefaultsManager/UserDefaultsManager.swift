@@ -11,6 +11,7 @@ class UserDefaultsManager {
         let curentPushToken = "curentPushToken"
         let lastUsedEmail = "lastUsedEmail"
         let timerStartConnection = "timerStartConnection"
+        let userName = "userName"
     }
 
     // initialise
@@ -67,6 +68,19 @@ class UserDefaultsManager {
                 userDefaults.set(value, forKey: keys.timerStartConnection)
             } else {
                 userDefaults.removeObject(forKey: keys.timerStartConnection)
+            }
+        }
+    }
+
+    var userName: String? {
+        get {
+            return userDefaults.string(forKey: keys.userName) ?? String()
+        }
+        set {
+            if let value = newValue {
+                userDefaults.set(value, forKey: keys.userName)
+            } else {
+                userDefaults.removeObject(forKey: keys.userName)
             }
         }
     }

@@ -2,10 +2,12 @@
 // Copyright © 2018-2023 WireGuard LLC. All Rights Reserved.
 
 import UIKit
+import ProgressHUD
+import AuthenticationServices
 
-protocol SignInDelegate: AnyObject {
-    func signUp()
-}
+//protocol SignInDelegate: AnyObject {
+//    func signUp()
+//}
 
 class AuthVC: UIViewController {
 
@@ -24,7 +26,7 @@ class AuthVC: UIViewController {
 
     @IBOutlet weak var signUpButton: UIButton!
 
-    weak var delegate: SignInDelegate?
+//    weak var delegate: SignInDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +41,7 @@ private extension AuthVC {
     func setTargets() {
         self.backButton.addTarget(self, action: #selector(backTouch), for: .touchUpInside)
         self.showPasswordButton.addTarget(self, action: #selector(showPasswordTouch), for: .touchUpInside)
+        self.signInButton.addTarget(self, action: #selector(signInTouch), for: .touchUpInside)
         self.forgotPasswordButton.addTarget(self, action: #selector(forgotPasswordTouch), for: .touchUpInside)
         self.appleSignInButton.addTarget(self, action: #selector(appleSignInTouch), for: .touchUpInside)
         self.signUpButton.addTarget(self, action: #selector(signUpTouch), for: .touchUpInside)
@@ -55,6 +58,46 @@ private extension AuthVC {
     }
 
     @objc
+    func signInTouch() {
+        let email = self.emailTextField.text ?? ""
+        let password = self.passwordTextField.text ?? ""
+
+        guard !email.isEmpty else {
+            self.showAlert("Please fill out email field")
+            return
+        }
+
+        guard email.isValidEmail else {
+            self.showAlert("Enter valid Email")
+            return
+        }
+
+        guard !password.isEmpty else {
+            self.showAlert("Please fill out password field")
+            return
+        }
+
+        guard let email = emailTextField.text, !email.isEmpty else {
+            self.showAlert("Enter email")
+            return
+        }
+
+        UserDefaultsManager.shared.lastUsedEmail = email
+
+        ProgressHUD.animate()
+        AppService().login(email: email, password: password) { result in
+            ProgressHUD.dismiss()
+            switch result {
+            case .succsess(let name):
+                UserDefaultsManager.shared.userName = name
+                NotificationCenter.default.post(name: .needOpenMainTabBar, object: nil)
+            case .failure(let error):
+                self.showAlert(error.textError)
+            }
+        }
+    }
+
+    @objc
     func forgotPasswordTouch() {
         let vc = Utils.shared.mainStoryboard().instantiateViewController(withIdentifier: ForgotPasswordVC.className)
         self.present(vc, animated: true)
@@ -62,13 +105,54 @@ private extension AuthVC {
 
     @objc
     func appleSignInTouch() {
-
+        let provider = ASAuthorizationAppleIDProvider()
+        let request = provider.createRequest()
+        request.requestedScopes = [.fullName, .email]
+        let controller = ASAuthorizationController(authorizationRequests: [request])
+        controller.delegate = self
+//        controller.presentationContextProvider = self
+        controller.performRequests()
     }
 
     @objc
     func signUpTouch() {
-        UserDefaultsManager.shared.lastUsedEmail = emailTextField.text ?? ""
-        self.delegate?.signUp()
+//        self.delegate?.signUp()
+        let vc = Utils.shared.mainStoryboard().instantiateViewController(withIdentifier: SignUpVC.className)
+        self.present(vc, animated: true)
+    }
+}
+extension AuthVC: ASAuthorizationControllerDelegate {
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
+        ProgressHUD.animate()
+
+        guard let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential,
+            let code = appleIDCredential.authorizationCode,
+            let codeStr = String(data: code, encoding: .utf8) else {
+                return
+        }
+
+        var name = ""
+        if let fullName = appleIDCredential.fullName {
+            if let givenName = fullName.givenName {
+                name = givenName
+            }
+            if let familyName = fullName.familyName {
+                if name == "" {
+                    name = familyName
+                } else {
+                    name += " \(familyName)"
+                }
+            }
+        }
+
+        print("apple sign in name: \(name) apple token:\(codeStr)")
+
+
+        ProgressHUD.dismiss()
     }
 
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
+        ProgressHUD.dismiss()
+        self.showAlert(error.localizedDescription)
+    }
 }

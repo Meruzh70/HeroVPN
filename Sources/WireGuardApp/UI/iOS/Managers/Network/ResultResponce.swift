@@ -18,4 +18,16 @@ enum ResponseError {
     case invalidCredentials
     case expiredTemporary
     case custom(String?, [String]?)
+
+    var textError: String {
+        return switch self {
+        case .serverNotResponding: "serverNotResponding"
+        case .noInternetConnection: "noInternetConnection"
+        case .accessDenied: "accessDenied"
+        case .tooManyRequest: "tooManyRequest"
+        case .invalidCredentials: "invalidCredentials"
+        case .expiredTemporary: "expiredTemporary"
+        case .custom(let title, let errors): "\(title ?? ""). \(errors?.joined(separator: ";") ?? "")"
+        }
+    }
 }

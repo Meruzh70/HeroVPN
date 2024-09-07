@@ -4,14 +4,9 @@
 import Foundation
 
 protocol ConnectionDelegate: AnyObject {
-    func successChangeConfiguration()
     func connectionStatusChanged(state: ConnectionState)
     func changedSpeed(download: Double, upload: Double)
-
-    func errorChangeConfiguration(text: String)
-    func successConnect()
-    func successDisconnect()
-    func errorConnect(text: String)
+    func error(text: String)
 }
 
 class Connection {
@@ -56,8 +51,7 @@ class Connection {
         }
     }
 
-    func changeConfiguration() {
-        let conf = Configuration(fromJson: nil)
+    func changeConfiguration(conf: Configuration) {
 
         guard let privateKey = PrivateKey(base64Key: conf.clientPrivateKey) else {
             print("error private key")
@@ -133,10 +127,24 @@ class Connection {
                 case .success(let tunnel):
                     print("success add tunnel")
                 }
-
-
             }
         }
+    }
+
+    func removeConfiguration() {
+        guard let manager = tunnelsManager else { return }
+        guard let tunnel = tunnel else { return }
+        manager.remove(tunnel: tunnel, completionHandler: { result in
+            if let error = result {
+                print(error.localizedDescription)
+            } else {
+                print("success remove tunnel")
+            }
+        })
+    }
+
+    var hasConfiguration: Bool {
+        return tunnel != nil
     }
 
     func createManager(completionHandler: (() -> Void)?) {
@@ -164,8 +172,9 @@ class Connection {
 }
 extension Connection: TunnelsManagerActivationDelegate {
     func tunnelActivationAttemptFailed(tunnel: TunnelContainer, error: TunnelsManagerActivationAttemptError) {
-        print("tunnelActivationAttemptFailed \(error.localizedDescription)")
-//        self.delegate?.errorConnect(text: error.localizedDescription)
+        let textError = "tunnelActivationAttemptFailed \(error.localizedDescription)"
+        print(textError)
+        self.delegate?.error(text: textError)
     }
 
     func tunnelActivationAttemptSucceeded(tunnel: TunnelContainer) {
@@ -173,13 +182,13 @@ extension Connection: TunnelsManagerActivationDelegate {
     }
 
     func tunnelActivationFailed(tunnel: TunnelContainer, error: TunnelsManagerActivationError) {
-        print("tunnelActivationFailed \(error.localizedDescription)")
-//        self.delegate?.errorConnect(text: error.localizedDescription)
+        let textError = "tunnelActivationFailed \(error.localizedDescription)"
+        print(textError)
+        self.delegate?.error(text: textError)
     }
 
     func tunnelActivationSucceeded(tunnel: TunnelContainer) {
         self.delegate?.connectionStatusChanged(state: .connected)
-//        self.delegate?.successConnect()
     }
 }
 extension Connection: TunnelsManagerListDelegate {

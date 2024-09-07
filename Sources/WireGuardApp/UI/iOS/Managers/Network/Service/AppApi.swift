@@ -12,9 +12,9 @@ enum AppApi: URLRequestBuilder {
     // property for path
     var path: String {
         return switch self {
-        case .login: "/api/login"
-        case .signUp: "/api/user"
-        case .connect: "/auth/connect"
+        case .login: "/login"
+        case .signUp: "/user"
+        case .connect: "/connect"
         }
     }
 

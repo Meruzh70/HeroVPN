@@ -22,7 +22,7 @@ extension URLRequestBuilder {
     // property for base header
     var baseHeader: HTTPHeaders {
         var headers = HTTPHeaders.init()
-        var uuid = UIDevice.current.identifierForVendor?.uuidString ?? ""
+//        var uuid = UIDevice.current.identifierForVendor?.uuidString ?? ""
         if let authToken = KeychainManager.shared.authToken {
             headers.add(.authorization(authToken.bearer))
         }
@@ -41,6 +41,7 @@ extension URLRequestBuilder {
     // property for conver object to URLRequest
     func asURLRequest() throws -> URLRequest {
         var url = try baseUrl.asURL()
+        url = url.appendingPathComponent("/api")
         url = url.appendingPathComponent(path)
 
         var request = URLRequest(url: url)

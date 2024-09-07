@@ -1,7 +1,6 @@
 // SPDX-License-Identifier: MIT
 // Copyright © 2018-2023 WireGuard LLC. All Rights Reserved.
 
-import Foundation
 import UIKit
 
 extension String {
@@ -48,5 +47,10 @@ extension String {
         let attributeString: NSMutableAttributedString = NSMutableAttributedString(string: self)
         attributeString.addAttribute(NSAttributedString.Key.strikethroughStyle, value: NSUnderlineStyle.single.rawValue, range: NSMakeRange(0, attributeString.length))
         return attributeString
+    }
+
+    var getValueByEqualSymbol: String {
+        let arr = self.components(separatedBy: " = ")
+        return arr.last ?? ""
     }
 }

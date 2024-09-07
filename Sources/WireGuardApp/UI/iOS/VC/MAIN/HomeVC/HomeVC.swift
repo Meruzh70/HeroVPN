@@ -3,6 +3,8 @@
 
 import UIKit
 import SwiftGifOrigin
+import ProgressHUD
+import SwiftyJSON
 
 enum ConnectionState {
     case disconnected, connected, connecting
@@ -67,7 +69,7 @@ class HomeVC: UIViewController {
 
         UserDefaultsManager.shared.timerStartConnection = nil
 
-        self.nameLabel.text = "Walter White"
+        self.nameLabel.text = UserDefaultsManager.shared.userName ?? "Walter White"
         self.locationLabel.text = "Armenia"
         self.state = .disconnected
 
@@ -76,7 +78,10 @@ class HomeVC: UIViewController {
 
         Connection.shared.createManager {
             Connection.shared.delegate = self
-            Connection.shared.changeConfiguration()
+
+            if Connection.shared.hasConfiguration {
+                self.getConfiguration()
+            }
         }
     }
 
@@ -126,7 +131,19 @@ private extension HomeVC {
 
     @objc
     func getConfiguration() {
-        Connection.shared.changeConfiguration()
+        AppService().getConfig { result in
+            switch result {
+            case .succsess(let data):
+                if let json = try? JSON.init(data: data) {
+                    let configuration = Configuration(fromJson: json)
+                    Connection.shared.changeConfiguration(conf: configuration)
+                } else {
+                    self.showAlert("Error parse json from request")
+                }
+            case .failure(let error):
+                self.showAlert(error.textError)
+            }
+        }
     }
 
     @objc
@@ -147,12 +164,9 @@ private extension HomeVC {
 
 }
 extension HomeVC: ConnectionDelegate {
-    func successChangeConfiguration() {
-
-    }
-
     func connectionStatusChanged(state: ConnectionState) {
         guard self.state != state else { return }
+        print("connectionStatusChanged: \(state)")
         self.state = state
     }
 
@@ -160,19 +174,7 @@ extension HomeVC: ConnectionDelegate {
         print("download \(download) upload: \(upload)")
     }
 
-    func errorChangeConfiguration(text: String) {
-
-    }
-
-    func successConnect() {
-
-    }
-
-    func successDisconnect() {
-
-    }
-
-    func errorConnect(text: String) {
-
+    func error(text: String) {
+        self.showAlert(text)
     }
 }

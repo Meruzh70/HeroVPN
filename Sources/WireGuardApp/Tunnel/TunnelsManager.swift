@@ -398,7 +398,6 @@ class TunnelsManager {
     }
 
     func numberOfTunnels() -> Int {
-        print("numberOfTunnels: \(tunnels.count)")
         return tunnels.count
     }
 

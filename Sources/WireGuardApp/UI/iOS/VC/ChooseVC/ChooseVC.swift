@@ -38,13 +38,13 @@ private extension ChooseVC {
         self.present(vc, animated: true)
     }
 }
-extension ChooseVC: SignUpDelegate {
-    func auth() {
-        self.loginTouch()
-    }
-}
-extension ChooseVC: SignInDelegate {
-    func signUp() {
-        self.singUpTouch()
-    }
-}
+//extension ChooseVC: SignUpDelegate {
+//    func auth() {
+//        self.loginTouch()
+//    }
+//}
+//extension ChooseVC: SignInDelegate {
+//    func signUp() {
+//        self.singUpTouch()
+//    }
+//}

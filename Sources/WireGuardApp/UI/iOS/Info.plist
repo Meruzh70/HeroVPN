@@ -139,5 +139,10 @@
 	</array>
 	<key>com.wireguard.ios.app_group_id</key>
 	<string>group.com.vpn.hero</string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 </dict>
 </plist>

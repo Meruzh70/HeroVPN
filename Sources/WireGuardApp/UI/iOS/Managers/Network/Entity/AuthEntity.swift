@@ -3,31 +3,21 @@
 
 import Foundation
 
-struct AuthEntity {
-    var result: Bool
-    var success: Bool
+class AuthEntity: DefaultEntity {
+
     var token: String?
     var name: String?
 
-}
+    enum CodingKeys: CodingKey {
+        case token
+        case name
+    }
 
-/*
-{
-    "result": true,
-    "success": true,
-    "token": "358lqjfghfrp9qqmo8gv",
-    "name": "alex",
-    "servers": [
-        {
-            "id": "66ce9b1a10a3ba8ea9882ffa",
-            "name": "VPNHERO-I",
-            "ip": "195.250.79.91"
-        },
-        {
-            "id": "66ce9de910a3ba8ea9883237",
-            "name": "VPNHERO-II",
-            "ip": "195.250.79.92"
-        }
-    ]
+    required init(from decoder: any Decoder) throws {
+        try super.init(from: decoder)
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.token = try container.decodeIfPresent(String.self, forKey: .token)
+        self.name = try container.decodeIfPresent(String.self, forKey: .name)
+    }
+
 }
-*/

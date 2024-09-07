@@ -4,9 +4,9 @@
 import UIKit
 import ProgressHUD
 
-protocol SignUpDelegate: AnyObject {
-    func auth()
-}
+//protocol SignUpDelegate: AnyObject {
+//    func auth()
+//}
 
 class SignUpVC: UIViewController {
 
@@ -23,7 +23,7 @@ class SignUpVC: UIViewController {
 
     @IBOutlet weak var signInButton: UIButton!
 
-    weak var delegate: SignUpDelegate?
+//    weak var delegate: SignUpDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,23 +78,24 @@ private extension SignUpVC {
             return
         }
 
-//        ProgressHUD.animationType = .circleArcDotSpin
-//        ProgressHUD.animate()
-        self.signUp(name: name, email: email, password: password)
+        UserDefaultsManager.shared.lastUsedEmail = email
+
+        ProgressHUD.animate()
+        AppService().register(name: name, email: email, password: password) { result in
+            ProgressHUD.dismiss()
+            switch result {
+            case .succsess(let name):
+                UserDefaultsManager.shared.userName = name
+                NotificationCenter.default.post(name: .needOpenMainTabBar, object: nil)
+            case .failure(let error):
+                self.showAlert(error.textError)
+            }
+        }
     }
 
     @objc
     func signInTouch() {
-        UserDefaultsManager.shared.lastUsedEmail = emailTextField.text ?? ""
-        self.delegate?.auth()
-    }
-
-    func signUp(name: String, email: String, password: String) {
-        self.showAlert("sign up name: \(name) email: \(email) password: \(password)")
-
-        NotificationCenter.default.post(name: .needOpenMainTabBar, object: nil)
-
-//        let vc = Utils.shared.mainStoryboard().instantiateViewController(withIdentifier: VerificationVC.className)
-//        self.present(vc, animated: true)
+//        self.delegate?.auth()
+        self.backTouch()
     }
 }

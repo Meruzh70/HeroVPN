@@ -6,7 +6,8 @@ import Foundation
 extension NSNotification.Name {
 
     static let needGetConfiguration = Notification.Name("needGetConfiguration")
-    static let needOpenChooseVCForLogin = Notification.Name("needOpenChooseVCForLogin")
+//    static let needOpenChooseVCForLogin = Notification.Name("needOpenChooseVCForLogin")
+    static let needOpenAuth = Notification.Name("needOpenAuth")
     static let needOpenMainTabBar = Notification.Name("needOpenMainTabBar")
 
 }

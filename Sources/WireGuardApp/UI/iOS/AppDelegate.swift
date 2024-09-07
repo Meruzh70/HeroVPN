@@ -3,6 +3,7 @@
 
 import UIKit
 import os.log
+import ProgressHUD
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,18 +21,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
 
-        NotificationCenter.default.addObserver(self, selector: #selector(openChooseVCForLogin), name: .needOpenChooseVCForLogin, object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(openChooseVCForLogin), name: .needOpenChooseVCForLogin, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(openAuth), name: .needOpenAuth, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(openMainTabBar), name: .needOpenMainTabBar, object: nil)
 
+        ProgressHUD.animationType = .circleArcDotSpin
 
-
-//        if UserDefaultsManager.shared.isFirstOpeningApp {
-//            self.openVCAsRoot(vc: OnboardingVC.self)
-//        } else if let _ = KeychainManager.shared.authToken {
+        if UserDefaultsManager.shared.isFirstOpeningApp {
+            self.openVCAsRoot(vc: AuthVC.self)
+        } else if KeychainManager.shared.authToken != nil {
             self.openVCAsRoot(vc: MainTabBar.self)
-//        } else {
-//            self.openVCAsRoot(vc: ChooseVC.self)
-//        }
+        } else {
+            self.openVCAsRoot(vc: ChooseVC.self)
+        }
 
 //        let window = UIWindow(frame: UIScreen.main.bounds)
 //        self.window = window
@@ -56,19 +58,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
 
-    @objc
-    func openChooseVCForLogin() {
-        guard let vc = Utils.shared.mainStoryboard().instantiateViewController(withIdentifier: ChooseVC.className) as? ChooseVC else { return }
-        vc.openLogin = true
-        if self.window?.rootViewController?.className != vc.className {
-            self.window?.rootViewController = vc
-            self.window?.makeKeyAndVisible()
-        }
-    }
+//    @objc
+//    func openChooseVCForLogin() {
+//        guard let vc = Utils.shared.mainStoryboard().instantiateViewController(withIdentifier: ChooseVC.className) as? ChooseVC else { return }
+//        vc.openLogin = true
+//        if self.window?.rootViewController?.className != vc.className {
+//            self.window?.rootViewController = vc
+//            self.window?.makeKeyAndVisible()
+//        }
+//    }
 
     @objc
     func openMainTabBar() {
         self.openVCAsRoot(vc: MainTabBar.self)
+    }
+
+    @objc
+    func openAuth() {
+        self.openVCAsRoot(vc: AuthVC.self)
     }
 
     deinit {

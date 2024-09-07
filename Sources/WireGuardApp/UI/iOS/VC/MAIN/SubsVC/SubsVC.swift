@@ -36,8 +36,8 @@ class SubsVC: UIViewController {
     private var productsArray: [SKProduct] = []
     private var selectedIndex = -1 {
         didSet {
-            let checkedImage = UIImage(named: "checked")
-            let uncheckedImage = UIImage(named: "unchecked")
+            let checkedImage = UIImage(named: "check")
+            let uncheckedImage = UIImage(named: "uncheck")
             switch oldValue {
             case 0: self.oneMonthCircleButton.setImage(uncheckedImage, for: .normal)
             case 1: self.threeMonthCircleButton.setImage(uncheckedImage, for: .normal)
@@ -70,7 +70,7 @@ class SubsVC: UIViewController {
 
         SKPaymentQueue.default().add(self)
         self.fetchAvailableProducts()
-        self.validateReceipt()
+//        self.validateReceipt()
     }
 
     deinit {
