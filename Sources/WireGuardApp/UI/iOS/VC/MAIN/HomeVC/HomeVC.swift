@@ -180,9 +180,7 @@ extension HomeVC: ConnectionDelegate {
         print("connectionStatusChanged: \(state)")
         self.state = state
         if state == .connecting {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
-                Connection.shared.changeConnection(isOn: true)
-            })
+            Connection.shared.changeConnection(isOn: true)
         }
         Connection.shared.getStatus()
     }

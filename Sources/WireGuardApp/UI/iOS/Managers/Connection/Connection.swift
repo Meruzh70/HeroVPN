@@ -238,9 +238,9 @@ private extension Connection {
 }
 extension Connection: TunnelsManagerActivationDelegate {
     func tunnelActivationAttemptFailed(tunnel: TunnelContainer, error: TunnelsManagerActivationAttemptError) {
-        let textError = "tunnelActivationAttemptFailed \(error.localizedDescription)"
+        let textError = "tunnelActivationAttemptFailed \(error.alertText)"
         print(textError)
-        self.delegate?.error(text: textError)
+//        self.delegate?.error(text: textError)
     }
 
     func tunnelActivationAttemptSucceeded(tunnel: TunnelContainer) {
@@ -261,6 +261,7 @@ extension Connection: TunnelsManagerActivationDelegate {
 }
 extension Connection: TunnelsManagerListDelegate {
     func tunnelAdded(at index: Int) {
+        self.tunnel = (self.tunnelsManager?.numberOfTunnels() ?? 0) > 0 ? self.tunnelsManager?.tunnel(at: 0) : nil
         self.delegate?.connectionStatusChanged(state: .connecting)
     }
 
