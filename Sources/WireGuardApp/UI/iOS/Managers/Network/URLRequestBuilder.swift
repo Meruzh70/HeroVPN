@@ -16,7 +16,7 @@ protocol URLRequestBuilder: URLRequestConvertible {
 extension URLRequestBuilder {
     // property for base url
     var baseUrl: String {
-        return "http://195.250.79.91:8000"
+        return "https://app.vpnhero.am"
     }
 
     // property for base header

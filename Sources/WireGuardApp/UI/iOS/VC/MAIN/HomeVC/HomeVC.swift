@@ -50,10 +50,7 @@ class HomeVC: UIViewController {
             if stateLabel != nil {
                 stateLabel.text = state.labelText
             }
-            if state == .connected {
-                UserDefaultsManager.shared.timerStartConnection = Date().timeIntervalSince1970
-                self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
-            } else if state == .disconnected {
+            if state == .disconnected {
                 UserDefaultsManager.shared.timerStartConnection = nil
                 self.timer?.invalidate()
                 self.timer = nil
@@ -83,6 +80,12 @@ class HomeVC: UIViewController {
                 self.getConfiguration()
             }
         }
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        Connection.shared.getStatus()
     }
 
     deinit {
@@ -164,10 +167,24 @@ private extension HomeVC {
 
 }
 extension HomeVC: ConnectionDelegate {
+    func changeConnectedDate(date: Date) {
+        UserDefaultsManager.shared.timerStartConnection = date.timeIntervalSince1970
+        self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+        if self.state != .connected {
+            self.state = .connected
+        }
+    }
+
     func connectionStatusChanged(state: ConnectionState) {
         guard self.state != state else { return }
         print("connectionStatusChanged: \(state)")
         self.state = state
+        if state == .connecting {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+                Connection.shared.changeConnection(isOn: true)
+            })
+        }
+        Connection.shared.getStatus()
     }
 
     func changedSpeed(download: Double, upload: Double) {

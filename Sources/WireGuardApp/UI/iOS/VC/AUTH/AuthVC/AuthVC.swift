@@ -13,9 +13,9 @@ class AuthVC: UIViewController {
 
     @IBOutlet weak var backButton: UIButton!
 
-    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var emailTextField: HeroTextField!
 
-    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var passwordTextField: HeroTextField!
     @IBOutlet weak var showPasswordButton: UIButton!
 
     @IBOutlet weak var forgotPasswordButton: UIButton!
@@ -137,7 +137,7 @@ extension AuthVC: ASAuthorizationControllerDelegate {
                 name = givenName
             }
             if let familyName = fullName.familyName {
-                if name == "" {
+                if name.isEmpty {
                     name = familyName
                 } else {
                     name += " \(familyName)"

@@ -12,11 +12,11 @@ class SignUpVC: UIViewController {
 
     @IBOutlet weak var backButton: UIButton!
 
-    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var nameTextField: HeroTextField!
 
-    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var emailTextField: HeroTextField!
 
-    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var passwordTextField: HeroTextField!
     @IBOutlet weak var showPasswordButton: UIButton!
 
     @IBOutlet weak var singUpButton: UIButton!

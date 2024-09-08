@@ -759,6 +759,10 @@ class TunnelContainer: NSObject {
         wg_log(.debug, message: "startDeactivation: Tunnel: \(name)")
         (tunnelProvider.connection as? NETunnelProviderSession)?.stopTunnel()
     }
+
+    var getConnectedDate: Date? {
+        self.tunnelProvider.connection.connectedDate
+    }
 }
 
 extension NETunnelProviderManager {

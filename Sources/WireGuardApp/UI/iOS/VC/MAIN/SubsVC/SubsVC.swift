@@ -29,7 +29,7 @@ class SubsVC: UIViewController {
 
     @IBOutlet weak var subscribeButton: UIButton!
 
-    @IBOutlet weak var promocodeTextField: UITextField!
+    @IBOutlet weak var promocodeTextField: HeroTextField!
     @IBOutlet weak var subscribeForFreeButton: UIButton!
 
     private var productIDs: [String] = ["1Month", "3Month", "6Months", "1Year"]

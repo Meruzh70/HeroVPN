@@ -2,11 +2,13 @@
 // Copyright © 2018-2023 WireGuard LLC. All Rights Reserved.
 
 import Foundation
+import Alamofire
 
 protocol ConnectionDelegate: AnyObject {
     func connectionStatusChanged(state: ConnectionState)
     func changedSpeed(download: Double, upload: Double)
     func error(text: String)
+    func changeConnectedDate(date: Date)
 }
 
 class Connection {
@@ -19,6 +21,12 @@ class Connection {
 
     private var tunnelsManager: TunnelsManager?
     private var tunnel: TunnelContainer?
+
+//    private var addresses = ["x.com", "yandex.ru", "instagram.com", "google.com", "app.vpnhero.am"]
+    private var addresses = ["instagram.com", "google.com", "app.vpnhero.am"]
+    private var statusRequests: Int = 0
+    private var finishedRequest: Int = 0
+    private var indexChecking = 0
 
     func refreshTunnelConnectionStatuses() {
         if let tunnelsManager = tunnelsManager {
@@ -169,6 +177,64 @@ class Connection {
         guard let tunnelsManager = tunnelsManager else { return }
         tunnelsManager.getTraffic()
     }
+
+    func getStatus() {
+        guard let tunnel = tunnel else { return }
+        guard let date = tunnel.getConnectedDate else { return }
+        self.delegate?.changeConnectedDate(date: date)
+    }
+}
+private extension Connection {
+    func checkConnection() {
+        self.indexChecking = 0
+        self.finishedRequest = 0
+        self.statusRequests = 0
+        self.requestChecking()
+    }
+
+    func requestChecking() {
+        guard self.indexChecking < self.addresses.count else {
+            print("finished requests")
+            if self.statusRequests < self.finishedRequest / 2 {
+                self.changeConnection(isOn: false)
+            }
+            return
+        }
+
+        let urlStr = "https://\(self.addresses[self.indexChecking])"
+        print(urlStr)
+        if let url = URL(string: urlStr) {
+            var request = URLRequest(url: url)
+            request.httpMethod = "HEAD"
+
+            URLSession(configuration: .default).dataTask(with: request) { (_, response, error) -> Void in
+                self.finishedRequest += 1
+                guard error == nil else {
+                    self.nextRequestChecking()
+                    print("Error:", error ?? "")
+                    return
+                }
+
+                guard (response as? HTTPURLResponse)?.statusCode == 200 else {
+                    print("down")
+                    self.nextRequestChecking()
+                    return
+                }
+                self.statusRequests += 1
+
+                print("up")
+                self.nextRequestChecking()
+            }.resume()
+        } else {
+            self.indexChecking += 1
+            self.requestChecking()
+        }
+    }
+
+    func nextRequestChecking() {
+        self.indexChecking += 1
+        self.requestChecking()
+    }
 }
 extension Connection: TunnelsManagerActivationDelegate {
     func tunnelActivationAttemptFailed(tunnel: TunnelContainer, error: TunnelsManagerActivationAttemptError) {
@@ -179,6 +245,7 @@ extension Connection: TunnelsManagerActivationDelegate {
 
     func tunnelActivationAttemptSucceeded(tunnel: TunnelContainer) {
         self.delegate?.connectionStatusChanged(state: .connecting)
+        self.checkConnection()
     }
 
     func tunnelActivationFailed(tunnel: TunnelContainer, error: TunnelsManagerActivationError) {
@@ -189,12 +256,12 @@ extension Connection: TunnelsManagerActivationDelegate {
 
     func tunnelActivationSucceeded(tunnel: TunnelContainer) {
         self.delegate?.connectionStatusChanged(state: .connected)
+        self.checkConnection()
     }
 }
 extension Connection: TunnelsManagerListDelegate {
     func tunnelAdded(at index: Int) {
         self.delegate?.connectionStatusChanged(state: .connecting)
-        self.changeConnection(isOn: true)
     }
 
     func tunnelModified(at index: Int) {

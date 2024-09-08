@@ -7,7 +7,7 @@ class ForgotPasswordVC: UIViewController {
 
     @IBOutlet weak var backButton: UIButton!
 
-    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var emailTextField: HeroTextField!
 
     @IBOutlet weak var sendButton: UIButton!
 
