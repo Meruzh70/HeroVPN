@@ -1736,7 +1736,7 @@ Password</string>
                                                     <constraint firstAttribute="width" constant="24" id="x43-DV-Om4"/>
                                                 </constraints>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                <state key="normal" image="check"/>
+                                                <state key="normal" image="uncheck"/>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="g6Q-Os-6Nz">
                                                 <rect key="frame" x="250.00000000000003" y="11.333333333333339" width="68.333333333333343" height="41.666666666666657"/>
@@ -2657,7 +2657,6 @@ These Terms shall be governed and construed in accordance with the laws of the j
         <image name="button 1" width="361" height="54"/>
         <image name="calendar" width="16" height="16"/>
         <image name="cancel" width="361" height="56"/>
-        <image name="check" width="24.333333969116211" height="24.333333969116211"/>
         <image name="chevron.left" catalog="system" width="97" height="128"/>
         <image name="chevron.right" catalog="system" width="97" height="128"/>
         <image name="disconnected.gif" width="480" height="480"/>

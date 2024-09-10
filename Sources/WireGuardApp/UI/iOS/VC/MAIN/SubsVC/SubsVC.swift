@@ -4,6 +4,25 @@
 import UIKit
 import StoreKit
 import ProgressHUD
+import PassKit
+
+class Product {
+    let title: String
+    let cost: Decimal
+    let discountCost: Decimal
+    let monthCount: Int
+
+//    var discountPercent: Int {
+//        return 100 - Int(discountCost / cost)
+//    }
+
+    init(title: String, cost: Decimal, discountCost: Decimal, monthCount: Int) {
+        self.title = title
+        self.cost = cost
+        self.discountCost = discountCost
+        self.monthCount = monthCount
+    }
+}
 
 class SubsVC: UIViewController {
 
@@ -32,8 +51,16 @@ class SubsVC: UIViewController {
     @IBOutlet weak var promocodeTextField: HeroTextField!
     @IBOutlet weak var subscribeForFreeButton: UIButton!
 
+
+    private var products: [Product] = []
+    private var paymentRequest: PKPaymentRequest?
+
+
     private var productIDs: [String] = ["1Month", "3Month", "6Months", "1Year"]
     private var productsArray: [SKProduct] = []
+
+
+
     private var selectedIndex = -1 {
         didSet {
             let checkedImage = UIImage(named: "check")
@@ -65,6 +92,11 @@ class SubsVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.products.append(Product(title: "1 Month", cost: 7.99, discountCost: 4.99, monthCount: 1))
+        self.products.append(Product(title: "3 Month", cost: 14.99, discountCost: 13.99, monthCount: 3))
+        self.products.append(Product(title: "6 Month", cost: 29.99, discountCost: 23.99, monthCount: 6))
+        self.products.append(Product(title: "1 Year", cost: 59.99, discountCost: 41.99, monthCount: 12))
+
         self.setTargets()
         self.configureUI()
 
@@ -95,10 +127,16 @@ private extension SubsVC {
     }
 
     func configureUI() {
-        self.oneMonthMainPriceLabel.attributedText = "$7.99".strikeAttributedString
-        self.threeMonthMainPriceLabel.attributedText = "$14.99".strikeAttributedString
-        self.halfYearMainPriceLabel.attributedText = "$29.99".strikeAttributedString
-        self.yearMainPriceLabel.attributedText = "$59.99".strikeAttributedString
+        self.oneMonthMainPriceLabel.attributedText = "\(self.products[0].cost)".strikeAttributedString
+        self.threeMonthMainPriceLabel.attributedText = "\(self.products[1].cost)".strikeAttributedString
+        self.halfYearMainPriceLabel.attributedText = "\(self.products[2].cost)".strikeAttributedString
+        self.yearMainPriceLabel.attributedText = "\(self.products[3].cost)".strikeAttributedString
+
+
+        self.oneMonthCurrentPriceLabel.text = "\(self.products[0].discountCost)"
+        self.threeMonthCurrentPriceLabel.text = "\(self.products[1].discountCost)"
+        self.halfYearCurrentPriceLabel.text = "\(self.products[2].discountCost)"
+        self.yearCurrentPriceLabel.text = "\(self.products[3].discountCost)"
 
     }
 
@@ -134,8 +172,22 @@ private extension SubsVC {
 
     @objc
     func subscribeButtonTouch() {
-        guard self.selectedIndex > 0 else { return }
-        self.buyPlan(id: self.productIDs[self.selectedIndex])
+        guard self.selectedIndex > -1 else { return }
+//        self.buyPlan(id: self.productIDs[self.selectedIndex])
+
+        let request = PKPaymentRequest()
+        request.merchantIdentifier = "merchant.am.vpnhero.app"
+        request.supportedNetworks = [.visa, .masterCard]
+        request.supportedCountries = ["RU"]
+        request.merchantCapabilities = .capability3DS
+        request.countryCode = "RU"
+        request.currencyCode = "RUB"
+        request.paymentSummaryItems = [PKPaymentSummaryItem(label: self.products[self.selectedIndex].title, amount: NSDecimalNumber(decimal: self.products[self.selectedIndex].discountCost))]
+        self.paymentRequest = request
+
+        guard let controller = PKPaymentAuthorizationViewController(paymentRequest: request) else { return }
+        controller.delegate = self
+        present(controller, animated: true, completion: nil)
     }
 
     @objc
@@ -147,13 +199,17 @@ private extension SubsVC {
 
     }
 
+
+
+
+
+
     func buyPlan(id: String) {
         guard let product = productsArray.first(where: { $0.productIdentifier == id }) else {
             self.showAlert("Product not found")
             return
         }
         if SKPaymentQueue.canMakePayments() {
-            ProgressHUD.animationType = .circleArcDotSpin
             ProgressHUD.animate()
             let payment = SKPayment(product: product)
             SKPaymentQueue.default().add(payment)
@@ -162,14 +218,7 @@ private extension SubsVC {
         }
     }
 
-
-
     func complete(transaction: SKPaymentTransaction) {
-        ProgressHUD.animationType = .circleArcDotSpin
-        ProgressHUD.animate()
-
-        ProgressHUD.dismiss()
-
         UserDefaults.standard.set(true, forKey: "isPaidUser")
         self.showAlert("Purchase Success: \(transaction.payment.productIdentifier)")
         SKPaymentQueue.default().finishTransaction(transaction)
@@ -319,5 +368,14 @@ extension SubsVC: SKProductsRequestDelegate {
         if !response.products.isEmpty {
             productsArray = response.products
         }
+    }
+}
+extension SubsVC: PKPaymentAuthorizationViewControllerDelegate {
+    func paymentAuthorizationViewControllerDidFinish(_ controller: PKPaymentAuthorizationViewController) {
+        controller.dismiss(animated: true)
+    }
+
+    func paymentAuthorizationViewController(_ controller: PKPaymentAuthorizationViewController, didAuthorizePayment payment: PKPayment, handler completion: @escaping (PKPaymentAuthorizationResult) -> Void) {
+        completion(PKPaymentAuthorizationResult(status: .success, errors: nil))
     }
 }
