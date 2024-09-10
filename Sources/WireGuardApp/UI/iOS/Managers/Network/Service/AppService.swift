@@ -10,7 +10,7 @@ class AppService {
     let apiManager = APIManager.shared
 
     // function for login by login and password with complition string result
-    func login(email: String, password: String, complition: @escaping(ResultResponce<String?>) -> Void) {
+    func login(email: String, password: String, complition: @escaping (ResultResponce<String?>) -> Void) {
         let service: AppApi = .login(email: email, password: password)
         apiManager.perform(service: service, decodeType: AuthEntity.self) { (result) in
             switch result {
@@ -28,7 +28,7 @@ class AppService {
     }
 
     // function for register by name, email and password with complition string result
-    func register(name: String, email: String, password: String, complition: @escaping(ResultResponce<String?>) -> Void) {
+    func register(name: String, email: String, password: String, complition: @escaping (ResultResponce<String?>) -> Void) {
         let service: AppApi = .signUp(name: name, email: email, password: password)
         apiManager.perform(service: service, decodeType: AuthEntity.self) { (result) in
             switch result {
@@ -45,7 +45,7 @@ class AppService {
         }
     }
 
-    func getConfig(complition: @escaping(ResultResponce<Data>) -> Void) {
+    func getConfig(complition: @escaping (ResultResponce<Data>) -> Void) {
         let service: AppApi = .connect
         apiManager.perform(service: service) { result in
             complition(result)
