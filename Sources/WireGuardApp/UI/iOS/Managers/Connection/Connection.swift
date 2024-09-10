@@ -173,11 +173,6 @@ class Connection {
         }
     }
 
-    func getSpeed() {
-        guard let tunnelsManager = tunnelsManager else { return }
-        tunnelsManager.getTraffic()
-    }
-
     func getStatus() {
         guard let tunnel = tunnel else { return }
         guard let date = tunnel.getConnectedDate else { return }
@@ -206,6 +201,7 @@ private extension Connection {
         if let url = URL(string: urlStr) {
             var request = URLRequest(url: url)
             request.httpMethod = "HEAD"
+            request.timeoutInterval = 2
 
             URLSession(configuration: .default).dataTask(with: request) { (_, response, error) -> Void in
                 self.finishedRequest += 1

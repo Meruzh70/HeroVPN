@@ -32,7 +32,7 @@ private extension LogoutVC {
         UserDefaultsManager.shared.userName = nil
         KeychainManager.shared.authToken = nil
         Connection.shared.changeConnection(isOn: false)
-        Connection.shared.removeConfiguration()
+//        Connection.shared.removeConfiguration()
         NotificationCenter.default.post(name: .needOpenAuth, object: nil)
     }
 }

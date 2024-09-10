@@ -138,10 +138,37 @@ class Configuration {
                         }
                     }
                 }
-
             }
-
         }
+    }
+
+    var parsedData: String {
+        var text = ""
+        text += "defaultContainer: \(defaultContainer) \n"
+        text += "description: \(description) \n"
+        text += "dns1: \(dns1) \n"
+        text += "dns2: \(dns2) \n"
+        text += "h1: \(h1) \n"
+        text += "h2: \(h2) \n"
+        text += "h3: \(h3) \n"
+        text += "h4: \(h4) \n"
+        text += "jc: \(jc) \n"
+        text += "jMax: \(jMax) \n"
+        text += "jMin: \(jMin) \n"
+        text += "s1: \(s1) \n"
+        text += "s2: \(s2) \n"
+        text += "clientIp: \(clientIp) \n"
+        text += "clientPrivateKey: \(clientPrivateKey) \n"
+        text += "clientPublicKey: \(clientPublicKey) \n"
+        text += "address: \(address) \n"
+        text += "port: \(port) \n"
+        text += "allowedIps: \(allowedIps) \n"
+        text += "endPoint: \(endPoint) \n"
+        text += "pskKey: \(pskKey) \n"
+        text += "serverPubKey: \(serverPubKey) \n"
+        text += "keepALive: \(keepALive) \n"
+
+        return text
     }
 
 }

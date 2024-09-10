@@ -55,6 +55,7 @@ class HomeVC: UIViewController {
                 self.timer?.invalidate()
                 self.timer = nil
                 self.updateTimer()
+                NetworkDataUsage.shared.reset()
             }
         }
     }
@@ -78,6 +79,7 @@ class HomeVC: UIViewController {
 
             if Connection.shared.hasConfiguration {
                 self.getConfiguration()
+                Connection.shared.getStatus()
             }
         }
     }
@@ -139,6 +141,8 @@ private extension HomeVC {
             case .succsess(let data):
                 if let json = try? JSON.init(data: data) {
                     let configuration = Configuration(fromJson: json)
+                    //print("configuration: \(configuration.parsedData)")
+                    //UIPasteboard.general.string = "configuration.parsedData"
                     Connection.shared.changeConfiguration(conf: configuration)
                 } else {
                     self.showAlert("Error parse json from request")
@@ -162,13 +166,16 @@ private extension HomeVC {
         let timeString = String(format: "%02d:%02d:%02d", hours, minutes, seconds)
         self.timeLabel.text = timeString
 
-//        Connection.shared.getSpeed()
+        let speed = NetworkDataUsage.shared.speedValue
+        self.downloadSpeedLabel.text = speed.download
+        self.uploadSpeedLabel.text = speed.upload
     }
 
 }
 extension HomeVC: ConnectionDelegate {
     func changeConnectedDate(date: Date) {
         UserDefaultsManager.shared.timerStartConnection = date.timeIntervalSince1970
+        self.timer?.invalidate()
         self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
         if self.state != .connected {
             self.state = .connected
