@@ -2,8 +2,37 @@
 // Copyright © 2018-2023 WireGuard LLC. All Rights Reserved.
 
 import UIKit
-import StoreKit
 import ProgressHUD
+import PassKit
+import StoreKit
+
+class Product {
+    let id: String
+    let title: String
+    let cost: Decimal
+    let discountCost: Decimal
+    let monthCount: Int
+
+//    var discountPercent: Int {
+//        return 100 - Int(discountCost / cost)
+//    }
+
+    var costValue: String {
+        return "$\(String(format: "%.2f%", (cost as NSDecimalNumber).floatValue))"
+    }
+
+    var discountCostValue: String {
+        return "$\(String(format: "%.2f%", (discountCost as NSDecimalNumber).floatValue))"
+    }
+
+    init(id: String, title: String, cost: Decimal, discountCost: Decimal, monthCount: Int) {
+        self.id = id
+        self.title = title
+        self.cost = cost
+        self.discountCost = discountCost
+        self.monthCount = monthCount
+    }
+}
 
 class SubsVC: UIViewController {
 
@@ -32,8 +61,6 @@ class SubsVC: UIViewController {
     @IBOutlet weak var promocodeTextField: HeroTextField!
     @IBOutlet weak var subscribeForFreeButton: UIButton!
 
-    private var productIDs: [String] = ["1Month", "3Month", "6Months", "1Year"]
-    private var productsArray: [SKProduct] = []
     private var selectedIndex = -1 {
         didSet {
             let checkedImage = UIImage(named: "check")
@@ -57,20 +84,30 @@ class SubsVC: UIViewController {
     }
 
 #if DEBUG
-    let isSandbox = true
+    private let isSandbox = true
 #else
-    let isSandbox = false
+    private let isSandbox = false
 #endif
+
+    private var products: [Product] = []
+    private var paymentRequest: PKPaymentRequest?
+
+    private var productsArray: [SKProduct] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.products = [Product(id: "1Month", title: "1 Month", cost: 7.99, discountCost: 4.99, monthCount: 1),
+                        Product(id: "3Month", title: "3 Month", cost: 14.99, discountCost: 13.99, monthCount: 3),
+                        Product(id: "6Months", title: "6 Month", cost: 29.99, discountCost: 23.99, monthCount: 6),
+                        Product(id: "1Year", title: "1 Year", cost: 59.99, discountCost: 41.99, monthCount: 12)]
+        SKPaymentQueue.default().add(self)
+
         self.setTargets()
         self.configureUI()
 
-        SKPaymentQueue.default().add(self)
         self.fetchAvailableProducts()
-//        self.validateReceipt()
+        self.receiptValidation()
     }
 
     deinit {
@@ -95,15 +132,21 @@ private extension SubsVC {
     }
 
     func configureUI() {
-        self.oneMonthMainPriceLabel.attributedText = "$7.99".strikeAttributedString
-        self.threeMonthMainPriceLabel.attributedText = "$14.99".strikeAttributedString
-        self.halfYearMainPriceLabel.attributedText = "$29.99".strikeAttributedString
-        self.yearMainPriceLabel.attributedText = "$59.99".strikeAttributedString
+        self.oneMonthMainPriceLabel.attributedText = "\(self.products[0].costValue)".strikeAttributedString
+        self.threeMonthMainPriceLabel.attributedText = "\(self.products[1].costValue)".strikeAttributedString
+        self.halfYearMainPriceLabel.attributedText = "\(self.products[2].costValue)".strikeAttributedString
+        self.yearMainPriceLabel.attributedText = "\(self.products[3].costValue)".strikeAttributedString
+
+
+        self.oneMonthCurrentPriceLabel.text = "\(self.products[0].discountCostValue)"
+        self.threeMonthCurrentPriceLabel.text = "\(self.products[1].discountCostValue)"
+        self.halfYearCurrentPriceLabel.text = "\(self.products[2].discountCostValue)"
+        self.yearCurrentPriceLabel.text = "\(self.products[3].discountCostValue)"
 
     }
 
     func fetchAvailableProducts() {
-        let productIdentifiers = Set(productIDs)
+        let productIdentifiers = Set(self.products.map({ $0.id }))
         let productRequest = SKProductsRequest(productIdentifiers: productIdentifiers)
         productRequest.delegate = self
         productRequest.start()
@@ -134,8 +177,21 @@ private extension SubsVC {
 
     @objc
     func subscribeButtonTouch() {
-        guard self.selectedIndex > 0 else { return }
-        self.buyPlan(id: self.productIDs[self.selectedIndex])
+        guard self.selectedIndex > -1 else { return }
+        let product = products[self.selectedIndex]
+
+        guard let product = self.productsArray.first(where: { $0.productIdentifier == self.products[self.selectedIndex].id }) else {
+            self.showAlert("Product not found")
+            return
+        }
+
+        if SKPaymentQueue.canMakePayments() {
+            ProgressHUD.animate()
+            let payment = SKPayment(product: product)
+            SKPaymentQueue.default().add(payment)
+        } else {
+            self.showAlert("Purchases are disabled on your device")
+        }
     }
 
     @objc
@@ -147,36 +203,19 @@ private extension SubsVC {
 
     }
 
-    func buyPlan(id: String) {
-        guard let product = productsArray.first(where: { $0.productIdentifier == id }) else {
-            self.showAlert("Product not found")
-            return
-        }
-        if SKPaymentQueue.canMakePayments() {
-            ProgressHUD.animationType = .circleArcDotSpin
-            ProgressHUD.animate()
-            let payment = SKPayment(product: product)
-            SKPaymentQueue.default().add(payment)
-        } else {
-            self.showAlert("Purchases are disabled on your device")
-        }
-    }
-
-
-
     func complete(transaction: SKPaymentTransaction) {
-        ProgressHUD.animationType = .circleArcDotSpin
-        ProgressHUD.animate()
-
-        ProgressHUD.dismiss()
-
         UserDefaults.standard.set(true, forKey: "isPaidUser")
+
+        print("Purchase Success requestData: \(transaction.payment.quantity)")
+        print("Purchase Success requestData: \(transaction.transactionState)")
+
         self.showAlert("Purchase Success: \(transaction.payment.productIdentifier)")
         SKPaymentQueue.default().finishTransaction(transaction)
+
+        self.receiptValidation()
     }
 
     func failed(transaction: SKPaymentTransaction) {
-        ProgressHUD.dismiss()
         UserDefaults.standard.set(false, forKey: "isPaidUser")
         if let error = transaction.error as? SKError {
             switch error.code {
@@ -205,99 +244,79 @@ private extension SubsVC {
         SKPaymentQueue.default().finishTransaction(transaction)
     }
 
-    func restore(transaction: SKPaymentTransaction) {
-        ProgressHUD.dismiss()
-        UserDefaults.standard.set(true, forKey: "isPaidUser")
-        self.showAlert("Purchase Restored: \(transaction.payment.productIdentifier)")
-        SKPaymentQueue.default().finishTransaction(transaction)
-    }
 
-    func fetchReceipt() -> Data? {
-        guard let receiptURL = Bundle.main.appStoreReceiptURL else { return nil }
-        return try? Data(contentsOf: receiptURL)
-    }
-    func validateReceipt() {
-        guard let receiptData = fetchReceipt() else {
-            self.showAlert("No receipt found")
+    func receiptValidation() {
+        let verifyReceiptURL = self.isSandbox ?  "https://sandbox.itunes.apple.com/verifyReceipt" : "https://buy.itunes.apple.com/verifyReceipt"
+        guard let receiptFileURL = Bundle.main.appStoreReceiptURL else {
+            print("Error get appStoreReceiptURL")
             return
         }
-
-        let receiptString = receiptData.base64EncodedString(options: [])
-
-        let requestContents: [String: Any] = ["receipt-data": receiptString,
-                                              "password": "Y18e81535cb534b31b2dbe3f24f235bc7"]
-
-        guard let requestData = try? JSONSerialization.data(withJSONObject: requestContents, options: []) else { return }
-
-        let sandboxUrlString = "https://sandbox.itunes.apple.com/verifyReceipt"
-        let productionUrlString = "https://buy.itunes.apple.com/verifyReceipt"
-
-        let urlString = isSandbox ? sandboxUrlString : productionUrlString
-        guard let url = URL(string: urlString) else { return }
-
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        request.cachePolicy = .reloadIgnoringCacheData
-        request.httpBody = requestData
-
-        let session = URLSession.shared
-        let task = session.dataTask(with: request) { data, response, error in
-            guard error == nil else {
-                self.showAlert("Error in receipt validation: \(error!.localizedDescription)")
-                return
-            }
-
-            guard let data = data else {
-                self.showAlert("No data in receipt validation response")
-                return
-            }
-
-            do {
-                if let jsonResponse = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] {
-                    self.handleReceiptValidationResponse(jsonResponse)
-                }
-            } catch {
-                self.showAlert("Error in receipt validation: \(error.localizedDescription)")
-            }
+        guard let receiptData = try? Data(contentsOf: receiptFileURL) else { print("No receipt found")
+            return
         }
-        task.resume()
-    }
-    func handleReceiptValidationResponse(_ response: [String: Any]) {
-        guard let status = response["status"] as? Int else { return }
+        let recieptString = receiptData.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
+        let jsonDict: [String: AnyObject] = ["receipt-data" : recieptString as AnyObject, "password" : "password" as AnyObject]
 
-        if status == 0 {
-            // The receipt is valid
-            guard let receipt = response["receipt"] as? [String: Any],
-                  let inApp = receipt["in_app"] as? [[String: Any]] else { return }
+        do {
+            let requestData = try JSONSerialization.data(withJSONObject: jsonDict, options: JSONSerialization.WritingOptions.prettyPrinted)
+            let storeURL = URL(string: verifyReceiptURL)!
+            var storeRequest = URLRequest(url: storeURL)
+            storeRequest.httpMethod = "POST"
+            storeRequest.httpBody = requestData
+            let session = URLSession(configuration: URLSessionConfiguration.default)
+            let task = session.dataTask(with: storeRequest, completionHandler: { [weak self] (data, response, error) in
 
-            let currentDate = Date()
-            var isSubscribed = false
-
-            for purchase in inApp {
-                if let expiresDateString = purchase["expires_date"] as? String,
-                   let expiresDate = ISO8601DateFormatter().date(from: expiresDateString) {
-                    if expiresDate > currentDate {
-                        isSubscribed = true
-                        break
+                do {
+                    if let jsonResponse = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers) as? NSDictionary{
+                        print("Response :",jsonResponse)
+                        if let date = self?.getExpirationDateFromResponse(jsonResponse) {
+                            print(date)
+                        }
                     }
+                } catch let parseError {
+                    print(parseError)
                 }
-            }
-
-            DispatchQueue.main.async {
-                UserDefaults.standard.set(isSubscribed, forKey: "isPaidUser")
-                self.showAlert(isSubscribed ? "Subscription is active" : "Subscription has expired")
-            }
-        } else {
-            // The receipt is not valid
-            DispatchQueue.main.async {
-                self.showAlert("Receipt validation failed with status: \(status)")
-            }
+            })
+            task.resume()
+        } catch let parseError {
+            print(parseError)
         }
+    }
+
+    func getExpirationDateFromResponse(_ jsonResponse: NSDictionary) -> Date? {
+//        print(jsonResponse)
+        guard let receiptInfo: NSArray = jsonResponse["latest_receipt_info"] as? NSArray, let lastReceipt = receiptInfo.lastObject as? NSDictionary else { return nil }
+
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss VV"
+
+        guard let expiresDate = lastReceipt["expires_date"] as? String else { return nil }
+
+        return formatter.date(from: expiresDate)
+    }
+
+
+
+    func requestForPay() {
+        let request = PKPaymentRequest()
+        request.merchantIdentifier = "merchant.am.vpnhero.app"
+        request.supportedNetworks = [.visa, .masterCard]
+        request.supportedCountries = ["RU"]
+        request.merchantCapabilities = .capability3DS
+        request.countryCode = "RU"
+        request.currencyCode = "RUB"
+        request.paymentSummaryItems = [PKPaymentSummaryItem(label: self.products[self.selectedIndex].title, amount: NSDecimalNumber(decimal: self.products[self.selectedIndex].discountCost))]
+        self.paymentRequest = request
+
+        guard let controller = PKPaymentAuthorizationViewController(paymentRequest: request) else { return }
+        controller.delegate = self
+        present(controller, animated: true, completion: nil)
     }
 
 }
 extension SubsVC: SKPaymentTransactionObserver {
     func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
+        ProgressHUD.dismiss()
         for transaction in transactions {
             switch transaction.transactionState {
             case .purchased:
@@ -305,7 +324,7 @@ extension SubsVC: SKPaymentTransactionObserver {
             case .failed:
                 failed(transaction: transaction)
             case .restored:
-                restore(transaction: transaction)
+                complete(transaction: transaction)
             case .deferred, .purchasing:
                 break
             @unknown default:
@@ -318,6 +337,26 @@ extension SubsVC: SKProductsRequestDelegate {
     func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
         if !response.products.isEmpty {
             productsArray = response.products
+            productsArray.forEach { prod in
+                var text = "________"
+                text += "prod.productIdentifier: \(prod.productIdentifier) \n"
+                text += "prod.localizedDescription: \(prod.localizedDescription) \n"
+                text += "prod.localizedTitle: \(prod.localizedTitle) \n"
+                text += "prod.discounts: \(prod.discounts) \n"
+                text += "prod.price: \(prod.price) \n"
+                text += "prod.priceLocale: \(prod.priceLocale) \n"
+                text += "prod.subscriptionPeriod: \(prod.subscriptionPeriod) \n"
+                print(text)
+            }
         }
+    }
+}
+extension SubsVC: PKPaymentAuthorizationViewControllerDelegate {
+    func paymentAuthorizationViewControllerDidFinish(_ controller: PKPaymentAuthorizationViewController) {
+        controller.dismiss(animated: true)
+    }
+
+    func paymentAuthorizationViewController(_ controller: PKPaymentAuthorizationViewController, didAuthorizePayment payment: PKPayment, handler completion: @escaping (PKPaymentAuthorizationResult) -> Void) {
+        completion(PKPaymentAuthorizationResult(status: .success, errors: nil))
     }
 }
