@@ -29,7 +29,7 @@ class APIManager {
     }
 
     // function for perform reqeust with service, decode type and completion with U value
-    func perform<T: URLRequestBuilder, U: Decodable>(service: T, decodeType: U.Type, completion: @escaping(ResultResponce<U>) -> Void) {
+    func perform<T: URLRequestBuilder, U: Decodable>(service: T, decodeType: U.Type, completion: @escaping (ResultResponce<U>) -> Void) {
         lock.lock(); defer { lock.unlock() }
         if let request = service.urlRequest, let url = request.url {
             print("Request for: \(url.absoluteString)")
@@ -47,7 +47,7 @@ class APIManager {
     }
 
     // function for perform reqeust with service and completion with data value
-    func perform<T: URLRequestBuilder>(service: T, completion: @escaping(ResultResponce<Data>) -> Void) {
+    func perform<T: URLRequestBuilder>(service: T, completion: @escaping (ResultResponce<Data>) -> Void) {
         if let request = service.urlRequest, let url = request.url {
             print("Request for: \(url.absoluteString)")
         }
