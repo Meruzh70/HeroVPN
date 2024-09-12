@@ -230,6 +230,8 @@
 		FC46FD182C88BB25000C5303 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC46FD172C88BB25000C5303 /* UserDefaultsManager.swift */; };
 		FC46FD1B2C88C13C000C5303 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC46FD1A2C88C13C000C5303 /* Utils.swift */; };
 		FC46FD1E2C88C25D000C5303 /* NSObject+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC46FD1D2C88C25D000C5303 /* NSObject+Extension.swift */; };
+		FC6AC1852C91B75E00678F17 /* RegEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6AC1842C91B75E00678F17 /* RegEntity.swift */; };
+		FC6AC1872C91BD2200678F17 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6AC1862C91BD2200678F17 /* UIColor+Extension.swift */; };
 		FC9B21362C89BCAD00B508A9 /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = FC9B21322C89BCAD00B508A9 /* TPKeyboardAvoidingScrollView.m */; };
 		FC9B21372C89BCAD00B508A9 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = FC9B21342C89BCAD00B508A9 /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
 		FC9B213C2C89BCBE00B508A9 /* OTPFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9B21392C89BCBE00B508A9 /* OTPFieldView.swift */; };
@@ -526,6 +528,8 @@
 		FC46FD172C88BB25000C5303 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		FC46FD1A2C88C13C000C5303 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		FC46FD1D2C88C25D000C5303 /* NSObject+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Extension.swift"; sourceTree = "<group>"; };
+		FC6AC1842C91B75E00678F17 /* RegEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegEntity.swift; sourceTree = "<group>"; };
+		FC6AC1862C91BD2200678F17 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		FC9B21312C89BCAD00B508A9 /* TPKeyboardAvoidingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingScrollView.h; sourceTree = "<group>"; };
 		FC9B21322C89BCAD00B508A9 /* TPKeyboardAvoidingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingScrollView.m; sourceTree = "<group>"; };
 		FC9B21332C89BCAD00B508A9 /* UIScrollView+TPKeyboardAvoidingAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+TPKeyboardAvoidingAdditions.h"; sourceTree = "<group>"; };
@@ -1285,6 +1289,7 @@
 				FCB9BB3A2C894C170093969D /* UIViewController+Extension.swift */,
 				FCB9BB3F2C89587E0093969D /* UIImageView+Extension.swift */,
 				FC9B21542C8D6C7A00B508A9 /* UIView+Extension.swift */,
+				FC6AC1862C91BD2200678F17 /* UIColor+Extension.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -1310,8 +1315,9 @@
 			isa = PBXGroup;
 			children = (
 				FCB9BB542C8967160093969D /* Configuration.swift */,
-				FC9B21432C8AC6A200B508A9 /* AuthEntity.swift */,
 				FC9B21452C8B141D00B508A9 /* DefaultEntity.swift */,
+				FC9B21432C8AC6A200B508A9 /* AuthEntity.swift */,
+				FC6AC1842C91B75E00678F17 /* RegEntity.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -2128,6 +2134,7 @@
 				FC46FD082C88B966000C5303 /* SubsVC.swift in Sources */,
 				FC46FD0A2C88B96F000C5303 /* SettingsVC.swift in Sources */,
 				585B10922577E294004F691E /* key.c in Sources */,
+				FC6AC1872C91BD2200678F17 /* UIColor+Extension.swift in Sources */,
 				FC9B214A2C8C1EFA00B508A9 /* PrivacyVC.swift in Sources */,
 				FC9B214E2C8C1F1300B508A9 /* LanguageVC.swift in Sources */,
 				FC46FD042C88B91D000C5303 /* ResetPasswordSuccessVC.swift in Sources */,
@@ -2138,6 +2145,7 @@
 				FCB9BB482C8961F60093969D /* ResultResponce.swift in Sources */,
 				6FB1017921C57DE600766195 /* MockTunnels.swift in Sources */,
 				6B707D8421F918D4000A8F73 /* TunnelConfiguration+UapiConfig.swift in Sources */,
+				FC6AC1852C91B75E00678F17 /* RegEntity.swift in Sources */,
 				FC46FCE62C88B6D1000C5303 /* HomeVC.swift in Sources */,
 				FCB9BB552C8967160093969D /* Configuration.swift in Sources */,
 				FC9B21372C89BCAD00B508A9 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,

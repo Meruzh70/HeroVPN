@@ -2,6 +2,7 @@
 // Copyright © 2018-2023 WireGuard LLC. All Rights Reserved.
 
 import UIKit
+import ProgressHUD
 
 class ForgotPasswordVC: UIViewController {
 
@@ -14,6 +15,7 @@ class ForgotPasswordVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.emailTextField.setPlaceholder(text: "Email address")
         self.emailTextField.text = UserDefaultsManager.shared.lastUsedEmail
 
         self.setTargets()
@@ -32,7 +34,31 @@ private extension ForgotPasswordVC {
 
     @objc
     func sendTouch() {
+        let email = self.emailTextField.text ?? ""
 
+        guard !email.isEmpty else {
+            self.showAlert("Please fill out email field")
+            return
+        }
+
+        UserDefaultsManager.shared.lastUsedEmail = email
+
+        ProgressHUD.animate()
+        AppService().forgot(email: email) { result in
+            ProgressHUD.dismiss()
+            switch result {
+            case .succsess(let state):
+                if state {
+                    guard let vc = Utils.shared.mainStoryboard().instantiateViewController(withIdentifier: VerificationVC.className) as? VerificationVC else { return }
+                    vc.needChangePassword = true
+                    self.present(vc, animated: true)
+                } else {
+                    self.showAlert("Undefined error")
+                }
+            case .failure(let error):
+                self.showAlert(error.textError)
+            }
+        }
     }
 
 }

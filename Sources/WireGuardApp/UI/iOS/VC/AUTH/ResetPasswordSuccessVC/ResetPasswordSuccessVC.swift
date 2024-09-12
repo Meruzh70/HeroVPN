@@ -20,6 +20,6 @@ private extension ResetPasswordSuccessVC {
 
     @objc
     func goLoginTouch() {
-//        NotificationCenter.default.post(name: .needOpenChooseVCForLogin, object: nil)
+        NotificationCenter.default.post(name: .needOpenMainTabBar, object: nil)
     }
 }

@@ -56,7 +56,7 @@ import UIKit
         case .circular:
             layer.cornerRadius = bounds.size.width / 2
         case .roundedCorner:
-            layer.cornerRadius = 10
+            layer.cornerRadius = 11
         case .square:
             layer.cornerRadius = 0
         case .diamond:

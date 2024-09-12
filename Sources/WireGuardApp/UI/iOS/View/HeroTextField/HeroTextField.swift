@@ -17,6 +17,11 @@ class HeroTextField: UITextField {
 
         self.rightView = view
         self.rightViewMode = .always
+
+        self.textColor = UIColor.white.withAlphaComponent(0.8)
     }
 
+    func setPlaceholder(text: String) {
+        self.attributedPlaceholder = NSAttributedString(string: text, attributes: [NSAttributedString.Key.foregroundColor: UIColor.white.withAlphaComponent(0.4)])
+    }
 }

@@ -8,6 +8,11 @@ enum AppApi: URLRequestBuilder {
     case login(email: String, password: String)
     case signUp(name: String, email: String, password: String)
     case connect
+    case confirm(email: String, code: String)
+    case forgot(email: String)
+    case password(password: String)
+    case tarrifs
+    case promocode(code: String)
 
     // property for path
     var path: String {
@@ -15,6 +20,11 @@ enum AppApi: URLRequestBuilder {
         case .login: "/login"
         case .signUp: "/user"
         case .connect: "/connect"
+        case .confirm: "/confirm"
+        case .forgot: "/forgot"
+        case .password: "/password"
+        case .tarrifs: "/tariffs"
+        case .promocode: "/promocode"
         }
     }
 
@@ -37,14 +47,27 @@ enum AppApi: URLRequestBuilder {
              "password": password]
         case .connect:
             nil
+        case .confirm(let email, let code):
+            ["email": email,
+             "code": code]
+        case .forgot(let email):
+            ["email": email]
+        case .password(let password):
+            ["password": password]
+        case .tarrifs:
+            nil
+        case .promocode(let code):
+            ["code": code]
         }
     }
 
     // property for method
     var method: HTTPMethod {
         return switch self {
-        case .login, .signUp, .connect:
-            .post
+        case .login, .signUp, .connect, .confirm, .forgot, .password, .promocode:
+                .post
+        case .tarrifs:
+                .get
         }
     }
 }

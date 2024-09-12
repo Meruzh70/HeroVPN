@@ -31,6 +31,9 @@ class AuthVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.emailTextField.setPlaceholder(text: "Email address")
+        self.passwordTextField.setPlaceholder(text: "Password")
+
         self.emailTextField.text = UserDefaultsManager.shared.lastUsedEmail
 
         self.setTargets()
@@ -74,11 +77,6 @@ private extension AuthVC {
 
         guard !password.isEmpty else {
             self.showAlert("Please fill out password field")
-            return
-        }
-
-        guard let email = emailTextField.text, !email.isEmpty else {
-            self.showAlert("Enter email")
             return
         }
 

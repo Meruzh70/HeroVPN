@@ -28,11 +28,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ProgressHUD.animationType = .circleArcDotSpin
 
         if UserDefaultsManager.shared.isFirstOpeningApp {
-            self.openVCAsRoot(vc: AuthVC.self)
+            self.openVCAsRoot(vc: OnboardingVC.self)
         } else if KeychainManager.shared.authToken != nil {
             self.openVCAsRoot(vc: MainTabBar.self)
         } else {
-            self.openVCAsRoot(vc: ChooseVC.self)
+            self.openVCAsRoot(vc: AuthVC.self)
         }
 
 //        let window = UIWindow(frame: UIScreen.main.bounds)

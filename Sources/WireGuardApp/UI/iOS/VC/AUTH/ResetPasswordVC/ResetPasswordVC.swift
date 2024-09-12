@@ -2,21 +2,27 @@
 // Copyright © 2018-2023 WireGuard LLC. All Rights Reserved.
 
 import UIKit
+import ProgressHUD
 
 class ResetPasswordVC: UIViewController {
 
     @IBOutlet weak var backButton: UIButton!
 
-    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var passwordTextField: HeroTextField!
     @IBOutlet weak var showPasswordButton: UIButton!
 
-    @IBOutlet weak var confirmPasswordTextField: UITextField!
+    @IBOutlet weak var confirmPasswordTextField: HeroTextField!
     @IBOutlet weak var showConfirmPasswordButton: UIButton!
 
     @IBOutlet weak var resetButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        self.backButton.isHidden = true
+
+        self.passwordTextField.setPlaceholder(text: "Password")
+        self.confirmPasswordTextField.setPlaceholder(text: "Confirm Password")
 
         self.setTargets()
     }
@@ -47,6 +53,38 @@ private extension ResetPasswordVC {
 
     @objc
     func resetTouch() {
+        let password = self.passwordTextField.text ?? ""
+        let confirmPassword = self.confirmPasswordTextField.text ?? ""
 
+        guard !password.isEmpty else {
+            self.showAlert("Please fill out password")
+            return
+        }
+
+        guard !confirmPassword.isEmpty else {
+            self.showAlert("Please fill out confirm password")
+            return
+        }
+
+        guard password == confirmPassword else {
+            self.showAlert("Entered password not equal confirm password")
+            return
+        }
+
+        ProgressHUD.animate()
+        AppService().password(password: password, complition: { result in
+            ProgressHUD.dismiss()
+            switch result {
+            case .succsess(let state):
+                if state {
+                    let vc = Utils.shared.mainStoryboard().instantiateViewController(withIdentifier: ResetPasswordSuccessVC.className)
+                    self.present(vc, animated: true)
+                } else {
+                    self.showAlert("Undefined error")
+                }
+            case .failure(let error):
+                self.showAlert(error.textError)
+            }
+        })
     }
 }

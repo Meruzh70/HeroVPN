@@ -30,7 +30,7 @@ private extension LogoutVC {
     @objc
     func logoutTouch() {
         UserDefaultsManager.shared.userName = nil
-        KeychainManager.shared.authToken = nil
+        KeychainManager.shared.removeAll()
         Connection.shared.changeConnection(isOn: false)
 //        Connection.shared.removeConfiguration()
         NotificationCenter.default.post(name: .needOpenAuth, object: nil)

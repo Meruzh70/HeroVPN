@@ -8,14 +8,14 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="24785cc015b27a3e964be934a8906023.ttf">
-            <string>Montserrat-Regular</string>
-        </array>
         <array key="Montserrat-Bold.ttf">
             <string>Montserrat-Bold</string>
         </array>
         <array key="Montserrat-Medium.ttf">
             <string>Montserrat-Medium</string>
+        </array>
+        <array key="Montserrat-Regular.ttf">
+            <string>Montserrat-Regular</string>
         </array>
         <array key="Montserrat-SemiBold.ttf">
             <string>Montserrat-SemiBold</string>
@@ -403,11 +403,6 @@ Account</string>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
-                                        <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BYz-Kx-Iam" customClass="HeroTextField" customModule="VPN_Hero___Super_Fast" customModuleProvider="target">
                                 <rect key="frame" x="16" y="368" width="361" height="64"/>
@@ -417,11 +412,6 @@ Account</string>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" textContentType="email"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
-                                        <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="R0A-HZ-OHj" customClass="HeroTextField" customModule="VPN_Hero___Super_Fast" customModuleProvider="target">
                                 <rect key="frame" x="16" y="448" width="361" height="64"/>
@@ -431,11 +421,6 @@ Account</string>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
-                                        <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Kc-V1-Dnz">
                                 <rect key="frame" x="309" y="448" width="64" height="64"/>
@@ -544,11 +529,6 @@ Back</string>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
-                                        <color key="value" white="1" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="V47-Id-H1m" customClass="HeroTextField" customModule="VPN_Hero___Super_Fast" customModuleProvider="target">
                                 <rect key="frame" x="16" y="368" width="361" height="64"/>
@@ -558,11 +538,6 @@ Back</string>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
-                                        <color key="value" white="1" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dVJ-8n-OWc">
                                 <rect key="frame" x="309" y="368" width="64" height="64"/>
@@ -684,7 +659,7 @@ Password</string>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your email and we will send OTP code to recovery the password" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cQT-9Q-lUc">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your email and we will send OTP code to recovery the password" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cQT-9Q-lUc">
                                 <rect key="frame" x="16" y="242.66666666666666" width="361" height="34.333333333333343"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="14"/>
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -698,11 +673,6 @@ Password</string>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
-                                        <color key="value" white="1" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IX8-f5-jxV">
                                 <rect key="frame" x="16" y="511" width="361" height="54"/>
@@ -722,9 +692,9 @@ Password</string>
                             <constraint firstItem="YYe-E8-ucb" firstAttribute="leading" secondItem="Nsk-8e-fIe" secondAttribute="leading" constant="16" id="C4x-3d-WHd"/>
                             <constraint firstItem="92T-T1-U90" firstAttribute="leading" secondItem="Nsk-8e-fIe" secondAttribute="leading" constant="16" id="DLW-sg-UhT"/>
                             <constraint firstItem="IX8-f5-jxV" firstAttribute="leading" secondItem="Nsk-8e-fIe" secondAttribute="leading" constant="16" id="Pob-HT-RzE"/>
+                            <constraint firstItem="Nsk-8e-fIe" firstAttribute="trailing" secondItem="cQT-9Q-lUc" secondAttribute="trailing" constant="16" id="VYf-HN-Dh6"/>
                             <constraint firstItem="YYe-E8-ucb" firstAttribute="top" secondItem="9yu-Zv-9k3" secondAttribute="bottom" constant="40" id="dOD-aN-8hT"/>
                             <constraint firstItem="cQT-9Q-lUc" firstAttribute="leading" secondItem="Nsk-8e-fIe" secondAttribute="leading" constant="16" id="fUw-r4-JyP"/>
-                            <constraint firstAttribute="trailing" secondItem="cQT-9Q-lUc" secondAttribute="trailing" constant="16" id="gfZ-EN-NhB"/>
                             <constraint firstItem="IX8-f5-jxV" firstAttribute="top" secondItem="92T-T1-U90" secondAttribute="bottom" constant="90" id="het-re-9ia"/>
                             <constraint firstItem="9yu-Zv-9k3" firstAttribute="leading" secondItem="Nsk-8e-fIe" secondAttribute="leading" constant="16" id="pXR-ro-fIi"/>
                             <constraint firstItem="Nsk-8e-fIe" firstAttribute="trailing" secondItem="92T-T1-U90" secondAttribute="trailing" constant="16" id="qeA-mS-WaL"/>
@@ -772,7 +742,7 @@ Password</string>
                                     <constraint firstAttribute="width" constant="90" id="vnQ-e8-q9p"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You Can Now Access Your Account with Your New Password" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8qT-m8-qZV">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You Can Now Access Your Account with Your New Password" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8qT-m8-qZV">
                                 <rect key="frame" x="39" y="417.66666666666669" width="315" height="34.333333333333314"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="315" id="8SU-xz-6lD"/>
@@ -840,29 +810,18 @@ Password</string>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We have sent the OTP code to the email " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9GF-LZ-ZE2">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We have sent the OTP code to the email " textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9GF-LZ-ZE2">
                                 <rect key="frame" x="16" y="194" width="361" height="17.333333333333343"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="14"/>
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bvY-WN-5Is" customClass="OTPFieldView" customModule="VPN_Hero___Super_Fast" customModuleProvider="target">
-                                <rect key="frame" x="16" y="291.33333333333331" width="361" height="80"/>
+                                <rect key="frame" x="16" y="272.66666666666669" width="361" height="70"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="Bsh-Eg-tI2"/>
+                                    <constraint firstAttribute="height" constant="70" id="Bsh-Eg-tI2"/>
                                 </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="0.0"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                        <real key="value" value="0.0"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="heisenberg99@gmail.com" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rNg-Nh-nsV">
                                 <rect key="frame" x="16" y="211.33333333333334" width="361" height="17.333333333333343"/>
@@ -871,7 +830,7 @@ Password</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yMV-ak-Grf">
-                                <rect key="frame" x="16" y="461.33333333333331" width="361" height="53.999999999999943"/>
+                                <rect key="frame" x="16" y="432.66666666666669" width="361" height="54"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="54" id="zaK-r6-AbB"/>
                                 </constraints>
@@ -889,11 +848,11 @@ Password</string>
                             <constraint firstItem="2VG-z5-584" firstAttribute="leading" secondItem="Bcr-7W-j2U" secondAttribute="leading" constant="16" id="Oqu-Pe-mgV"/>
                             <constraint firstItem="Kp8-eZ-Xsg" firstAttribute="top" secondItem="2VG-z5-584" secondAttribute="bottom" constant="40" id="Q2X-r7-8pS"/>
                             <constraint firstItem="Bcr-7W-j2U" firstAttribute="trailing" secondItem="bvY-WN-5Is" secondAttribute="trailing" constant="16" id="RJA-q7-eYx"/>
+                            <constraint firstItem="bvY-WN-5Is" firstAttribute="top" secondItem="rNg-Nh-nsV" secondAttribute="bottom" constant="44" id="Udx-zn-GEx"/>
                             <constraint firstAttribute="trailing" secondItem="9GF-LZ-ZE2" secondAttribute="trailing" constant="16" id="VRB-q1-qq1"/>
                             <constraint firstItem="2VG-z5-584" firstAttribute="top" secondItem="Bcr-7W-j2U" secondAttribute="top" id="WFH-rw-9dh"/>
                             <constraint firstItem="Kp8-eZ-Xsg" firstAttribute="leading" secondItem="Bcr-7W-j2U" secondAttribute="leading" constant="16" id="Y1L-0B-mZ0"/>
                             <constraint firstItem="Bcr-7W-j2U" firstAttribute="trailing" secondItem="yMV-ak-Grf" secondAttribute="trailing" constant="16" id="YvK-NM-P3I"/>
-                            <constraint firstItem="bvY-WN-5Is" firstAttribute="top" secondItem="9GF-LZ-ZE2" secondAttribute="bottom" constant="80" id="jmV-oJ-PPH"/>
                             <constraint firstItem="rNg-Nh-nsV" firstAttribute="leading" secondItem="Bcr-7W-j2U" secondAttribute="leading" constant="16" id="mwD-Nk-Tjf"/>
                             <constraint firstItem="bvY-WN-5Is" firstAttribute="leading" secondItem="Bcr-7W-j2U" secondAttribute="leading" constant="16" id="wtW-0o-RrN"/>
                             <constraint firstItem="yMV-ak-Grf" firstAttribute="leading" secondItem="Bcr-7W-j2U" secondAttribute="leading" constant="16" id="xRx-69-iqp"/>
@@ -914,7 +873,7 @@ Password</string>
         <!--Reset PasswordVC-->
         <scene sceneID="eSX-Zn-xzb">
             <objects>
-                <viewController storyboardIdentifier="NewPasswordVC" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="C7y-A3-Oy5" customClass="ResetPasswordVC" customModule="VPN_Hero___Super_Fast" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ResetPasswordVC" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="C7y-A3-Oy5" customClass="ResetPasswordVC" customModule="VPN_Hero___Super_Fast" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xIy-co-1JD" customClass="TPKeyboardAvoidingScrollView">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -928,52 +887,6 @@ Password</string>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" image="arrow back"/>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6NS-oN-jhd">
-                                <rect key="frame" x="16" y="264.66666666666669" width="361" height="64"/>
-                                <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jOR-U6-Zsh">
-                                        <rect key="frame" x="16" y="5" width="302" height="54"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
-                                                <color key="value" red="1" green="1" blue="1" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z29-XM-jbN">
-                                        <rect key="frame" x="323" y="23.666666666666629" width="22" height="17"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="17" id="3IX-aN-Iy0"/>
-                                            <constraint firstAttribute="width" constant="22" id="oEo-vj-1iW"/>
-                                        </constraints>
-                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" image="eye-slash-light"/>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="jOR-U6-Zsh" secondAttribute="bottom" constant="5" id="4Qc-e9-Aub"/>
-                                    <constraint firstAttribute="height" constant="64" id="And-kF-IUg"/>
-                                    <constraint firstItem="jOR-U6-Zsh" firstAttribute="leading" secondItem="6NS-oN-jhd" secondAttribute="leading" constant="16" id="KYe-Kl-Qn7"/>
-                                    <constraint firstAttribute="trailing" secondItem="z29-XM-jbN" secondAttribute="trailing" constant="16" id="RFm-FV-Yky"/>
-                                    <constraint firstItem="z29-XM-jbN" firstAttribute="leading" secondItem="jOR-U6-Zsh" secondAttribute="trailing" constant="5" id="b6M-j9-cUl"/>
-                                    <constraint firstItem="jOR-U6-Zsh" firstAttribute="top" secondItem="6NS-oN-jhd" secondAttribute="top" constant="5" id="iC2-da-66g"/>
-                                    <constraint firstItem="z29-XM-jbN" firstAttribute="centerY" secondItem="6NS-oN-jhd" secondAttribute="centerY" id="yi7-ST-IsB"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="16"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                        <real key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sZE-L1-Xja">
                                 <rect key="frame" x="16" y="129" width="199.66666666666666" height="97.666666666666686"/>
                                 <string key="text">Reset
@@ -982,52 +895,42 @@ Password</string>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UXF-JG-3WQ">
-                                <rect key="frame" x="16" y="344.66666666666669" width="361" height="64"/>
-                                <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PBG-G2-vbw">
-                                        <rect key="frame" x="16" y="5" width="302" height="54"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
-                                                <color key="value" red="1" green="1" blue="1" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TvK-1W-oIl">
-                                        <rect key="frame" x="323" y="23.666666666666629" width="22" height="17"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="22" id="KZh-vp-BcG"/>
-                                            <constraint firstAttribute="height" constant="17" id="w9g-uM-tR5"/>
-                                        </constraints>
-                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" image="eye-slash-light"/>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jOR-U6-Zsh" customClass="HeroTextField" customModule="VPN_Hero___Super_Fast" customModuleProvider="target">
+                                <rect key="frame" x="16" y="264.66666666666669" width="361" height="64"/>
                                 <constraints>
-                                    <constraint firstItem="PBG-G2-vbw" firstAttribute="leading" secondItem="UXF-JG-3WQ" secondAttribute="leading" constant="16" id="2d8-Bq-LF6"/>
-                                    <constraint firstAttribute="trailing" secondItem="TvK-1W-oIl" secondAttribute="trailing" constant="16" id="7EJ-2a-g5b"/>
-                                    <constraint firstItem="PBG-G2-vbw" firstAttribute="top" secondItem="UXF-JG-3WQ" secondAttribute="top" constant="5" id="LGG-Wa-eDn"/>
-                                    <constraint firstAttribute="bottom" secondItem="PBG-G2-vbw" secondAttribute="bottom" constant="5" id="hZp-NT-G5Q"/>
-                                    <constraint firstAttribute="height" constant="64" id="oyT-X4-KZ3"/>
-                                    <constraint firstItem="TvK-1W-oIl" firstAttribute="leading" secondItem="PBG-G2-vbw" secondAttribute="trailing" constant="5" id="peW-Pc-iKD"/>
-                                    <constraint firstItem="TvK-1W-oIl" firstAttribute="centerY" secondItem="UXF-JG-3WQ" secondAttribute="centerY" id="usO-yH-qnz"/>
+                                    <constraint firstAttribute="height" constant="64" id="7M0-cp-ruX"/>
                                 </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="16"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                        <real key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z29-XM-jbN">
+                                <rect key="frame" x="309" y="264.66666666666669" width="64" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="3IX-aN-Iy0"/>
+                                    <constraint firstAttribute="width" constant="64" id="oEo-vj-1iW"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="eye-slash-light"/>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PBG-G2-vbw" customClass="HeroTextField" customModule="VPN_Hero___Super_Fast" customModuleProvider="target">
+                                <rect key="frame" x="16" y="344.66666666666669" width="361" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="7kg-lK-3dm"/>
+                                </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TvK-1W-oIl">
+                                <rect key="frame" x="309" y="344.66666666666669" width="64" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="64" id="KZh-vp-BcG"/>
+                                    <constraint firstAttribute="height" constant="64" id="w9g-uM-tR5"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="eye-slash-light"/>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9nf-z3-cML">
                                 <rect key="frame" x="16" y="499.66666666666674" width="361" height="54"/>
                                 <constraints>
@@ -1040,19 +943,23 @@ Password</string>
                         <viewLayoutGuide key="safeArea" id="gCi-X9-Nq2"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="PBG-G2-vbw" firstAttribute="leading" secondItem="gCi-X9-Nq2" secondAttribute="leading" constant="16" id="42N-Sv-QtM"/>
                             <constraint firstItem="sZE-L1-Xja" firstAttribute="leading" secondItem="gCi-X9-Nq2" secondAttribute="leading" constant="16" id="4GZ-la-oV6"/>
                             <constraint firstItem="75M-DO-fw3" firstAttribute="top" secondItem="gCi-X9-Nq2" secondAttribute="top" id="6TI-VS-hHE"/>
+                            <constraint firstItem="jOR-U6-Zsh" firstAttribute="leading" secondItem="gCi-X9-Nq2" secondAttribute="leading" constant="16" id="7Vo-J9-yvQ"/>
+                            <constraint firstItem="PBG-G2-vbw" firstAttribute="top" secondItem="jOR-U6-Zsh" secondAttribute="bottom" constant="16" id="Aj2-Za-Mpr"/>
+                            <constraint firstItem="z29-XM-jbN" firstAttribute="trailing" secondItem="jOR-U6-Zsh" secondAttribute="trailing" constant="-4" id="G0Z-l1-R5q"/>
                             <constraint firstItem="sZE-L1-Xja" firstAttribute="top" secondItem="75M-DO-fw3" secondAttribute="bottom" constant="40" id="I3T-zq-nEc"/>
-                            <constraint firstItem="gCi-X9-Nq2" firstAttribute="trailing" secondItem="6NS-oN-jhd" secondAttribute="trailing" constant="16" id="OXv-sT-h4o"/>
-                            <constraint firstItem="6NS-oN-jhd" firstAttribute="top" secondItem="sZE-L1-Xja" secondAttribute="bottom" constant="38" id="Qdp-Ji-hU6"/>
+                            <constraint firstItem="TvK-1W-oIl" firstAttribute="trailing" secondItem="PBG-G2-vbw" secondAttribute="trailing" constant="-4" id="JVZ-ia-63a"/>
+                            <constraint firstItem="9nf-z3-cML" firstAttribute="top" secondItem="TvK-1W-oIl" secondAttribute="bottom" constant="91.000000000000057" id="MFW-kh-a61"/>
                             <constraint firstItem="9nf-z3-cML" firstAttribute="leading" secondItem="gCi-X9-Nq2" secondAttribute="leading" constant="16" id="UX4-nj-m1k"/>
-                            <constraint firstItem="9nf-z3-cML" firstAttribute="top" secondItem="UXF-JG-3WQ" secondAttribute="bottom" constant="91" id="XsT-Fs-70o"/>
+                            <constraint firstItem="z29-XM-jbN" firstAttribute="centerY" secondItem="jOR-U6-Zsh" secondAttribute="centerY" id="UbP-gL-2ph"/>
+                            <constraint firstItem="TvK-1W-oIl" firstAttribute="centerY" secondItem="PBG-G2-vbw" secondAttribute="centerY" id="Xyz-Y4-5dh"/>
                             <constraint firstItem="gCi-X9-Nq2" firstAttribute="trailing" secondItem="9nf-z3-cML" secondAttribute="trailing" constant="16" id="Y1i-8t-HOC"/>
-                            <constraint firstItem="UXF-JG-3WQ" firstAttribute="top" secondItem="6NS-oN-jhd" secondAttribute="bottom" constant="16" id="bXC-bx-H4i"/>
-                            <constraint firstItem="6NS-oN-jhd" firstAttribute="leading" secondItem="gCi-X9-Nq2" secondAttribute="leading" constant="16" id="cvc-pZ-Zbt"/>
-                            <constraint firstItem="gCi-X9-Nq2" firstAttribute="trailing" secondItem="UXF-JG-3WQ" secondAttribute="trailing" constant="16" id="eEz-Bk-Wpi"/>
                             <constraint firstItem="75M-DO-fw3" firstAttribute="leading" secondItem="gCi-X9-Nq2" secondAttribute="leading" constant="16" id="n7E-5G-4Di"/>
-                            <constraint firstItem="UXF-JG-3WQ" firstAttribute="leading" secondItem="gCi-X9-Nq2" secondAttribute="leading" constant="16" id="qiY-Zr-m6Q"/>
+                            <constraint firstItem="gCi-X9-Nq2" firstAttribute="trailing" secondItem="jOR-U6-Zsh" secondAttribute="trailing" constant="16" id="sh8-Vu-8xK"/>
+                            <constraint firstItem="jOR-U6-Zsh" firstAttribute="top" secondItem="sZE-L1-Xja" secondAttribute="bottom" constant="38" id="wof-ff-VC4"/>
+                            <constraint firstItem="gCi-X9-Nq2" firstAttribute="trailing" secondItem="PBG-G2-vbw" secondAttribute="trailing" constant="16" id="ycP-l3-B8h"/>
                         </constraints>
                     </view>
                     <connections>

@@ -28,6 +28,10 @@ class SignUpVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.nameTextField.setPlaceholder(text: "Name")
+        self.emailTextField.setPlaceholder(text: "Email address")
+        self.passwordTextField.setPlaceholder(text: "Password")
+
         self.emailTextField.text = UserDefaultsManager.shared.lastUsedEmail
 
         self.setTargets()
@@ -84,9 +88,13 @@ private extension SignUpVC {
         AppService().register(name: name, email: email, password: password) { result in
             ProgressHUD.dismiss()
             switch result {
-            case .succsess(let name):
-                UserDefaultsManager.shared.userName = name
-                NotificationCenter.default.post(name: .needOpenMainTabBar, object: nil)
+            case .succsess(let state):
+                if state {
+                    let vc = Utils.shared.mainStoryboard().instantiateViewController(withIdentifier: VerificationVC.className)
+                    self.present(vc, animated: true)
+                } else {
+                    self.showAlert("Undefined error")
+                }
             case .failure(let error):
                 self.showAlert(error.textError)
             }

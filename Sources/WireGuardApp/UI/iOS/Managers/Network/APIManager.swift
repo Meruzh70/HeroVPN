@@ -73,22 +73,35 @@ extension APIManager {
 
     // function for handling error by AFError and Data, return ResponseError
     func errorHandling(error: AFError, data: Data?) -> ResponseError {
+        var titleError = ""
         var textErrors: [String] = []
+        var exist = false
+
         if let data = data {
             let str = String(decoding: data, as: UTF8.self)
             print(str)
             do {
-                if let jsonArray = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: AnyObject], let errors = jsonArray["errors"] as? [String] {
-                    textErrors = errors
-                    print(textErrors)
+                if let jsonArray = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: AnyObject] {
+                    if let errors = jsonArray["errors"] as? [String] {
+                        textErrors = errors
+                        print(textErrors)
+                    }
+                    if let error = jsonArray["error"] as? String {
+                        titleError = error
+                    }
+                    if let ex = jsonArray["exist"] as? Bool {
+                        exist = true
+                    }
                 }
             } catch let err as NSError {
                 print(err)
             }
         }
 
-        if textErrors.isEmpty {
-            return .custom("", textErrors)
+        if exist {
+            return .exist
+        } else if textErrors.isEmpty {
+            return .custom(titleError, textErrors)
         } else {
             switch error.responseCode {
             case 401: return .accessDenied

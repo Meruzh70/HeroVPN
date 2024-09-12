@@ -23,9 +23,10 @@ class KeychainManager {
             return load(key: keys.authToken)?.toString
         }
         set {
-            if let newValue = newValue,
-               let valueData = newValue.data(using: .utf8) {
+            if let newValue = newValue, let valueData = newValue.data(using: .utf8) {
                 _ = save(key: keys.authToken, data: valueData)
+            } else {
+
             }
         }
     }
