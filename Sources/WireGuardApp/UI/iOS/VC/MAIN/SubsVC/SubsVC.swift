@@ -39,13 +39,12 @@ class SubsVC: UIViewController {
 
         self.setTargets()
         self.configureUI()
-
-//        self.receiptValidation()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.requestTarrifs()
+        self.requestStatus()
     }
 
     deinit {
@@ -160,11 +159,14 @@ private extension SubsVC {
     }
 
     func requestStatus() {
-        ProgressHUD.animate()
         AppService().getStatus(complition: { result in
-            ProgressHUD.dismiss()
             switch result {
             case .succsess(let state):
+                if state {
+
+                } else {
+                    self.receiptValidation()
+                }
                 self.showAlert(state ? "Has subscribe" : "Has not subscribe")
             case .failure(let error):
                 self.showAlert(error.textError)
