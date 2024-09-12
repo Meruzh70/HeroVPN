@@ -7,17 +7,22 @@ enum AppApi: URLRequestBuilder {
     // types
     case login(email: String, password: String)
     case signUp(name: String, email: String, password: String)
+    case loginApple(appleToken: String)
+    case pushToken(token: String)
     case connect
     case confirm(email: String, code: String)
     case forgot(email: String)
     case password(password: String)
     case tarrifs
     case promocode(code: String)
+    case status
 
     // property for path
     var path: String {
         return switch self {
         case .login: "/login"
+        case .loginApple: "/user/apple"
+        case .pushToken: "/user/push"
         case .signUp: "/user"
         case .connect: "/connect"
         case .confirm: "/confirm"
@@ -25,6 +30,7 @@ enum AppApi: URLRequestBuilder {
         case .password: "/password"
         case .tarrifs: "/tariffs"
         case .promocode: "/promocode"
+        case .status: "/status"
         }
     }
 
@@ -41,6 +47,10 @@ enum AppApi: URLRequestBuilder {
         case .login(let email, let password):
             ["email": email,
              "password": password]
+        case .loginApple(let appleToken):
+            ["token": appleToken]
+        case .pushToken(let token):
+            ["token": token]
         case .signUp(let name, let email, let password):
             ["name": name,
              "email": email,
@@ -58,15 +68,17 @@ enum AppApi: URLRequestBuilder {
             nil
         case .promocode(let code):
             ["code": code]
+        case .status:
+            nil
         }
     }
 
     // property for method
     var method: HTTPMethod {
         return switch self {
-        case .login, .signUp, .connect, .confirm, .forgot, .password, .promocode:
+        case .login, .loginApple, .pushToken, .signUp, .connect, .confirm, .forgot, .password, .promocode:
                 .post
-        case .tarrifs:
+        case .tarrifs, .status:
                 .get
         }
     }

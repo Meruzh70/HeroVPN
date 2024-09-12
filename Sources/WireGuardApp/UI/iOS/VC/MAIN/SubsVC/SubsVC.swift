@@ -5,83 +5,22 @@ import UIKit
 import ProgressHUD
 import PassKit
 import StoreKit
-
-class Product {
-    let id: String
-    let title: String
-    let cost: Decimal
-    let discountCost: Decimal
-    let monthCount: Int
-
-//    var discountPercent: Int {
-//        return 100 - Int(discountCost / cost)
-//    }
-
-    var costValue: String {
-        return "$\(String(format: "%.2f%", (cost as NSDecimalNumber).floatValue))"
-    }
-
-    var discountCostValue: String {
-        return "$\(String(format: "%.2f%", (discountCost as NSDecimalNumber).floatValue))"
-    }
-
-    init(id: String, title: String, cost: Decimal, discountCost: Decimal, monthCount: Int) {
-        self.id = id
-        self.title = title
-        self.cost = cost
-        self.discountCost = discountCost
-        self.monthCount = monthCount
-    }
-}
+import ProgressHUD
 
 class SubsVC: UIViewController {
 
-    @IBOutlet weak var oneMonthButton: UIButton!
-    @IBOutlet weak var oneMonthCircleButton: UIButton!
-    @IBOutlet weak var oneMonthMainPriceLabel: UILabel!
-    @IBOutlet weak var oneMonthCurrentPriceLabel: UILabel!
 
-    @IBOutlet weak var threeMonthButton: UIButton!
-    @IBOutlet weak var threeMonthCircleButton: UIButton!
-    @IBOutlet weak var threeMonthMainPriceLabel: UILabel!
-    @IBOutlet weak var threeMonthCurrentPriceLabel: UILabel!
-
-    @IBOutlet weak var halfYearButton: UIButton!
-    @IBOutlet weak var halfYearCircleButton: UIButton!
-    @IBOutlet weak var halfYearMainPriceLabel: UILabel!
-    @IBOutlet weak var halfYearCurrentPriceLabel: UILabel!
-
-    @IBOutlet weak var yearButton: UIButton!
-    @IBOutlet weak var yearCircleButton: UIButton!
-    @IBOutlet weak var yearMainPriceLabel: UILabel!
-    @IBOutlet weak var yearCurrentPriceLabel: UILabel!
+    @IBOutlet weak var tarifTableView: UITableView!
+    @IBOutlet weak var heightTarifTableViewConstraint: NSLayoutConstraint!
 
     @IBOutlet weak var subscribeButton: UIButton!
 
     @IBOutlet weak var promocodeTextField: HeroTextField!
     @IBOutlet weak var subscribeForFreeButton: UIButton!
 
-    private var selectedIndex = -1 {
-        didSet {
-            let checkedImage = UIImage(named: "check")
-            let uncheckedImage = UIImage(named: "uncheck")
-            switch oldValue {
-            case 0: self.oneMonthCircleButton.setImage(uncheckedImage, for: .normal)
-            case 1: self.threeMonthCircleButton.setImage(uncheckedImage, for: .normal)
-            case 2: self.halfYearCircleButton.setImage(uncheckedImage, for: .normal)
-            case 3: self.yearCircleButton.setImage(uncheckedImage, for: .normal)
-            default: break
-            }
+    private var tarifs: [Tarif] = UserDefaultsManager.shared.tarifs
 
-            switch selectedIndex {
-            case 0: self.oneMonthCircleButton.setImage(checkedImage, for: .normal)
-            case 1: self.threeMonthCircleButton.setImage(checkedImage, for: .normal)
-            case 2: self.halfYearCircleButton.setImage(checkedImage, for: .normal)
-            case 3: self.yearCircleButton.setImage(checkedImage, for: .normal)
-            default: break
-            }
-        }
-    }
+    private var selectedIndex = -1
 
 #if DEBUG
     private let isSandbox = true
@@ -89,7 +28,6 @@ class SubsVC: UIViewController {
     private let isSandbox = false
 #endif
 
-    private var products: [Product] = []
     private var paymentRequest: PKPaymentRequest?
 
     private var productsArray: [SKProduct] = []
@@ -97,96 +35,84 @@ class SubsVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.products = [Product(id: "1Month", title: "1 Month", cost: 7.99, discountCost: 4.99, monthCount: 1),
-                        Product(id: "3Month", title: "3 Month", cost: 14.99, discountCost: 13.99, monthCount: 3),
-                        Product(id: "6Months", title: "6 Month", cost: 29.99, discountCost: 23.99, monthCount: 6),
-                        Product(id: "1Year", title: "1 Year", cost: 59.99, discountCost: 41.99, monthCount: 12)]
         SKPaymentQueue.default().add(self)
 
         self.setTargets()
         self.configureUI()
 
-        self.fetchAvailableProducts()
-        self.receiptValidation()
+//        self.receiptValidation()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.requestTarrifs()
     }
 
     deinit {
         SKPaymentQueue.default().remove(self)
     }
 }
+extension SubsVC: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.selectedIndex = self.selectedIndex != indexPath.row ? indexPath.row : -1
+        self.tarifTableView.reloadData()
+    }
+}
+
+extension SubsVC: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.tarifs.count
+    }
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 76
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: TarifTableViewCell.className) ?? UITableViewCell()
+
+        if let cell = cell as? TarifTableViewCell {
+            cell.setup(data: self.tarifs[indexPath.row], isSelected: self.selectedIndex == indexPath.row)
+        }
+
+        return cell
+    }
+}
+
 private extension SubsVC {
     func setTargets() {
-        self.oneMonthCircleButton.addTarget(self, action: #selector(circleButtonTouch(_:)), for: .touchUpInside)
-        self.threeMonthCircleButton.addTarget(self, action: #selector(circleButtonTouch(_:)), for: .touchUpInside)
-        self.halfYearCircleButton.addTarget(self, action: #selector(circleButtonTouch(_:)), for: .touchUpInside)
-        self.yearCircleButton.addTarget(self, action: #selector(circleButtonTouch(_:)), for: .touchUpInside)
-
-        self.oneMonthButton.addTarget(self, action: #selector(subscribesButtonTouch(_:)), for: .touchUpInside)
-        self.threeMonthButton.addTarget(self, action: #selector(subscribesButtonTouch(_:)), for: .touchUpInside)
-        self.halfYearButton.addTarget(self, action: #selector(subscribesButtonTouch(_:)), for: .touchUpInside)
-        self.yearButton.addTarget(self, action: #selector(subscribesButtonTouch(_:)), for: .touchUpInside)
-
         self.subscribeButton.addTarget(self, action: #selector(subscribeButtonTouch), for: .touchUpInside)
-
         self.subscribeForFreeButton.addTarget(self, action: #selector(subsctibeForFreeButtonTouch), for: .touchUpInside)
     }
 
     func configureUI() {
-        self.oneMonthMainPriceLabel.attributedText = "\(self.products[0].costValue)".strikeAttributedString
-        self.threeMonthMainPriceLabel.attributedText = "\(self.products[1].costValue)".strikeAttributedString
-        self.halfYearMainPriceLabel.attributedText = "\(self.products[2].costValue)".strikeAttributedString
-        self.yearMainPriceLabel.attributedText = "\(self.products[3].costValue)".strikeAttributedString
-
-
-        self.oneMonthCurrentPriceLabel.text = "\(self.products[0].discountCostValue)"
-        self.threeMonthCurrentPriceLabel.text = "\(self.products[1].discountCostValue)"
-        self.halfYearCurrentPriceLabel.text = "\(self.products[2].discountCostValue)"
-        self.yearCurrentPriceLabel.text = "\(self.products[3].discountCostValue)"
-
+        self.tarifTableView.register(UINib(nibName: "TarifTableViewCell", bundle: nil), forCellReuseIdentifier: TarifTableViewCell.className)
+        self.tarifTableView.showsVerticalScrollIndicator = false
+        self.tarifTableView.showsHorizontalScrollIndicator = false
+        self.tarifTableView.isScrollEnabled = false
+        self.tarifTableView.separatorStyle = .none
+        self.tarifTableView.allowsMultipleSelectionDuringEditing = false
+        self.tarifTableView.delegate = self
+        self.tarifTableView.dataSource = self
     }
 
     func fetchAvailableProducts() {
-        let productIdentifiers = Set(self.products.map({ $0.id }))
+        let productIdentifiers = Set(self.tarifs.map({ $0.uniqId }))
         let productRequest = SKProductsRequest(productIdentifiers: productIdentifiers)
         productRequest.delegate = self
         productRequest.start()
     }
 
     @objc
-    func circleButtonTouch(_ sender: UIButton) {
-        self.selectedIndex = switch sender {
-        case self.oneMonthCircleButton: 0
-        case self.threeMonthCircleButton: 1
-        case self.halfYearCircleButton: 2
-        case self.yearCircleButton: 3
-        default: -1
-        }
-    }
-
-    @objc
-    func subscribesButtonTouch(_ sender: UIButton) {
-        self.selectedIndex = switch sender {
-        case self.oneMonthButton: 0
-        case self.threeMonthButton: 1
-        case self.halfYearButton: 2
-        case self.yearButton: 3
-        default: -1
-        }
-        self.subscribeButtonTouch()
-    }
-
-    @objc
     func subscribeButtonTouch() {
         guard self.selectedIndex > -1 else { return }
-        let product = products[self.selectedIndex]
 
-        guard let product = self.productsArray.first(where: { $0.productIdentifier == self.products[self.selectedIndex].id }) else {
+        guard let product = self.productsArray.first(where: { $0.productIdentifier == self.tarifs[self.selectedIndex].uniqId }) else {
             self.showAlert("Product not found")
             return
         }
 
         if SKPaymentQueue.canMakePayments() {
-            ProgressHUD.animate()
             let payment = SKPayment(product: product)
             SKPaymentQueue.default().add(payment)
         } else {
@@ -201,6 +127,49 @@ private extension SubsVC {
             return
         }
 
+        ProgressHUD.animate()
+        AppService().promocode(code: promocode) { result in
+            ProgressHUD.dismiss()
+            switch result {
+            case .succsess(_):
+                self.promocodeTextField.text = nil
+                self.requestStatus()
+            case .failure(let error):
+                self.showAlert(error.textError)
+            }
+        }
+    }
+
+    func requestTarrifs() {
+        ProgressHUD.animate()
+        AppService().tarifs(complition: { [weak self] (result) in
+            ProgressHUD.dismiss()
+            guard let self = self else { return }
+            switch result {
+            case .succsess(let tarifs):
+                UserDefaultsManager.shared.tarifs = tarifs
+                self.tarifs = tarifs
+                self.heightTarifTableViewConstraint.constant = CGFloat(76 * tarifs.count)
+                self.tarifTableView.reloadData()
+
+                self.fetchAvailableProducts()
+            case .failure(let error):
+                self.showAlert(error.textError)
+            }
+        })
+    }
+
+    func requestStatus() {
+        ProgressHUD.animate()
+        AppService().getStatus(complition: { result in
+            ProgressHUD.dismiss()
+            switch result {
+            case .succsess(let state):
+                self.showAlert(state ? "Has subscribe" : "Has not subscribe")
+            case .failure(let error):
+                self.showAlert(error.textError)
+            }
+        })
     }
 
     func complete(transaction: SKPaymentTransaction) {
@@ -297,21 +266,21 @@ private extension SubsVC {
 
 
 
-    func requestForPay() {
-        let request = PKPaymentRequest()
-        request.merchantIdentifier = "merchant.am.vpnhero.app"
-        request.supportedNetworks = [.visa, .masterCard]
-        request.supportedCountries = ["RU"]
-        request.merchantCapabilities = .capability3DS
-        request.countryCode = "RU"
-        request.currencyCode = "RUB"
-        request.paymentSummaryItems = [PKPaymentSummaryItem(label: self.products[self.selectedIndex].title, amount: NSDecimalNumber(decimal: self.products[self.selectedIndex].discountCost))]
-        self.paymentRequest = request
-
-        guard let controller = PKPaymentAuthorizationViewController(paymentRequest: request) else { return }
-        controller.delegate = self
-        present(controller, animated: true, completion: nil)
-    }
+//    func requestForPay() {
+//        let request = PKPaymentRequest()
+//        request.merchantIdentifier = "merchant.am.vpnhero.app"
+//        request.supportedNetworks = [.visa, .masterCard]
+//        request.supportedCountries = ["RU"]
+//        request.merchantCapabilities = .capability3DS
+//        request.countryCode = "RU"
+//        request.currencyCode = "RUB"
+//        request.paymentSummaryItems = [PKPaymentSummaryItem(label: self.products[self.selectedIndex].title, amount: NSDecimalNumber(decimal: self.products[self.selectedIndex].discountCost))]
+//        self.paymentRequest = request
+//
+//        guard let controller = PKPaymentAuthorizationViewController(paymentRequest: request) else { return }
+//        controller.delegate = self
+//        present(controller, animated: true, completion: nil)
+//    }
 
 }
 extension SubsVC: SKPaymentTransactionObserver {

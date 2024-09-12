@@ -12,6 +12,7 @@ class UserDefaultsManager {
         let lastUsedEmail = "lastUsedEmail"
         let timerStartConnection = "timerStartConnection"
         let userName = "userName"
+        let tarifs = "tarifs"
     }
 
     // initialise
@@ -84,4 +85,22 @@ class UserDefaultsManager {
             }
         }
     }
+
+    var tarifs: [Tarif] {
+        get {
+            guard let savedData = userDefaults.object(forKey: keys.tarifs) as? Data else { return [] }
+            do {
+                let array = try JSONDecoder().decode([Tarif].self, from: savedData)
+                return array
+            } catch {
+                return []
+            }
+        }
+        set {
+            let encodedData = try? JSONEncoder().encode(newValue)
+            userDefaults.set(encodedData, forKey: keys.tarifs)
+            userDefaults.synchronize()
+        }
+    }
+
 }

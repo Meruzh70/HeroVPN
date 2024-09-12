@@ -27,6 +27,37 @@ class AppService {
         }
     }
 
+    // function for login by login and password with complition string result
+    func loginApple(appleToken: String, complition: @escaping (ResultResponce<String?>) -> Void) {
+        let service: AppApi = .loginApple(appleToken: appleToken)
+        apiManager.perform(service: service, decodeType: AuthEntity.self) { (result) in
+            switch result {
+            case .succsess(let loginResponse):
+                if let token = loginResponse.token {
+                    KeychainManager.shared.authToken = token
+                    complition(.succsess(loginResponse.name))
+                } else {
+                    complition(.failure(.custom(loginResponse.message, [])))
+                }
+            case .failure(let error):
+                complition(.failure(error))
+            }
+        }
+    }
+
+    // function for login by login and password with complition string result
+    func pushToken(pushToken: String, complition: @escaping (ResultResponce<Bool>) -> Void) {
+        let service: AppApi = .pushToken(token: pushToken)
+        apiManager.perform(service: service, decodeType: DefaultEntity.self) { (result) in
+            switch result {
+            case .succsess(let defaultResponse):
+                complition(.succsess(defaultResponse.isSuccess))
+            case .failure(let error):
+                complition(.failure(error))
+            }
+        }
+    }
+
     // function for register by name, email and password with complition string result
     func register(name: String, email: String, password: String, complition: @escaping (ResultResponce<Bool>) -> Void) {
         let service: AppApi = .signUp(name: name, email: email, password: password)
@@ -89,17 +120,27 @@ class AppService {
         }
     }
 
-    func tarrifs(complition: @escaping (ResultResponce<[String]>) -> Void) {
+    func tarifs(complition: @escaping (ResultResponce<[Tarif]>) -> Void) {
         let service: AppApi = .tarrifs
-        apiManager.perform(service: service, decodeType: DefaultEntity.self) { (result) in
-
+        apiManager.perform(service: service, decodeType: TarifEntity.self) { (result) in
+            switch result {
+            case .succsess(let tarifResponse):
+                complition(.succsess(tarifResponse.result))
+            case .failure(let error):
+                complition(.failure(error))
+            }
         }
     }
 
-    func promocode(code: String, complition: @escaping (ResultResponce<[String]>) -> Void) {
+    func promocode(code: String, complition: @escaping (ResultResponce<Bool>) -> Void) {
         let service: AppApi = .promocode(code: code)
         apiManager.perform(service: service, decodeType: DefaultEntity.self) { (result) in
-
+            switch result {
+            case .succsess(let defaultResponse):
+                complition(.succsess(defaultResponse.isSuccess))
+            case .failure(let error):
+                complition(.failure(error))
+            }
         }
     }
 
@@ -107,6 +148,18 @@ class AppService {
         let service: AppApi = .connect
         apiManager.perform(service: service) { result in
             complition(result)
+        }
+    }
+
+    func getStatus(complition: @escaping (ResultResponce<Bool>) -> Void) {
+        let service: AppApi = .status
+        apiManager.perform(service: service, decodeType: DefaultEntity.self) { (result) in
+            switch result {
+            case .succsess(let defaultResponse):
+                complition(.succsess(defaultResponse.isSuccess))
+            case .failure(let error):
+                complition(.failure(error))
+            }
         }
     }
 }
