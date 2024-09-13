@@ -90,10 +90,10 @@
             </objects>
             <point key="canvasLocation" x="902" y="-1305"/>
         </scene>
-        <!--OnboardingVC-->
+        <!--Onboarding1VC-->
         <scene sceneID="Uqm-lR-ZJK">
             <objects>
-                <viewController storyboardIdentifier="OnboardingVC" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="NqA-um-qeF" customClass="OnboardingVC" customModule="VPN_Hero___Super_Fast" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Onboarding1VC" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="NqA-um-qeF" customClass="Onboarding1VC" customModule="VPN_Hero___Super_Fast" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vx9-Io-jy5">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -128,9 +128,6 @@
                                 </constraints>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" image="next"/>
-                                <connections>
-                                    <segue destination="2hA-iu-1mf" kind="show" id="roW-JP-lvR"/>
-                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8rP-iL-NSD">
                                 <rect key="frame" x="16" y="545" width="361" height="68.333333333333371"/>
@@ -162,52 +159,52 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="QNr-bZ-JUG"/>
+                    <connections>
+                        <outlet property="nextButton" destination="vSr-69-w1R" id="MXW-d3-C8T"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TdN-xd-IvO" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="902" y="-587"/>
         </scene>
-        <!--View Controller-->
+        <!--Onboarding2VC-->
         <scene sceneID="NQX-u3-fts">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="2hA-iu-1mf" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Onboarding2VC" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="2hA-iu-1mf" customClass="Onboarding2VC" customModule="VPN_Hero___Super_Fast" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Cgp-ei-va5">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="slider2" translatesAutoresizingMaskIntoConstraints="NO" id="zBL-ce-H8E">
-                                <rect key="frame" x="166" y="556.66666666666663" width="61" height="8"/>
+                                <rect key="frame" x="166" y="615.66666666666663" width="61" height="8"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="61" id="fbf-yG-5mJ"/>
                                     <constraint firstAttribute="height" constant="8" id="gbM-Qy-oYU"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unlock Full Access" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0un-eR-QhV">
-                                <rect key="frame" x="85.333333333333329" y="430" width="222.66666666666669" height="29.333333333333314"/>
+                                <rect key="frame" x="85.333333333333329" y="489" width="222.66666666666669" height="29.333333333333371"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="24"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Illustration2" translatesAutoresizingMaskIntoConstraints="NO" id="m6x-NE-k7a">
-                                <rect key="frame" x="76.666666666666686" y="90" width="240" height="240"/>
+                                <rect key="frame" x="76.666666666666686" y="149" width="240" height="240"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="240" id="hgn-Gy-2bq"/>
                                     <constraint firstAttribute="width" constant="240" id="oZu-dY-hMB"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y4U-zV-E0w">
-                                <rect key="frame" x="16" y="775" width="361" height="56"/>
+                                <rect key="frame" x="16" y="741" width="361" height="56"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="FPS-3M-ZXy"/>
                                 </constraints>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" image="next"/>
-                                <connections>
-                                    <segue destination="L5F-Rk-6cu" kind="show" id="E88-cn-Ofv"/>
-                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Purchase a Plan to Activate Your VPN and Access All Features, Ensuring Lightning-Fast Speeds and Robust Security." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p8f-js-GCw">
-                                <rect key="frame" x="16" y="475.33333333333331" width="361" height="51.333333333333314"/>
+                                <rect key="frame" x="16" y="534.33333333333337" width="361" height="51.333333333333371"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="14"/>
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -232,41 +229,44 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="zoW-ia-tRi"/>
+                    <connections>
+                        <outlet property="nextButton" destination="y4U-zV-E0w" id="PVU-qY-ogh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="osg-lo-oct" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1737" y="-587"/>
         </scene>
-        <!--View Controller-->
+        <!--Onboarding3VC-->
         <scene sceneID="kIM-g3-qzY">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="L5F-Rk-6cu" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Onboarding3VC" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="L5F-Rk-6cu" customClass="Onboarding3VC" customModule="VPN_Hero___Super_Fast" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IlQ-eW-y0p">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="slider3" translatesAutoresizingMaskIntoConstraints="NO" id="gCJ-m8-Ix4">
-                                <rect key="frame" x="166" y="556.66666666666663" width="61" height="8"/>
+                                <rect key="frame" x="166" y="615.66666666666663" width="61" height="8"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="61" id="LzY-rj-2kf"/>
                                     <constraint firstAttribute="height" constant="8" id="tyz-3p-7aI"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="One-Click Protection" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wol-bA-BSN">
-                                <rect key="frame" x="71.333333333333329" y="430" width="250.66666666666669" height="29.333333333333314"/>
+                                <rect key="frame" x="71.333333333333329" y="489" width="250.66666666666669" height="29.333333333333371"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="24"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Power Button" translatesAutoresizingMaskIntoConstraints="NO" id="krW-p3-U6h">
-                                <rect key="frame" x="76.666666666666686" y="90" width="240" height="240"/>
+                                <rect key="frame" x="76.666666666666686" y="149" width="240" height="240"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="240" id="B64-uu-CSf"/>
                                     <constraint firstAttribute="height" constant="240" id="t0y-kv-hjD"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ezn-8G-Md1">
-                                <rect key="frame" x="16" y="775" width="361" height="56"/>
+                                <rect key="frame" x="16" y="741" width="361" height="56"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="kp2-aD-82X"/>
                                 </constraints>
@@ -274,7 +274,7 @@
                                 <state key="normal" image="button"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Secure Your Connection Instantly with a Single Button – Enjoy Unrestricted Internet Access with Effortless Ease." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ucU-ed-UXy">
-                                <rect key="frame" x="16" y="475.33333333333331" width="361" height="51.333333333333314"/>
+                                <rect key="frame" x="16" y="534.33333333333337" width="361" height="51.333333333333371"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="14"/>
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -299,6 +299,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="5tI-1R-r1N"/>
+                    <connections>
+                        <outlet property="nextButton" destination="ezn-8G-Md1" id="HYA-sl-GXx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HWX-fl-AKv" sceneMemberID="firstResponder"/>
             </objects>

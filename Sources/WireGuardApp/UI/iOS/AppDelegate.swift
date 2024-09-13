@@ -44,7 +44,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ProgressHUD.animationType = .circleArcDotSpin
 
         if UserDefaultsManager.shared.isFirstOpeningApp {
-            self.openVCAsRoot(vc: OnboardingVC.self)
+            self.openVCAsRoot(vc: Onboarding1VC.self)
         } else if KeychainManager.shared.authToken != nil {
             self.openVCAsRoot(vc: MainTabBar.self)
         } else {
