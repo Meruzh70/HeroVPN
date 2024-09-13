@@ -60,7 +60,7 @@ class HomeVC: UIViewController {
         }
     }
 
-    fileprivate var timer: Timer?
+    private var timer: Timer?
 
     override func viewDidLoad() {
         super.viewDidLoad()

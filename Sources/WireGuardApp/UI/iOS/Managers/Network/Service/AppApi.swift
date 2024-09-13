@@ -16,6 +16,7 @@ enum AppApi: URLRequestBuilder {
     case tarrifs
     case promocode(code: String)
     case status
+    case subscribe(transactionId: String, uniqId: String, cost: Float, created: Double)
 
     // property for path
     var path: String {
@@ -31,6 +32,7 @@ enum AppApi: URLRequestBuilder {
         case .tarrifs: "/tariffs"
         case .promocode: "/promocode"
         case .status: "/status"
+        case .subscribe: "/subscribe"
         }
     }
 
@@ -70,13 +72,18 @@ enum AppApi: URLRequestBuilder {
             ["code": code]
         case .status:
             nil
+        case .subscribe(let transactionId, let uniqId, let cost, let created):
+            ["transaction_id": transactionId,
+             "uniq_id": uniqId,
+             "cost": cost,
+             "created": created]
         }
     }
 
     // property for method
     var method: HTTPMethod {
         return switch self {
-        case .login, .loginApple, .pushToken, .signUp, .connect, .confirm, .forgot, .password, .promocode:
+        case .login, .loginApple, .pushToken, .signUp, .connect, .confirm, .forgot, .password, .promocode, .subscribe:
                 .post
         case .tarrifs, .status:
                 .get

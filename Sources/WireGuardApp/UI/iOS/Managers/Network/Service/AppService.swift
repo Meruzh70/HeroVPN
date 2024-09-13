@@ -95,7 +95,7 @@ class AppService {
         }
     }
 
-    // function for forgot email with complition bool result
+    // function for forgot by email with complition bool result
     func forgot(email: String, complition: @escaping (ResultResponce<Bool>) -> Void) {
         let service: AppApi = .forgot(email: email)
         apiManager.perform(service: service, decodeType: DefaultEntity.self) { (result) in
@@ -108,6 +108,7 @@ class AppService {
         }
     }
 
+    // function for change password by password with complition Bool result
     func password(password: String, complition: @escaping (ResultResponce<Bool>) -> Void) {
         let service: AppApi = .password(password: password)
         apiManager.perform(service: service, decodeType: DefaultEntity.self) { (result) in
@@ -120,7 +121,8 @@ class AppService {
         }
     }
 
-    func tarifs(complition: @escaping (ResultResponce<[Tarif]>) -> Void) {
+    // function for get tarifs with complition [Tarift] result
+    func getTarifs(complition: @escaping (ResultResponce<[Tarif]>) -> Void) {
         let service: AppApi = .tarrifs
         apiManager.perform(service: service, decodeType: TarifEntity.self) { (result) in
             switch result {
@@ -132,6 +134,7 @@ class AppService {
         }
     }
 
+    // function for register promocode by code with complition bool result
     func promocode(code: String, complition: @escaping (ResultResponce<Bool>) -> Void) {
         let service: AppApi = .promocode(code: code)
         apiManager.perform(service: service, decodeType: DefaultEntity.self) { (result) in
@@ -144,6 +147,7 @@ class AppService {
         }
     }
 
+    // function for get config with complition Data result
     func getConfig(complition: @escaping (ResultResponce<Data>) -> Void) {
         let service: AppApi = .connect
         apiManager.perform(service: service) { result in
@@ -151,8 +155,17 @@ class AppService {
         }
     }
 
-    func getStatus(complition: @escaping (ResultResponce<Bool>) -> Void) {
+    // function for get status subscribe with complition bool result
+    func getStatus(complition: @escaping (ResultResponce<StatusEntity>) -> Void) {
         let service: AppApi = .status
+        apiManager.perform(service: service, decodeType: StatusEntity.self) { (result) in
+            complition(result)
+        }
+    }
+
+    // function for subsribe by transactionId, uniqId, cost and created with complition bool result
+    func subsribe(transactionId: String, uniqId: String, cost: Float, created: Double, complition: @escaping (ResultResponce<Bool>) -> Void) {
+        let service: AppApi = .subscribe(transactionId: transactionId, uniqId: uniqId, cost: cost, created: created)
         apiManager.perform(service: service, decodeType: DefaultEntity.self) { (result) in
             switch result {
             case .succsess(let defaultResponse):

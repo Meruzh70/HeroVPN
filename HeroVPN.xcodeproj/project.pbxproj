@@ -237,6 +237,8 @@
 		FC6AC1922C93447800678F17 /* TarifTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6AC1902C93447800678F17 /* TarifTableViewCell.swift */; };
 		FC6AC1932C93447800678F17 /* TarifTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC6AC1912C93447800678F17 /* TarifTableViewCell.xib */; };
 		FC8FDBD52C9348F200A68657 /* Float+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8FDBD42C9348F200A68657 /* Float+Extension.swift */; };
+		FC8FDBD72C93F83400A68657 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8FDBD62C93F83400A68657 /* Date+Extension.swift */; };
+		FC8FDBD92C9423F900A68657 /* StatusEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8FDBD82C9423F900A68657 /* StatusEntity.swift */; };
 		FC9B21362C89BCAD00B508A9 /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = FC9B21322C89BCAD00B508A9 /* TPKeyboardAvoidingScrollView.m */; };
 		FC9B21372C89BCAD00B508A9 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = FC9B21342C89BCAD00B508A9 /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
 		FC9B213C2C89BCBE00B508A9 /* OTPFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9B21392C89BCBE00B508A9 /* OTPFieldView.swift */; };
@@ -540,6 +542,8 @@
 		FC6AC1902C93447800678F17 /* TarifTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TarifTableViewCell.swift; sourceTree = "<group>"; };
 		FC6AC1912C93447800678F17 /* TarifTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TarifTableViewCell.xib; sourceTree = "<group>"; };
 		FC8FDBD42C9348F200A68657 /* Float+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Float+Extension.swift"; sourceTree = "<group>"; };
+		FC8FDBD62C93F83400A68657 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		FC8FDBD82C9423F900A68657 /* StatusEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusEntity.swift; sourceTree = "<group>"; };
 		FC9B21312C89BCAD00B508A9 /* TPKeyboardAvoidingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingScrollView.h; sourceTree = "<group>"; };
 		FC9B21322C89BCAD00B508A9 /* TPKeyboardAvoidingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingScrollView.m; sourceTree = "<group>"; };
 		FC9B21332C89BCAD00B508A9 /* UIScrollView+TPKeyboardAvoidingAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+TPKeyboardAvoidingAdditions.h"; sourceTree = "<group>"; };
@@ -1214,6 +1218,7 @@
 				FCB9BB412C8960B10093969D /* NSNotification.Name+Extension.swift */,
 				FCB9BB512C8964FA0093969D /* Data+Extension.swift */,
 				FC8FDBD42C9348F200A68657 /* Float+Extension.swift */,
+				FC8FDBD62C93F83400A68657 /* Date+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1349,6 +1354,7 @@
 				FC9B21432C8AC6A200B508A9 /* AuthEntity.swift */,
 				FC6AC1842C91B75E00678F17 /* RegEntity.swift */,
 				FC6AC1882C93421D00678F17 /* TarifEntity.swift */,
+				FC8FDBD82C9423F900A68657 /* StatusEntity.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -2100,10 +2106,12 @@
 				585B108E2577E294004F691E /* x25519.c in Sources */,
 				6F7774EF21722D97006A79B3 /* TunnelsManager.swift in Sources */,
 				5F45417D21C1B23600994C13 /* UITableViewCell+Reuse.swift in Sources */,
+				FC8FDBD92C9423F900A68657 /* StatusEntity.swift in Sources */,
 				FC8FDBD52C9348F200A68657 /* Float+Extension.swift in Sources */,
 				FCB9BB442C8961C50093969D /* APIManager.swift in Sources */,
 				5F45419221C2D55800994C13 /* CheckmarkCell.swift in Sources */,
 				6FE254FF219C60290028284D /* ZipExporter.swift in Sources */,
+				FC8FDBD72C93F83400A68657 /* Date+Extension.swift in Sources */,
 				6F8F0D7122258153000E8335 /* ActivateOnDemandViewModel.swift in Sources */,
 				6F8F0D7722267C57000E8335 /* SSIDOptionEditTableViewController.swift in Sources */,
 				FC46FCE42C88B6C1000C5303 /* StartVC.swift in Sources */,
