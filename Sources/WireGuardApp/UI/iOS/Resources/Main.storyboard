@@ -1282,11 +1282,21 @@ Password</string>
                                     </view>
                                 </subviews>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="App version" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jcs-Bu-jeM">
+                                <rect key="frame" x="16" y="514.66666666666663" width="361" height="15"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="15" id="qPr-d1-bOz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="12"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qe2-Kj-fLW">
-                                <rect key="frame" x="0.0" y="510.66666666666674" width="393" height="258.33333333333326"/>
+                                <rect key="frame" x="0.0" y="529.66666666666663" width="393" height="239.33333333333337"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x92-VL-FZM">
-                                        <rect key="frame" x="16" y="101.33333333333331" width="361" height="56"/>
+                                        <rect key="frame" x="16" y="91.666666666666742" width="361" height="56"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" image="logoutButton"/>
                                     </button>
@@ -1304,13 +1314,16 @@ Password</string>
                         <constraints>
                             <constraint firstItem="e9U-kM-uaI" firstAttribute="leading" secondItem="yfL-V2-T9Z" secondAttribute="leading" id="0aW-bi-7yJ"/>
                             <constraint firstItem="e9U-kM-uaI" firstAttribute="top" secondItem="w8y-KD-6H1" secondAttribute="bottom" constant="43" id="37v-u1-LyG"/>
+                            <constraint firstItem="jcs-Bu-jeM" firstAttribute="top" secondItem="e9U-kM-uaI" secondAttribute="bottom" constant="4" id="DQb-gH-DpH"/>
                             <constraint firstItem="w8y-KD-6H1" firstAttribute="top" secondItem="MUV-DL-yIK" secondAttribute="topMargin" constant="-5.6274984672199935e-12" id="Jxi-7U-r6G"/>
                             <constraint firstItem="qe2-Kj-fLW" firstAttribute="leading" secondItem="yfL-V2-T9Z" secondAttribute="leading" id="MY3-oD-KkB"/>
+                            <constraint firstItem="qe2-Kj-fLW" firstAttribute="top" secondItem="jcs-Bu-jeM" secondAttribute="bottom" id="Q11-4c-XZi"/>
                             <constraint firstItem="yfL-V2-T9Z" firstAttribute="trailing" secondItem="w8y-KD-6H1" secondAttribute="trailing" constant="16" id="bnm-Mc-2W4"/>
                             <constraint firstItem="AaE-5t-zp4" firstAttribute="centerY" secondItem="MUV-DL-yIK" secondAttribute="centerY" id="e2Q-QK-zfa"/>
                             <constraint firstItem="AaE-5t-zp4" firstAttribute="bottom" secondItem="yfL-V2-T9Z" secondAttribute="bottom" id="eWZ-sC-Vqw"/>
+                            <constraint firstItem="jcs-Bu-jeM" firstAttribute="leading" secondItem="yfL-V2-T9Z" secondAttribute="leading" constant="16" id="goI-6d-WU4"/>
                             <constraint firstItem="yfL-V2-T9Z" firstAttribute="trailing" secondItem="e9U-kM-uaI" secondAttribute="trailing" id="h7Z-j7-1UC"/>
-                            <constraint firstItem="qe2-Kj-fLW" firstAttribute="top" secondItem="e9U-kM-uaI" secondAttribute="bottom" id="jAq-Ln-pJd"/>
+                            <constraint firstItem="yfL-V2-T9Z" firstAttribute="trailing" secondItem="jcs-Bu-jeM" secondAttribute="trailing" constant="16" id="hbY-JF-NOO"/>
                             <constraint firstItem="w8y-KD-6H1" firstAttribute="leading" secondItem="yfL-V2-T9Z" secondAttribute="leading" constant="16" id="t11-tK-8CI"/>
                             <constraint firstItem="yfL-V2-T9Z" firstAttribute="bottom" secondItem="qe2-Kj-fLW" secondAttribute="bottom" id="uQI-gq-eZh"/>
                             <constraint firstItem="yfL-V2-T9Z" firstAttribute="trailing" secondItem="qe2-Kj-fLW" secondAttribute="trailing" id="z8P-r0-C59"/>
@@ -1321,6 +1334,7 @@ Password</string>
                     </tabBarItem>
                     <connections>
                         <outlet property="aboutButton" destination="iq2-uc-qoz" id="xar-fw-vwr"/>
+                        <outlet property="appVersionLabel" destination="jcs-Bu-jeM" id="osC-iC-01F"/>
                         <outlet property="appearanceSwitch" destination="gvk-CA-Qci" id="yPM-hr-L3k"/>
                         <outlet property="languageButton" destination="fD3-BM-FDW" id="ocp-NE-AES"/>
                         <outlet property="logoutButton" destination="x92-VL-FZM" id="Ndh-xW-GDd"/>

@@ -11,11 +11,17 @@ class SettingsVC: UIViewController {
     @IBOutlet weak var aboutButton: UIButton!
     @IBOutlet weak var supportButton: UIButton!
     @IBOutlet weak var appearanceSwitch: UISwitch!
+    @IBOutlet weak var appVersionLabel: UILabel!
 
     @IBOutlet weak var logoutButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? ""
+        let build = Bundle.main.infoDictionary?["CFBundleVersion"] as? String ?? ""
+
+        self.appVersionLabel?.text = "App version: \(appVersion), build: \(build)"
 
         self.setTargets()
     }
