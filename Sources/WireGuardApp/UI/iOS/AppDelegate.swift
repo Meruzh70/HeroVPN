@@ -4,6 +4,8 @@
 import UIKit
 import os.log
 import ProgressHUD
+import FirebaseCore
+import FirebaseMessaging
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -13,7 +15,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var isLaunchedForSpecificAction = false
 
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        FirebaseApp.configure()
+
         Logger.configureGlobal(tagged: "APP", withFilePath: FileManager.logFileURL?.path)
+
+        Messaging.messaging().delegate = self
+
+        UNUserNotificationCenter.current().delegate = self
+
+        let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+        UNUserNotificationCenter.current().requestAuthorization(
+          options: authOptions,
+          completionHandler: { _, _ in }
+        )
+
+        application.registerForRemoteNotifications()
 
         if let launchOptions = launchOptions {
             if launchOptions[.url] != nil || launchOptions[.shortcutItem] != nil {
@@ -130,5 +146,46 @@ extension AppDelegate {
             }
         }
         return nil
+    }
+
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        Messaging.messaging().apnsToken = deviceToken
+    }
+}
+extension AppDelegate: UNUserNotificationCenterDelegate {
+
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                willPresent notification: UNNotification,
+                                withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        /// I would like to notify user by sound only when app is active
+        /// otherwise show notification (alert, badge, sound)
+        completionHandler([.alert, .badge, .sound])
+    }
+
+    // function when push received
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                didReceive response: UNNotificationResponse,
+                                withCompletionHandler completionHandler: @escaping () -> Void) {
+        let userInfo = response.notification.request.content.userInfo
+        completionHandler()
+    }
+}
+extension AppDelegate: MessagingDelegate {
+    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
+        print("Firebase registration token: \(String(describing: fcmToken))")
+
+        guard let fcmToken = fcmToken else { return }
+        UserDefaultsManager.shared.curentPushToken = fcmToken
+
+        guard KeychainManager.shared.authToken != nil else { return }
+
+        AppService().pushToken(pushToken: fcmToken) { result in
+            switch result {
+            case .succsess(let state):
+                print("success sending fcm token")
+            case .failure(let textError):
+                print(textError)
+            }
+        }
     }
 }

@@ -52,6 +52,8 @@ class SubsVC: UIViewController {
 
         self.setTargets()
         self.configureUI()
+
+        self.sendPushToken()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -385,6 +387,19 @@ private extension SubsVC {
     }
 
 
+    func sendPushToken() {
+        let fcmToken = UserDefaultsManager.shared.curentPushToken
+        guard !fcmToken.isEmpty else { return }
+
+        AppService().pushToken(pushToken: fcmToken) { result in
+            switch result {
+            case .succsess(let state):
+                print("success sending fcm token")
+            case .failure(let textError):
+                print(textError)
+            }
+        }
+    }
 
 //    func requestForPay() {
 //        let request = PKPaymentRequest()

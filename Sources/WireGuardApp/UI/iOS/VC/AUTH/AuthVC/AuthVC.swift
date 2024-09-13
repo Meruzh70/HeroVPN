@@ -121,8 +121,6 @@ private extension AuthVC {
 }
 extension AuthVC: ASAuthorizationControllerDelegate {
     func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
-        ProgressHUD.animate()
-
         guard let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential,
             let code = appleIDCredential.authorizationCode,
             let codeStr = String(data: code, encoding: .utf8) else {
@@ -145,12 +143,20 @@ extension AuthVC: ASAuthorizationControllerDelegate {
 
         print("apple sign in name: \(name) apple token:\(codeStr)")
 
-
-        ProgressHUD.dismiss()
+        ProgressHUD.animate()
+        AppService().loginApple(appleToken: codeStr) { result in
+            ProgressHUD.dismiss()
+            switch result {
+            case .succsess(let name):
+                UserDefaultsManager.shared.userName = name
+                NotificationCenter.default.post(name: .needOpenMainTabBar, object: nil)
+            case .failure(let error):
+                self.showAlert(error.textError)
+            }
+        }
     }
 
     func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
-        ProgressHUD.dismiss()
         self.showAlert(error.localizedDescription)
     }
 }

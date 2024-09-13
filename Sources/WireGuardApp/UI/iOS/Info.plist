@@ -187,5 +187,7 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>FirebaseMessagingAutoInitEnabled</key>
+	<string>NO</string>
 </dict>
 </plist>

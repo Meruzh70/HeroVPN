@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -239,6 +239,9 @@
 		FC8FDBD52C9348F200A68657 /* Float+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8FDBD42C9348F200A68657 /* Float+Extension.swift */; };
 		FC8FDBD72C93F83400A68657 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8FDBD62C93F83400A68657 /* Date+Extension.swift */; };
 		FC8FDBD92C9423F900A68657 /* StatusEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8FDBD82C9423F900A68657 /* StatusEntity.swift */; };
+		FC8FDBDC2C94331B00A68657 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = FC8FDBDB2C94331B00A68657 /* FirebaseAnalytics */; };
+		FC8FDBDE2C94331B00A68657 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = FC8FDBDD2C94331B00A68657 /* FirebaseMessaging */; };
+		FC8FDBE02C9436A700A68657 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FC8FDBDF2C9436A700A68657 /* GoogleService-Info.plist */; };
 		FC9B21362C89BCAD00B508A9 /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = FC9B21322C89BCAD00B508A9 /* TPKeyboardAvoidingScrollView.m */; };
 		FC9B21372C89BCAD00B508A9 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = FC9B21342C89BCAD00B508A9 /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
 		FC9B213C2C89BCBE00B508A9 /* OTPFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9B21392C89BCBE00B508A9 /* OTPFieldView.swift */; };
@@ -544,6 +547,7 @@
 		FC8FDBD42C9348F200A68657 /* Float+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Float+Extension.swift"; sourceTree = "<group>"; };
 		FC8FDBD62C93F83400A68657 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		FC8FDBD82C9423F900A68657 /* StatusEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusEntity.swift; sourceTree = "<group>"; };
+		FC8FDBDF2C9436A700A68657 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FC9B21312C89BCAD00B508A9 /* TPKeyboardAvoidingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingScrollView.h; sourceTree = "<group>"; };
 		FC9B21322C89BCAD00B508A9 /* TPKeyboardAvoidingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingScrollView.m; sourceTree = "<group>"; };
 		FC9B21332C89BCAD00B508A9 /* UIScrollView+TPKeyboardAvoidingAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+TPKeyboardAvoidingAdditions.h"; sourceTree = "<group>"; };
@@ -628,8 +632,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC8FDBDE2C94331B00A68657 /* FirebaseMessaging in Frameworks */,
 				6B653B86220DE2960050E69C /* NetworkExtension.framework in Frameworks */,
 				8B75EB2F402BB7C08629A1C0 /* Pods_HeroVPNiOS.framework in Frameworks */,
+				FC8FDBDC2C94331B00A68657 /* FirebaseAnalytics in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1281,6 +1287,7 @@
 		FCB9BB142C8949F30093969D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				FC8FDBDF2C9436A700A68657 /* GoogleService-Info.plist */,
 				FC9B21352C89BCAD00B508A9 /* TPKeyboardAvoidingScrollView */,
 				FC9B213B2C89BCBE00B508A9 /* OTPFieldView */,
 				FCB9BB272C894A0E0093969D /* Fonts */,
@@ -1488,6 +1495,7 @@
 				6FF4AC12211EC46F002C96EB /* Resources */,
 				6F5D0C26218352EF000F85AD /* Embed App Extensions */,
 				E2DD1BAAB3EADBE140B8787A /* [CP] Embed Pods Frameworks */,
+				FC8FDBE12C943BDC00A68657 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -1495,6 +1503,10 @@
 				6F5D0C21218352EF000F85AD /* PBXTargetDependency */,
 			);
 			name = HeroVPNiOS;
+			packageProductDependencies = (
+				FC8FDBDB2C94331B00A68657 /* FirebaseAnalytics */,
+				FC8FDBDD2C94331B00A68657 /* FirebaseMessaging */,
+			);
 			productName = WireGuard;
 			productReference = 6FF4AC14211EC46F002C96EB /* VPN Hero - Super Fast.app */;
 			productType = "com.apple.product-type.application";
@@ -1592,6 +1604,9 @@
 				es,
 			);
 			mainGroup = 6FF4AC0B211EC46F002C96EB;
+			packageReferences = (
+				FC8FDBDA2C94331B00A68657 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 6FF4AC15211EC46F002C96EB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -1651,6 +1666,7 @@
 				FC6AC1932C93447800678F17 /* TarifTableViewCell.xib in Resources */,
 				FCB9BB282C894A0E0093969D /* Montserrat-Black.ttf in Resources */,
 				FCB9BB342C894A0E0093969D /* Montserrat-MediumItalic.ttf in Resources */,
+				FC8FDBE02C9436A700A68657 /* GoogleService-Info.plist in Resources */,
 				FCB9BB2A2C894A0E0093969D /* Montserrat-Bold.ttf in Resources */,
 				FC46FD102C88B9F5000C5303 /* disconnected.gif in Resources */,
 				FCB9BB352C894A0E0093969D /* Montserrat-Regular.ttf in Resources */,
@@ -1942,6 +1958,28 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
+		};
+		FC8FDBE12C943BDC00A68657 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}",
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${PRODUCT_NAME}",
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Info.plist",
+				"$(TARGET_BUILD_DIR)/$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/GoogleService-Info.plist",
+				"$(TARGET_BUILD_DIR)/$(EXECUTABLE_PATH)",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${BUILD_DIR%/Build/*}/SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -2620,6 +2658,7 @@
 				CODE_SIGN_ENTITLEMENTS = Sources/WireGuardApp/UI/iOS/WireGuard.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 12;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = VF35YAWQ2U;
 				INFOPLIST_FILE = Sources/WireGuardApp/UI/iOS/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "VPN Hero - Super Fast";
@@ -2745,6 +2784,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FC8FDBDA2C94331B00A68657 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.2.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FC8FDBDB2C94331B00A68657 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FC8FDBDA2C94331B00A68657 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		FC8FDBDD2C94331B00A68657 /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FC8FDBDA2C94331B00A68657 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 6FF4AC0C211EC46F002C96EB /* Project object */;
 }
