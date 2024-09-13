@@ -178,9 +178,7 @@ private extension SubsVC {
             return
         }
 
-        ProgressHUD.animate()
         AppService().subsribe(transactionId: transactionId, uniqId: transactionIdentifier, cost: transactionPrice, created: transactionDate) { [weak self] (result) in
-            ProgressHUD.dismiss()
             guard let self = self else { return }
             switch result {
             case .succsess(let state):
@@ -195,7 +193,7 @@ private extension SubsVC {
                     print("error subscribe")
                 }
             case .failure(let error):
-                self.showAlert(error.textError)
+                print(error.textError)
             }
         }
     }
