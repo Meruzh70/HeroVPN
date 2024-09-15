@@ -21,6 +21,13 @@ class VerificationVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.configureUI()
+        self.setTargets()
+    }
+
+}
+private extension VerificationVC {
+    func configureUI() {
         self.topEmailLabel.text = UserDefaultsManager.shared.lastUsedEmail
 
         self.otpFieldView.fieldsCount = 4
@@ -37,12 +44,8 @@ class VerificationVC: UIViewController {
         }
         self.otpFieldView.delegate = self
         self.otpFieldView.initializeUI()
-
-        self.setTargets()
     }
-
-}
-private extension VerificationVC {
+    
     func setTargets() {
         self.backButton.addTarget(self, action: #selector(backTouch), for: .touchUpInside)
         self.verifyButton.addTarget(self, action: #selector(verifyTouch), for: .touchUpInside)

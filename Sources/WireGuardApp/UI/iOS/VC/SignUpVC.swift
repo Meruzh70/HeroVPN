@@ -28,17 +28,20 @@ class SignUpVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.nameTextField.setPlaceholder(text: "Name")
-        self.emailTextField.setPlaceholder(text: "Email address")
-        self.passwordTextField.setPlaceholder(text: "Password")
-
-        self.emailTextField.text = UserDefaultsManager.shared.lastUsedEmail
-
+        self.configureUI()
         self.setTargets()
     }
 
 }
 private extension SignUpVC {
+    func configureUI() {
+        self.nameTextField.setPlaceholder(text: "Name")
+        self.emailTextField.setPlaceholder(text: "Email address")
+        self.passwordTextField.setPlaceholder(text: "Password")
+
+        self.emailTextField.text = UserDefaultsManager.shared.lastUsedEmail
+    }
+    
     func setTargets() {
         self.backButton.addTarget(self, action: #selector(backTouch), for: .touchUpInside)
         self.showPasswordButton.addTarget(self, action: #selector(showPasswordTouch), for: .touchUpInside)

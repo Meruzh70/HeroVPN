@@ -31,16 +31,19 @@ class AuthVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.emailTextField.setPlaceholder(text: "Email address")
-        self.passwordTextField.setPlaceholder(text: "Password")
-
-        self.emailTextField.text = UserDefaultsManager.shared.lastUsedEmail
-
+        self.configureUI()
         self.setTargets()
     }
 
 }
 private extension AuthVC {
+    func configureUI() {
+        self.emailTextField.setPlaceholder(text: "Email address")
+        self.passwordTextField.setPlaceholder(text: "Password")
+
+        self.emailTextField.text = UserDefaultsManager.shared.lastUsedEmail
+    }
+    
     func setTargets() {
         self.backButton.addTarget(self, action: #selector(backTouch), for: .touchUpInside)
         self.showPasswordButton.addTarget(self, action: #selector(showPasswordTouch), for: .touchUpInside)

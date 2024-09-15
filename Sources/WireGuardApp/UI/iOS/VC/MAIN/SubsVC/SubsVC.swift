@@ -49,9 +49,9 @@ class SubsVC: UIViewController {
         super.viewDidLoad()
 
         SKPaymentQueue.default().add(self)
-
-        self.setTargets()
+        
         self.configureUI()
+        self.setTargets()
 
         self.sendPushToken()
     }
