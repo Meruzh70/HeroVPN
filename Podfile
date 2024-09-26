@@ -1,6 +1,8 @@
 # Uncomment the next line to define a global platform for your project
 platform :ios, '13.0'
 
+project 'HeroVPN.xcodeproj'
+
 target 'HeroVPNiOS' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
@@ -11,6 +13,9 @@ target 'HeroVPNiOS' do
   pod 'ProgressHUD', '~> 14.1.1'
   pod 'SwiftGifOrigin', '~> 1.7.0'
   pod 'Alamofire', '~> 5.6.4'
+  pod 'Firebase/Analytics', '10.29.0'
+  pod 'Firebase/Messaging', '10.29.0'
+  pod 'Firebase/Crashlytics', '10.29.0'
 
 
   post_install do |installer|

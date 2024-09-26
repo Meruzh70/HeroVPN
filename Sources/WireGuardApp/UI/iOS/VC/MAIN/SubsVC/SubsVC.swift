@@ -43,13 +43,12 @@ class SubsVC: UIViewController {
     private var transactionDate: Double?
 
     private var timer: Timer?
-    private var secLeft: Int = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         SKPaymentQueue.default().add(self)
-        
+
         self.configureUI()
         self.setTargets()
 
@@ -59,11 +58,15 @@ class SubsVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.requestTarrifs()
-        self.requestStatus()
+
+        SubscribtionManager.shared.getStatus()
+
+        self.startTimer()
     }
 
     deinit {
         SKPaymentQueue.default().remove(self)
+        NotificationCenter.default.removeObserver(self)
     }
 }
 extension SubsVC: UITableViewDelegate {
@@ -99,11 +102,62 @@ private extension SubsVC {
         self.subscribeForFreeButton.addTarget(self, action: #selector(subsctibeForFreeButtonTouch), for: .touchUpInside)
     }
 
+    func setSubscribtions() {
+        NotificationCenter.default.addObserver(self, selector: #selector(self.updateSubscribtion), name: .finishSubscribtionUpdated, object: nil)
+    }
+
+    @objc
+    func startTimer() {
+        self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.updateSubscribtion), userInfo: nil, repeats: true)
+    }
+
+    @objc
+    func finishTimer() {
+        self.timer?.invalidate()
+    }
+
+    @objc
+    func updateSubscribtion() {
+        guard let timerFinishSubscribtion = UserDefaultsManager.shared.timerFinishSubscribtion else {
+            self.currentPlanView.isHidden = true
+            self.timer?.invalidate()
+
+            self.receiptValidation()
+            return
+        }
+
+        let secLeft =  Int(timerFinishSubscribtion - Date().timeIntervalSince1970)
+        guard secLeft > 0 else {
+            self.currentPlanView.isHidden = true
+            UserDefaultsManager.shared.timerFinishSubscribtion = nil
+            return
+        }
+
+        let secondsLeft: Int = secLeft % 3600 % 60
+        let minutesLeft: Int = (secLeft % 3600) / 60
+        let hoursLeft: Int = (secLeft % 86400) / 3600
+        let daysLeft: Int = secLeft / 86400
+
+        self.secondsLeftLabel.text =  String(format: "%02d", secondsLeft)
+        self.minutesLeftLabel.text =  String(format: "%02d", minutesLeft)
+        self.hoursLeftLabel.text =  String(format: "%02d", hoursLeft)
+        self.daysLeftLabel.text =  String(format: "%02d", daysLeft)
+
+        if self.currentPlanView.isHidden {
+            self.currentPlanView.isHidden = false
+        }
+
+        self.startTimer()
+    }
+
     func configureUI() {
         self.currentPlanView.isHidden = true
+        self.updateSubscribtion()
 
         self.leftBackgroundView.layer.cornerRadius = 16
         self.leftBackgroundView.clipsToBounds = true
+
+        self.promocodeTextField.setPlaceholder(text: "Promo code")
 
         self.tarifTableView.register(UINib(nibName: "TarifTableViewCell", bundle: nil), forCellReuseIdentifier: TarifTableViewCell.className)
         self.tarifTableView.showsVerticalScrollIndicator = false
@@ -152,7 +206,8 @@ private extension SubsVC {
             switch result {
             case .succsess(_):
                 self.promocodeTextField.text = nil
-                self.requestStatus()
+
+                SubscribtionManager.shared.getStatus()
             case .failure(let error):
                 self.showAlert(error.textError)
             }
@@ -190,7 +245,7 @@ private extension SubsVC {
                     self.transactionPrice = nil
                     self.transactionDate = nil
 
-                    self.requestStatus()
+                    SubscribtionManager.shared.getStatus()
                 } else {
                     print("error subscribe")
                 }
@@ -217,49 +272,6 @@ private extension SubsVC {
                 self.showAlert(error.textError)
             }
         })
-    }
-
-    func requestStatus() {
-        AppService().getStatus(complition: { result in
-            switch result {
-            case .succsess(let statusEntity):
-                if statusEntity.isSuccess {
-                    self.secLeft = statusEntity.secLeft ?? 0
-
-                    self.timer?.invalidate()
-                    self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.updateTimer), userInfo: nil, repeats: true)
-                } else {
-                    self.receiptValidation()
-                }
-            case .failure(let error):
-                self.showAlert(error.textError)
-            }
-        })
-    }
-
-    @objc
-    func updateTimer() {
-        self.secLeft -= 1
-
-        guard self.secLeft > 0 else {
-            self.timer?.invalidate()
-            self.currentPlanView.isHidden = true
-            return
-        }
-
-        let secondsLeft: Int = self.secLeft % 3600 % 60
-        let minutesLeft: Int = (self.secLeft % 3600) / 60
-        let hoursLeft: Int = (self.secLeft % 86400) / 3600
-        let daysLeft: Int = self.secLeft / 86400
-
-        self.secondsLeftLabel.text =  String(format: "%02d", secondsLeft)
-        self.minutesLeftLabel.text =  String(format: "%02d", minutesLeft)
-        self.hoursLeftLabel.text =  String(format: "%02d", hoursLeft)
-        self.daysLeftLabel.text =  String(format: "%02d", daysLeft)
-
-        if self.currentPlanView.isHidden {
-            self.currentPlanView.isHidden = false
-        }
     }
 
     func complete(transaction: SKPaymentTransaction) {

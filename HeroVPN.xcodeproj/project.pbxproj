@@ -239,11 +239,10 @@
 		FC8FDBD52C9348F200A68657 /* Float+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8FDBD42C9348F200A68657 /* Float+Extension.swift */; };
 		FC8FDBD72C93F83400A68657 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8FDBD62C93F83400A68657 /* Date+Extension.swift */; };
 		FC8FDBD92C9423F900A68657 /* StatusEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8FDBD82C9423F900A68657 /* StatusEntity.swift */; };
-		FC8FDBDC2C94331B00A68657 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = FC8FDBDB2C94331B00A68657 /* FirebaseAnalytics */; };
-		FC8FDBDE2C94331B00A68657 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = FC8FDBDD2C94331B00A68657 /* FirebaseMessaging */; };
 		FC8FDBE02C9436A700A68657 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FC8FDBDF2C9436A700A68657 /* GoogleService-Info.plist */; };
 		FC8FDBE32C947B8100A68657 /* Onboarding2VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8FDBE22C947B8100A68657 /* Onboarding2VC.swift */; };
 		FC8FDBE52C947B8A00A68657 /* Onboarding3VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8FDBE42C947B8A00A68657 /* Onboarding3VC.swift */; };
+		FC8FDBE82C96BC1300A68657 /* SubscribtionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8FDBE72C96BC1300A68657 /* SubscribtionManager.swift */; };
 		FC9B21362C89BCAD00B508A9 /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = FC9B21322C89BCAD00B508A9 /* TPKeyboardAvoidingScrollView.m */; };
 		FC9B21372C89BCAD00B508A9 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = FC9B21342C89BCAD00B508A9 /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
 		FC9B213C2C89BCBE00B508A9 /* OTPFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9B21392C89BCBE00B508A9 /* OTPFieldView.swift */; };
@@ -552,6 +551,7 @@
 		FC8FDBDF2C9436A700A68657 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FC8FDBE22C947B8100A68657 /* Onboarding2VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding2VC.swift; sourceTree = "<group>"; };
 		FC8FDBE42C947B8A00A68657 /* Onboarding3VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding3VC.swift; sourceTree = "<group>"; };
+		FC8FDBE72C96BC1300A68657 /* SubscribtionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribtionManager.swift; sourceTree = "<group>"; };
 		FC9B21312C89BCAD00B508A9 /* TPKeyboardAvoidingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingScrollView.h; sourceTree = "<group>"; };
 		FC9B21322C89BCAD00B508A9 /* TPKeyboardAvoidingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingScrollView.m; sourceTree = "<group>"; };
 		FC9B21332C89BCAD00B508A9 /* UIScrollView+TPKeyboardAvoidingAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+TPKeyboardAvoidingAdditions.h"; sourceTree = "<group>"; };
@@ -636,10 +636,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FC8FDBDE2C94331B00A68657 /* FirebaseMessaging in Frameworks */,
 				6B653B86220DE2960050E69C /* NetworkExtension.framework in Frameworks */,
 				8B75EB2F402BB7C08629A1C0 /* Pods_HeroVPNiOS.framework in Frameworks */,
-				FC8FDBDC2C94331B00A68657 /* FirebaseAnalytics in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1174,6 +1172,7 @@
 		FC46FD112C88BA92000C5303 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				FC8FDBE92C96BC1800A68657 /* SubscribtionManager */,
 				FCB9BB4E2C8964B60093969D /* KeychainManager */,
 				FC46FD192C88C132000C5303 /* Utils */,
 				FC46FD162C88BB1F000C5303 /* UserDefaultsManager */,
@@ -1251,6 +1250,14 @@
 				FC6AC1912C93447800678F17 /* TarifTableViewCell.xib */,
 			);
 			path = TarifTableViewCell;
+			sourceTree = "<group>";
+		};
+		FC8FDBE92C96BC1800A68657 /* SubscribtionManager */ = {
+			isa = PBXGroup;
+			children = (
+				FC8FDBE72C96BC1300A68657 /* SubscribtionManager.swift */,
+			);
+			path = SubscribtionManager;
 			sourceTree = "<group>";
 		};
 		FC9B21352C89BCAD00B508A9 /* TPKeyboardAvoidingScrollView */ = {
@@ -1510,8 +1517,6 @@
 			);
 			name = HeroVPNiOS;
 			packageProductDependencies = (
-				FC8FDBDB2C94331B00A68657 /* FirebaseAnalytics */,
-				FC8FDBDD2C94331B00A68657 /* FirebaseMessaging */,
 			);
 			productName = WireGuard;
 			productReference = 6FF4AC14211EC46F002C96EB /* VPN Hero - Super Fast.app */;
@@ -2147,6 +2152,7 @@
 				585B105E2577E293004F691E /* PeerConfiguration.swift in Sources */,
 				6FF3527321C2616C0008484E /* Logger.swift in Sources */,
 				6F7774E421718281006A79B3 /* TunnelsListTableViewController.swift in Sources */,
+				FC8FDBE82C96BC1300A68657 /* SubscribtionManager.swift in Sources */,
 				585B108E2577E294004F691E /* x25519.c in Sources */,
 				6F7774EF21722D97006A79B3 /* TunnelsManager.swift in Sources */,
 				5F45417D21C1B23600994C13 /* UITableViewCell+Reuse.swift in Sources */,
@@ -2803,19 +2809,6 @@
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		FC8FDBDB2C94331B00A68657 /* FirebaseAnalytics */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = FC8FDBDA2C94331B00A68657 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseAnalytics;
-		};
-		FC8FDBDD2C94331B00A68657 /* FirebaseMessaging */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = FC8FDBDA2C94331B00A68657 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseMessaging;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 6FF4AC0C211EC46F002C96EB /* Project object */;
 }

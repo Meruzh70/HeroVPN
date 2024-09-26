@@ -105,11 +105,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         mainVC?.refreshTunnelConnectionStatuses()
+
+        print("applicationDidBecomeActive")
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
         guard let allTunnelNames = mainVC?.allTunnelNames() else { return }
         application.shortcutItems = QuickActionItem.createItems(allTunnelNames: allTunnelNames)
+
+        print("applicationWillResignActive")
     }
 
     func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
@@ -121,6 +125,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         mainVC?.showTunnelDetailForTunnel(named: tunnelName, animated: false, shouldToggleStatus: true)
         completionHandler(true)
     }
+
+    func applicationDidEnterBackground(_ application: UIApplication) {
+        print("applicationDidEnterBackground")
+    }
+
+    func applicationWillEnterForeground(_ application: UIApplication) {
+        print("applicationWillEnterForeground")
+    }
+
+
 }
 
 extension AppDelegate {

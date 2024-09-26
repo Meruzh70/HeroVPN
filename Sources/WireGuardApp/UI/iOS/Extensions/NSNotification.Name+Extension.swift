@@ -9,5 +9,8 @@ extension NSNotification.Name {
 //    static let needOpenChooseVCForLogin = Notification.Name("needOpenChooseVCForLogin")
     static let needOpenAuth = Notification.Name("needOpenAuth")
     static let needOpenMainTabBar = Notification.Name("needOpenMainTabBar")
+    static let finishSubscribtionUpdated = Notification.Name("finishSubscribtionUpdated")
+    static let appInForeground = Notification.Name("appInForeground")
+    static let appInBackground = Notification.Name("appInBackground")
 
 }

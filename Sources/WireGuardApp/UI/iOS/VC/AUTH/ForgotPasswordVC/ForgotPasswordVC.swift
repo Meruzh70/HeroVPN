@@ -22,9 +22,10 @@ class ForgotPasswordVC: UIViewController {
 private extension ForgotPasswordVC {
     func configureUI() {
         self.emailTextField.setPlaceholder(text: "Email address")
-        self.emailTextField.text = UserDefaultsManager.shared.lastUsedEmail
+
+//        self.emailTextField.text = UserDefaultsManager.shared.lastUsedEmail
     }
-    
+
     func setTargets() {
         self.backButton.addTarget(self, action: #selector(backTouch), for: .touchUpInside)
         self.sendButton.addTarget(self, action: #selector(sendTouch), for: .touchUpInside)

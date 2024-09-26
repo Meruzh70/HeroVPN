@@ -13,6 +13,7 @@ class UserDefaultsManager {
         let timerStartConnection = "timerStartConnection"
         let userName = "userName"
         let tarifs = "tarifs"
+        let timerFinishSubscribtion = "timerFinishSubscribtion"
     }
 
     // initialise
@@ -100,6 +101,23 @@ class UserDefaultsManager {
             let encodedData = try? JSONEncoder().encode(newValue)
             userDefaults.set(encodedData, forKey: keys.tarifs)
             userDefaults.synchronize()
+        }
+    }
+
+    var timerFinishSubscribtion: Double? {
+        get {
+            if let obj = userDefaults.object(forKey: keys.timerFinishSubscribtion) {
+                return obj as? Double
+            } else {
+                return nil
+            }
+        }
+        set {
+            if let value = newValue {
+                userDefaults.set(value, forKey: keys.timerFinishSubscribtion)
+            } else {
+                userDefaults.removeObject(forKey: keys.timerFinishSubscribtion)
+            }
         }
     }
 

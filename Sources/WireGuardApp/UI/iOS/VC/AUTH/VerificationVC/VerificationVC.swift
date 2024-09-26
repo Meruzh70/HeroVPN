@@ -45,7 +45,7 @@ private extension VerificationVC {
         self.otpFieldView.delegate = self
         self.otpFieldView.initializeUI()
     }
-    
+
     func setTargets() {
         self.backButton.addTarget(self, action: #selector(backTouch), for: .touchUpInside)
         self.verifyButton.addTarget(self, action: #selector(verifyTouch), for: .touchUpInside)

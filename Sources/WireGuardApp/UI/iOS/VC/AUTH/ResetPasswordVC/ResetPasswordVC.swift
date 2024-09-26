@@ -26,13 +26,13 @@ class ResetPasswordVC: UIViewController {
 }
 private extension ResetPasswordVC {
     func configureUI() {
-        
+
         self.backButton.isHidden = true
 
         self.passwordTextField.setPlaceholder(text: "Password")
         self.confirmPasswordTextField.setPlaceholder(text: "Confirm Password")
     }
-    
+
     func setTargets() {
         self.backButton.addTarget(self, action: #selector(backTouch), for: .touchUpInside)
         self.showPasswordButton.addTarget(self, action: #selector(showPasswordTouch), for: .touchUpInside)

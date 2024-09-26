@@ -30,6 +30,7 @@ private extension LogoutVC {
     @objc
     func logoutTouch() {
         UserDefaultsManager.shared.userName = nil
+        UserDefaultsManager.shared.timerFinishSubscribtion = nil
         KeychainManager.shared.removeAll()
         Connection.shared.changeConnection(isOn: false)
 //        Connection.shared.removeConfiguration()

@@ -65,10 +65,11 @@ class HomeVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        UserDefaultsManager.shared.timerFinishSubscribtion = Date().timeIntervalSince1970 + 10000000
         UserDefaultsManager.shared.timerStartConnection = nil
 
         self.nameLabel.text = UserDefaultsManager.shared.userName ?? "Walter White"
-        self.locationLabel.text = "Armenia"
+        self.locationLabel.text = "VPN SERVER"
         self.state = .disconnected
 
         self.setTargets()
@@ -82,6 +83,8 @@ class HomeVC: UIViewController {
                 Connection.shared.getStatus()
             }
         }
+
+        SubscribtionManager.shared.getStatus()
     }
 
     override func viewWillAppear(_ animated: Bool) {
