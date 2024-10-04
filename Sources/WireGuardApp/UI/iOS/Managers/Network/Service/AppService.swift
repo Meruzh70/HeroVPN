@@ -14,10 +14,11 @@ class AppService {
         let service: AppApi = .login(email: email, password: password)
         apiManager.perform(service: service, decodeType: AuthEntity.self) { (result) in
             switch result {
-            case .succsess(let loginResponse):
+            case .success(let loginResponse):
                 if let token = loginResponse.token {
+                    print("token: \(token)")
                     KeychainManager.shared.authToken = token
-                    complition(.succsess(loginResponse.name))
+                    complition(.success(loginResponse.name))
                 } else {
                     complition(.failure(.custom(loginResponse.message, [])))
                 }
@@ -27,15 +28,16 @@ class AppService {
         }
     }
 
-    // function for login by login and password with complition string result
-    func loginApple(appleToken: String, complition: @escaping (ResultResponce<String?>) -> Void) {
-        let service: AppApi = .loginApple(appleToken: appleToken)
+    // function for login by name and apple token with complition string result
+    func loginApple(name: String, appleToken: String, complition: @escaping (ResultResponce<String?>) -> Void) {
+        let service: AppApi = .loginApple(name: name, appleToken: appleToken)
         apiManager.perform(service: service, decodeType: AuthEntity.self) { (result) in
             switch result {
-            case .succsess(let loginResponse):
+            case .success(let loginResponse):
                 if let token = loginResponse.token {
+                    print("token: \(token)")
                     KeychainManager.shared.authToken = token
-                    complition(.succsess(loginResponse.name))
+                    complition(.success(loginResponse.name))
                 } else {
                     complition(.failure(.custom(loginResponse.message, [])))
                 }
@@ -50,8 +52,8 @@ class AppService {
         let service: AppApi = .pushToken(token: pushToken)
         apiManager.perform(service: service, decodeType: DefaultEntity.self) { (result) in
             switch result {
-            case .succsess(let defaultResponse):
-                complition(.succsess(defaultResponse.isSuccess))
+            case .success(let defaultResponse):
+                complition(.success(defaultResponse.isSuccess))
             case .failure(let error):
                 complition(.failure(error))
             }
@@ -63,9 +65,9 @@ class AppService {
         let service: AppApi = .signUp(name: name, email: email, password: password)
         apiManager.perform(service: service, decodeType: RegEntity.self) { (result) in
             switch result {
-            case .succsess(let loginResponse):
+            case .success(let loginResponse):
                 if loginResponse.sended ?? false {
-                    complition(.succsess(true))
+                    complition(.success(true))
                 } else if loginResponse.exist ?? false {
                     complition(.failure(.custom("User has been already registered. Log in", [])))
                 } else {
@@ -82,10 +84,10 @@ class AppService {
         let service: AppApi = .confirm(email: email, code: code)
         apiManager.perform(service: service, decodeType: AuthEntity.self) { (result) in
             switch result {
-            case .succsess(let loginResponse):
+            case .success(let loginResponse):
                 if let token = loginResponse.token {
                     KeychainManager.shared.authToken = token
-                    complition(.succsess(loginResponse.name))
+                    complition(.success(loginResponse.name))
                 } else {
                     complition(.failure(.custom(loginResponse.message, [])))
                 }
@@ -100,8 +102,8 @@ class AppService {
         let service: AppApi = .forgot(email: email)
         apiManager.perform(service: service, decodeType: DefaultEntity.self) { (result) in
             switch result {
-            case .succsess(_):
-                complition(.succsess(true))
+            case .success(_):
+                complition(.success(true))
             case .failure(let error):
                 complition(.failure(error))
             }
@@ -113,8 +115,8 @@ class AppService {
         let service: AppApi = .password(password: password)
         apiManager.perform(service: service, decodeType: DefaultEntity.self) { (result) in
             switch result {
-            case .succsess(_):
-                complition(.succsess(true))
+            case .success(_):
+                complition(.success(true))
             case .failure(let error):
                 complition(.failure(error))
             }
@@ -126,8 +128,8 @@ class AppService {
         let service: AppApi = .tarrifs
         apiManager.perform(service: service, decodeType: TarifEntity.self) { (result) in
             switch result {
-            case .succsess(let tarifResponse):
-                complition(.succsess(tarifResponse.result))
+            case .success(let tarifResponse):
+                complition(.success(tarifResponse.result))
             case .failure(let error):
                 complition(.failure(error))
             }
@@ -139,8 +141,8 @@ class AppService {
         let service: AppApi = .promocode(code: code)
         apiManager.perform(service: service, decodeType: DefaultEntity.self) { (result) in
             switch result {
-            case .succsess(let defaultResponse):
-                complition(.succsess(defaultResponse.isSuccess))
+            case .success(let defaultResponse):
+                complition(.success(defaultResponse.isSuccess))
             case .failure(let error):
                 complition(.failure(error))
             }
@@ -168,8 +170,8 @@ class AppService {
         let service: AppApi = .subscribe(transactionId: transactionId, uniqId: uniqId, cost: cost, created: created)
         apiManager.perform(service: service, decodeType: DefaultEntity.self) { (result) in
             switch result {
-            case .succsess(let defaultResponse):
-                complition(.succsess(defaultResponse.isSuccess))
+            case .success(let defaultResponse):
+                complition(.success(defaultResponse.isSuccess))
             case .failure(let error):
                 complition(.failure(error))
             }

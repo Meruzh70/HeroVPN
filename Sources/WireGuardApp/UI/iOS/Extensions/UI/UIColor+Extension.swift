@@ -23,4 +23,12 @@ extension UIColor {
         }
         self.init(red: CGFloat(red) / 255, green: CGFloat(green) / 255, blue: CGFloat(blue) / 255, alpha: CGFloat(alpha) / 255)
     }
+
+    static var leftBlueColor: UIColor {
+        return .init(hex: "#23E9D8")
+    }
+
+    static var rightBlueColor: UIColor {
+        return .init(hex: "#0888E1")
+    }
 }

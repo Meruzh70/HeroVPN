@@ -7,7 +7,7 @@ enum AppApi: URLRequestBuilder {
     // types
     case login(email: String, password: String)
     case signUp(name: String, email: String, password: String)
-    case loginApple(appleToken: String)
+    case loginApple(name: String, appleToken: String)
     case pushToken(token: String)
     case connect
     case confirm(email: String, code: String)
@@ -49,8 +49,9 @@ enum AppApi: URLRequestBuilder {
         case .login(let email, let password):
             ["email": email,
              "password": password]
-        case .loginApple(let appleToken):
-            ["token": appleToken]
+        case .loginApple(let name, let appleToken):
+            ["name": name,
+             "token": appleToken]
         case .pushToken(let token):
             ["token": token]
         case .signUp(let name, let email, let password):

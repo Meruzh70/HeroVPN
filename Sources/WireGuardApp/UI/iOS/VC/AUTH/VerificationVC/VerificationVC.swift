@@ -67,7 +67,7 @@ private extension VerificationVC {
             self.code = ""
             self.otpFieldView.clearFields()
             switch result {
-            case .succsess(let name):
+            case .success(let name):
                 UserDefaultsManager.shared.userName = name
                 if self.needChangePassword {
                     let vc = Utils.shared.mainStoryboard().instantiateViewController(withIdentifier: ResetPasswordVC.className)

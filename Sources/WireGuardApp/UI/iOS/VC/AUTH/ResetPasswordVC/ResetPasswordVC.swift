@@ -79,7 +79,7 @@ private extension ResetPasswordVC {
         AppService().password(password: password, complition: { result in
             ProgressHUD.dismiss()
             switch result {
-            case .succsess(let state):
+            case .success(let state):
                 if state {
                     let vc = Utils.shared.mainStoryboard().instantiateViewController(withIdentifier: ResetPasswordSuccessVC.className)
                     self.present(vc, animated: true)

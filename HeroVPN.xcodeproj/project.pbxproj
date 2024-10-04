@@ -207,7 +207,26 @@
 		6FFA5DA42197085D0001E2F7 /* ActivateOnDemandOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FFA5DA32197085D0001E2F7 /* ActivateOnDemandOption.swift */; };
 		6FFACD2021E4D8D500E9A2A5 /* ParseError+WireGuardAppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FFACD1E21E4D89600E9A2A5 /* ParseError+WireGuardAppError.swift */; };
 		8B75EB2F402BB7C08629A1C0 /* Pods_HeroVPNiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ECEF12865E82F41B689E995 /* Pods_HeroVPNiOS.framework */; };
-		D39FFAE5B1515AD56F41B812 /* Pods_HeroVPNNetworkExtensioniOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B735478429467ED2050A8887 /* Pods_HeroVPNNetworkExtensioniOS.framework */; };
+		FC0BF4002CAFC7060018FFD7 /* ProcessVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0BF3FF2CAFC7060018FFD7 /* ProcessVC.swift */; };
+		FC0BF4042CB016540018FFD7 /* Montserrat-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FCB9BB212C894A0E0093969D /* Montserrat-MediumItalic.ttf */; };
+		FC0BF4052CB016540018FFD7 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FCB9BB222C894A0E0093969D /* Montserrat-Regular.ttf */; };
+		FC0BF4062CB016540018FFD7 /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FCB9BB232C894A0E0093969D /* Montserrat-SemiBold.ttf */; };
+		FC0BF4072CB016540018FFD7 /* Montserrat-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FCB9BB162C894A0E0093969D /* Montserrat-BlackItalic.ttf */; };
+		FC0BF4082CB016540018FFD7 /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FCB9BB172C894A0E0093969D /* Montserrat-Bold.ttf */; };
+		FC0BF4092CB016540018FFD7 /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FCB9BB202C894A0E0093969D /* Montserrat-Medium.ttf */; };
+		FC0BF40A2CB016540018FFD7 /* Montserrat-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FCB9BB252C894A0E0093969D /* Montserrat-Thin.ttf */; };
+		FC0BF40B2CB016540018FFD7 /* Montserrat-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FCB9BB182C894A0E0093969D /* Montserrat-BoldItalic.ttf */; };
+		FC0BF40C2CB016540018FFD7 /* Montserrat-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FCB9BB262C894A0E0093969D /* Montserrat-ThinItalic.ttf */; };
+		FC0BF40D2CB016540018FFD7 /* Montserrat-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FCB9BB1E2C894A0E0093969D /* Montserrat-Light.ttf */; };
+		FC0BF40E2CB016540018FFD7 /* Montserrat-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FCB9BB242C894A0E0093969D /* Montserrat-SemiBoldItalic.ttf */; };
+		FC0BF40F2CB016540018FFD7 /* Montserrat-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FCB9BB192C894A0E0093969D /* Montserrat-ExtraBold.ttf */; };
+		FC0BF4102CB016540018FFD7 /* Montserrat-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FCB9BB1B2C894A0E0093969D /* Montserrat-ExtraLight.ttf */; };
+		FC0BF4112CB016540018FFD7 /* Montserrat-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FCB9BB1D2C894A0E0093969D /* Montserrat-Italic.ttf */; };
+		FC0BF4122CB016540018FFD7 /* Montserrat-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FCB9BB1A2C894A0E0093969D /* Montserrat-ExtraBoldItalic.ttf */; };
+		FC0BF4132CB016540018FFD7 /* Montserrat-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FCB9BB152C894A0E0093969D /* Montserrat-Black.ttf */; };
+		FC0BF4142CB016540018FFD7 /* Montserrat-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FCB9BB1C2C894A0E0093969D /* Montserrat-ExtraLightItalic.ttf */; };
+		FC0BF4152CB016540018FFD7 /* Montserrat-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FCB9BB1F2C894A0E0093969D /* Montserrat-LightItalic.ttf */; };
+		FC0BF4172CB017070018FFD7 /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0BF4162CB017070018FFD7 /* UIFont+Extension.swift */; };
 		FC46FCDC2C8767B3000C5303 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC46FCDB2C8767B3000C5303 /* Main.storyboard */; };
 		FC46FCDD2C8767B3000C5303 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC46FCDB2C8767B3000C5303 /* Main.storyboard */; };
 		FC46FCE42C88B6C1000C5303 /* StartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC46FCE32C88B6C1000C5303 /* StartVC.swift */; };
@@ -258,24 +277,6 @@
 		FC9B21532C8D6C4E00B508A9 /* HeroTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9B21522C8D6C4E00B508A9 /* HeroTextField.swift */; };
 		FC9B21552C8D6C7A00B508A9 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9B21542C8D6C7A00B508A9 /* UIView+Extension.swift */; };
 		FC9B21572C90460600B508A9 /* NetworkDataUsage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9B21562C90460600B508A9 /* NetworkDataUsage.swift */; };
-		FCB9BB282C894A0E0093969D /* Montserrat-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FCB9BB152C894A0E0093969D /* Montserrat-Black.ttf */; };
-		FCB9BB292C894A0E0093969D /* Montserrat-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FCB9BB162C894A0E0093969D /* Montserrat-BlackItalic.ttf */; };
-		FCB9BB2A2C894A0E0093969D /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FCB9BB172C894A0E0093969D /* Montserrat-Bold.ttf */; };
-		FCB9BB2B2C894A0E0093969D /* Montserrat-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FCB9BB182C894A0E0093969D /* Montserrat-BoldItalic.ttf */; };
-		FCB9BB2C2C894A0E0093969D /* Montserrat-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FCB9BB192C894A0E0093969D /* Montserrat-ExtraBold.ttf */; };
-		FCB9BB2D2C894A0E0093969D /* Montserrat-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FCB9BB1A2C894A0E0093969D /* Montserrat-ExtraBoldItalic.ttf */; };
-		FCB9BB2E2C894A0E0093969D /* Montserrat-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FCB9BB1B2C894A0E0093969D /* Montserrat-ExtraLight.ttf */; };
-		FCB9BB2F2C894A0E0093969D /* Montserrat-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FCB9BB1C2C894A0E0093969D /* Montserrat-ExtraLightItalic.ttf */; };
-		FCB9BB302C894A0E0093969D /* Montserrat-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FCB9BB1D2C894A0E0093969D /* Montserrat-Italic.ttf */; };
-		FCB9BB312C894A0E0093969D /* Montserrat-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FCB9BB1E2C894A0E0093969D /* Montserrat-Light.ttf */; };
-		FCB9BB322C894A0E0093969D /* Montserrat-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FCB9BB1F2C894A0E0093969D /* Montserrat-LightItalic.ttf */; };
-		FCB9BB332C894A0E0093969D /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FCB9BB202C894A0E0093969D /* Montserrat-Medium.ttf */; };
-		FCB9BB342C894A0E0093969D /* Montserrat-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FCB9BB212C894A0E0093969D /* Montserrat-MediumItalic.ttf */; };
-		FCB9BB352C894A0E0093969D /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FCB9BB222C894A0E0093969D /* Montserrat-Regular.ttf */; };
-		FCB9BB362C894A0E0093969D /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FCB9BB232C894A0E0093969D /* Montserrat-SemiBold.ttf */; };
-		FCB9BB372C894A0E0093969D /* Montserrat-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FCB9BB242C894A0E0093969D /* Montserrat-SemiBoldItalic.ttf */; };
-		FCB9BB382C894A0E0093969D /* Montserrat-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FCB9BB252C894A0E0093969D /* Montserrat-Thin.ttf */; };
-		FCB9BB392C894A0E0093969D /* Montserrat-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FCB9BB262C894A0E0093969D /* Montserrat-ThinItalic.ttf */; };
 		FCB9BB3B2C894C170093969D /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB9BB3A2C894C170093969D /* UIViewController+Extension.swift */; };
 		FCB9BB3E2C894C4C0093969D /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB9BB3D2C894C4C0093969D /* String+Extension.swift */; };
 		FCB9BB402C89587E0093969D /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB9BB3F2C89587E0093969D /* UIImageView+Extension.swift */; };
@@ -512,12 +513,11 @@
 		9447F8B4ACB3F4E963DFB299 /* Pods_HeroVPNNetworkExtensionmacOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HeroVPNNetworkExtensionmacOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AD693FC128EDE858AB5E2BD /* Pods-HeroVPNmacOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeroVPNmacOS.debug.xcconfig"; path = "Target Support Files/Pods-HeroVPNmacOS/Pods-HeroVPNmacOS.debug.xcconfig"; sourceTree = "<group>"; };
 		AE610A5EBE917541856E0C63 /* Pods-HeroVPNiOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeroVPNiOS.debug.xcconfig"; path = "Target Support Files/Pods-HeroVPNiOS/Pods-HeroVPNiOS.debug.xcconfig"; sourceTree = "<group>"; };
-		B735478429467ED2050A8887 /* Pods_HeroVPNNetworkExtensioniOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HeroVPNNetworkExtensioniOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B8C3A63C6C3800F27484B2F5 /* Pods-HeroVPNNetworkExtensioniOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeroVPNNetworkExtensioniOS.release.xcconfig"; path = "Target Support Files/Pods-HeroVPNNetworkExtensioniOS/Pods-HeroVPNNetworkExtensioniOS.release.xcconfig"; sourceTree = "<group>"; };
 		CA54EB851162506098BAF2DF /* Pods-HeroVPNNetworkExtensionmacOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeroVPNNetworkExtensionmacOS.release.xcconfig"; path = "Target Support Files/Pods-HeroVPNNetworkExtensionmacOS/Pods-HeroVPNNetworkExtensionmacOS.release.xcconfig"; sourceTree = "<group>"; };
 		D956DAFDCFA0F282311C0BCC /* Pods_HeroVPNmacOSLoginItemHelper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HeroVPNmacOSLoginItemHelper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		EBDCD55ECCAA0BA9002D7DB5 /* Pods-HeroVPNNetworkExtensioniOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeroVPNNetworkExtensioniOS.debug.xcconfig"; path = "Target Support Files/Pods-HeroVPNNetworkExtensioniOS/Pods-HeroVPNNetworkExtensioniOS.debug.xcconfig"; sourceTree = "<group>"; };
 		ED1F834CCC44FE50C13A19F7 /* Pods-HeroVPNmacOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeroVPNmacOS.release.xcconfig"; path = "Target Support Files/Pods-HeroVPNmacOS/Pods-HeroVPNmacOS.release.xcconfig"; sourceTree = "<group>"; };
+		FC0BF3FF2CAFC7060018FFD7 /* ProcessVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessVC.swift; sourceTree = "<group>"; };
+		FC0BF4162CB017070018FFD7 /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
 		FC46FCDB2C8767B3000C5303 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		FC46FCE32C88B6C1000C5303 /* StartVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartVC.swift; sourceTree = "<group>"; };
 		FC46FCE52C88B6D1000C5303 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
@@ -609,7 +609,6 @@
 			files = (
 				6B5CA6B1220DE4E900F126CF /* NetworkExtension.framework in Frameworks */,
 				58BA78D52577F9C6006FAEA0 /* libwg-go.a in Frameworks */,
-				D39FFAE5B1515AD56F41B812 /* Pods_HeroVPNNetworkExtensioniOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -655,8 +654,6 @@
 		2298DB44D2EFAD627516114F /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				EBDCD55ECCAA0BA9002D7DB5 /* Pods-HeroVPNNetworkExtensioniOS.debug.xcconfig */,
-				B8C3A63C6C3800F27484B2F5 /* Pods-HeroVPNNetworkExtensioniOS.release.xcconfig */,
 				51E9299A9C4D083719A3B6F3 /* Pods-HeroVPNNetworkExtensionmacOS.debug.xcconfig */,
 				CA54EB851162506098BAF2DF /* Pods-HeroVPNNetworkExtensionmacOS.release.xcconfig */,
 				AE610A5EBE917541856E0C63 /* Pods-HeroVPNiOS.debug.xcconfig */,
@@ -1003,7 +1000,6 @@
 				58DB6CD52577F95D00FB6B73 /* libwg-go.a */,
 				6FB1BDB621D4F8B800A991BF /* NetworkExtension.framework */,
 				6FF4AC462120B9E0002C96EB /* NetworkExtension.framework */,
-				B735478429467ED2050A8887 /* Pods_HeroVPNNetworkExtensioniOS.framework */,
 				9447F8B4ACB3F4E963DFB299 /* Pods_HeroVPNNetworkExtensionmacOS.framework */,
 				4ECEF12865E82F41B689E995 /* Pods_HeroVPNiOS.framework */,
 				5B82BBC1B707E4B4D0B21676 /* Pods_HeroVPNmacOS.framework */,
@@ -1152,6 +1148,7 @@
 			isa = PBXGroup;
 			children = (
 				FC46FD072C88B966000C5303 /* SubsVC.swift */,
+				FC0BF3FF2CAFC7060018FFD7 /* ProcessVC.swift */,
 			);
 			path = SubsVC;
 			sourceTree = "<group>";
@@ -1346,6 +1343,7 @@
 				FCB9BB3F2C89587E0093969D /* UIImageView+Extension.swift */,
 				FC9B21542C8D6C7A00B508A9 /* UIView+Extension.swift */,
 				FC6AC1862C91BD2200678F17 /* UIColor+Extension.swift */,
+				FC0BF4162CB017070018FFD7 /* UIFont+Extension.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -1417,7 +1415,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6F5D0C25218352EF000F85AD /* Build configuration list for PBXNativeTarget "HeroVPNNetworkExtensioniOS" */;
 			buildPhases = (
-				5F09E8D3A8ACE6B6B5220833 /* [CP] Check Pods Manifest.lock */,
 				5F45417B21C0906F00994C13 /* Swiftlint */,
 				6F5D0C16218352EF000F85AD /* Sources */,
 				6F5D0C17218352EF000F85AD /* Frameworks */,
@@ -1516,8 +1513,6 @@
 				6F5D0C21218352EF000F85AD /* PBXTargetDependency */,
 			);
 			name = HeroVPNiOS;
-			packageProductDependencies = (
-			);
 			productName = WireGuard;
 			productReference = 6FF4AC14211EC46F002C96EB /* VPN Hero - Super Fast.app */;
 			productType = "com.apple.product-type.application";
@@ -1662,36 +1657,36 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FCB9BB372C894A0E0093969D /* Montserrat-SemiBoldItalic.ttf in Resources */,
-				FCB9BB322C894A0E0093969D /* Montserrat-LightItalic.ttf in Resources */,
-				FCB9BB312C894A0E0093969D /* Montserrat-Light.ttf in Resources */,
-				FCB9BB362C894A0E0093969D /* Montserrat-SemiBold.ttf in Resources */,
 				FC46FCDC2C8767B3000C5303 /* Main.storyboard in Resources */,
 				6F919ED9218C65C50023B400 /* wireguard_doc_logo_22x29.png in Resources */,
-				FCB9BB382C894A0E0093969D /* Montserrat-Thin.ttf in Resources */,
 				4E5C5B942BA6367F00082DED /* PrivacyInfo.xcprivacy in Resources */,
-				FCB9BB2B2C894A0E0093969D /* Montserrat-BoldItalic.ttf in Resources */,
+				FC0BF4042CB016540018FFD7 /* Montserrat-MediumItalic.ttf in Resources */,
+				FC0BF4052CB016540018FFD7 /* Montserrat-Regular.ttf in Resources */,
+				FC0BF4062CB016540018FFD7 /* Montserrat-SemiBold.ttf in Resources */,
+				FC0BF4072CB016540018FFD7 /* Montserrat-BlackItalic.ttf in Resources */,
+				FC0BF4082CB016540018FFD7 /* Montserrat-Bold.ttf in Resources */,
+				FC0BF4092CB016540018FFD7 /* Montserrat-Medium.ttf in Resources */,
+				FC0BF40A2CB016540018FFD7 /* Montserrat-Thin.ttf in Resources */,
+				FC0BF40B2CB016540018FFD7 /* Montserrat-BoldItalic.ttf in Resources */,
+				FC0BF40C2CB016540018FFD7 /* Montserrat-ThinItalic.ttf in Resources */,
+				FC0BF40D2CB016540018FFD7 /* Montserrat-Light.ttf in Resources */,
+				FC0BF40E2CB016540018FFD7 /* Montserrat-SemiBoldItalic.ttf in Resources */,
+				FC0BF40F2CB016540018FFD7 /* Montserrat-ExtraBold.ttf in Resources */,
+				FC0BF4102CB016540018FFD7 /* Montserrat-ExtraLight.ttf in Resources */,
+				FC0BF4112CB016540018FFD7 /* Montserrat-Italic.ttf in Resources */,
+				FC0BF4122CB016540018FFD7 /* Montserrat-ExtraBoldItalic.ttf in Resources */,
+				FC0BF4132CB016540018FFD7 /* Montserrat-Black.ttf in Resources */,
+				FC0BF4142CB016540018FFD7 /* Montserrat-ExtraLightItalic.ttf in Resources */,
+				FC0BF4152CB016540018FFD7 /* Montserrat-LightItalic.ttf in Resources */,
 				6FF4AC22211EC472002C96EB /* LaunchScreen.storyboard in Resources */,
-				FCB9BB2C2C894A0E0093969D /* Montserrat-ExtraBold.ttf in Resources */,
 				FC46FD0E2C88B9F5000C5303 /* connecting.gif in Resources */,
 				FC6AC1932C93447800678F17 /* TarifTableViewCell.xib in Resources */,
-				FCB9BB282C894A0E0093969D /* Montserrat-Black.ttf in Resources */,
-				FCB9BB342C894A0E0093969D /* Montserrat-MediumItalic.ttf in Resources */,
 				FC8FDBE02C9436A700A68657 /* GoogleService-Info.plist in Resources */,
-				FCB9BB2A2C894A0E0093969D /* Montserrat-Bold.ttf in Resources */,
 				FC46FD102C88B9F5000C5303 /* disconnected.gif in Resources */,
-				FCB9BB352C894A0E0093969D /* Montserrat-Regular.ttf in Resources */,
 				6F919EDA218C65C50023B400 /* wireguard_doc_logo_44x58.png in Resources */,
 				FC46FD0F2C88B9F5000C5303 /* connected.gif in Resources */,
-				FCB9BB2D2C894A0E0093969D /* Montserrat-ExtraBoldItalic.ttf in Resources */,
-				FCB9BB2E2C894A0E0093969D /* Montserrat-ExtraLight.ttf in Resources */,
-				FCB9BB292C894A0E0093969D /* Montserrat-BlackItalic.ttf in Resources */,
-				FCB9BB302C894A0E0093969D /* Montserrat-Italic.ttf in Resources */,
-				FCB9BB392C894A0E0093969D /* Montserrat-ThinItalic.ttf in Resources */,
-				FCB9BB2F2C894A0E0093969D /* Montserrat-ExtraLightItalic.ttf in Resources */,
 				6FF4AC1F211EC472002C96EB /* Assets.xcassets in Resources */,
 				6F919EDB218C65C50023B400 /* wireguard_doc_logo_64x64.png in Resources */,
-				FCB9BB332C894A0E0093969D /* Montserrat-Medium.ttf in Resources */,
 				6F919EDC218C65C50023B400 /* wireguard_doc_logo_320x320.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1778,28 +1773,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "exec make -C \"$PROJECT_DIR/Sources/WireGuardKitGo\" version-header\n";
-		};
-		5F09E8D3A8ACE6B6B5220833 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-HeroVPNNetworkExtensioniOS-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
 		};
 		5F45417A21C0902400994C13 /* Swiftlint */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -2181,6 +2154,7 @@
 				FC46FCFC2C88B874000C5303 /* ResetPasswordVC.swift in Sources */,
 				6F7774E2217181B1006A79B3 /* AppDelegate.swift in Sources */,
 				6FDEF80021863C0100D8FBF6 /* ioapi.c in Sources */,
+				FC0BF4002CAFC7060018FFD7 /* ProcessVC.swift in Sources */,
 				6F7F7E5F21C7D74B00527607 /* TunnelErrors.swift in Sources */,
 				FC9B21532C8D6C4E00B508A9 /* HeroTextField.swift in Sources */,
 				FC46FCF12C88B75E000C5303 /* ChooseVC.swift in Sources */,
@@ -2227,6 +2201,7 @@
 				585B10862577E294004F691E /* IPAddressRange.swift in Sources */,
 				6FDEF802218646BA00D8FBF6 /* ZipArchive.swift in Sources */,
 				FC46FD082C88B966000C5303 /* SubsVC.swift in Sources */,
+				FC0BF4172CB017070018FFD7 /* UIFont+Extension.swift in Sources */,
 				FC46FD0A2C88B96F000C5303 /* SettingsVC.swift in Sources */,
 				585B10922577E294004F691E /* key.c in Sources */,
 				FC6AC1872C91BD2200678F17 /* UIColor+Extension.swift in Sources */,
@@ -2307,7 +2282,6 @@
 /* Begin XCBuildConfiguration section */
 		6F5D0C23218352EF000F85AD /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EBDCD55ECCAA0BA9002D7DB5 /* Pods-HeroVPNNetworkExtensioniOS.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_MODULES = YES;
@@ -2337,7 +2311,6 @@
 		};
 		6F5D0C24218352EF000F85AD /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B8C3A63C6C3800F27484B2F5 /* Pods-HeroVPNNetworkExtensioniOS.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_MODULES = YES;

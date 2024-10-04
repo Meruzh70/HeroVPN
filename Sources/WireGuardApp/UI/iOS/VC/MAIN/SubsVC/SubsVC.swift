@@ -9,17 +9,25 @@ import StoreKit
 class SubsVC: UIViewController {
 
     @IBOutlet weak var currentPlanView: UIView!
+    @IBOutlet weak var currentPlanLabel: UILabel!
     @IBOutlet weak var leftBackgroundView: UIView!
     @IBOutlet weak var daysLeftLabel: UILabel!
     @IBOutlet weak var hoursLeftLabel: UILabel!
     @IBOutlet weak var minutesLeftLabel: UILabel!
     @IBOutlet weak var secondsLeftLabel: UILabel!
+    @IBOutlet weak var daysLabel: UILabel!
+    @IBOutlet weak var hoursLabel: UILabel!
+    @IBOutlet weak var minutesLabel: UILabel!
+    @IBOutlet weak var secondsLabel: UILabel!
 
+    @IBOutlet weak var choosePlanView: UIView!
+    @IBOutlet weak var choosePlanLabel: UILabel!
+    @IBOutlet weak var exploreLabel: UILabel!
     @IBOutlet weak var tarifTableView: UITableView!
     @IBOutlet weak var heightTarifTableViewConstraint: NSLayoutConstraint!
-
     @IBOutlet weak var subscribeButton: UIButton!
 
+    @IBOutlet weak var promocodeView: UIView!
     @IBOutlet weak var promocodeTextField: HeroTextField!
     @IBOutlet weak var subscribeForFreeButton: UIButton!
 
@@ -37,15 +45,19 @@ class SubsVC: UIViewController {
 
     private var productsArray: [SKProduct] = []
 
-    private var transactionId: String?
-    private var transactionPrice: Float?
-    private var transactionIdentifier: String?
-    private var transactionDate: Double?
-
     private var timer: Timer?
+
+    private var checkStatusTimer: Timer?
+    private var transactionId: String?
+    private var selectedTarifName: String?
+    private var processVC: ProcessVC?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        self.currentPlanView.isHidden = true
+//        self.choosePlanView.isHidden = true
+        self.promocodeView.isHidden = true
 
         SKPaymentQueue.default().add(self)
 
@@ -120,9 +132,10 @@ private extension SubsVC {
     func updateSubscribtion() {
         guard let timerFinishSubscribtion = UserDefaultsManager.shared.timerFinishSubscribtion else {
             self.currentPlanView.isHidden = true
+            self.choosePlanView.isHidden = false
             self.timer?.invalidate()
 
-            self.receiptValidation()
+//            self.receiptValidation()
             return
         }
 
@@ -130,6 +143,7 @@ private extension SubsVC {
         guard secLeft > 0 else {
             self.currentPlanView.isHidden = true
             UserDefaultsManager.shared.timerFinishSubscribtion = nil
+            self.choosePlanView.isHidden = false
             return
         }
 
@@ -138,16 +152,21 @@ private extension SubsVC {
         let hoursLeft: Int = (secLeft % 86400) / 3600
         let daysLeft: Int = secLeft / 86400
 
-        self.secondsLeftLabel.text =  String(format: "%02d", secondsLeft)
-        self.minutesLeftLabel.text =  String(format: "%02d", minutesLeft)
-        self.hoursLeftLabel.text =  String(format: "%02d", hoursLeft)
-        self.daysLeftLabel.text =  String(format: "%02d", daysLeft)
+        DispatchQueue.main.async {
+            self.secondsLeftLabel.text =  String(format: "%02d", secondsLeft)
+            self.minutesLeftLabel.text =  String(format: "%02d", minutesLeft)
+            self.hoursLeftLabel.text =  String(format: "%02d", hoursLeft)
+            self.daysLeftLabel.text =  String(format: "%02d", daysLeft)
 
-        if self.currentPlanView.isHidden {
-            self.currentPlanView.isHidden = false
+            if self.currentPlanView.isHidden {
+                self.currentPlanView.isHidden = false
+//                self.choosePlanView.isHidden = true
+            }
         }
 
-        self.startTimer()
+        if !(self.timer?.isValid ?? false) {
+            self.startTimer()
+        }
     }
 
     func configureUI() {
@@ -185,6 +204,8 @@ private extension SubsVC {
             return
         }
 
+        self.selectedTarifName = self.tarifs[self.selectedIndex].nameEn
+
         if SKPaymentQueue.canMakePayments() {
             let payment = SKPayment(product: product)
             SKPaymentQueue.default().add(payment)
@@ -204,7 +225,7 @@ private extension SubsVC {
         AppService().promocode(code: promocode) { result in
             ProgressHUD.dismiss()
             switch result {
-            case .succsess(_):
+            case .success(_):
                 self.promocodeTextField.text = nil
 
                 SubscribtionManager.shared.getStatus()
@@ -214,54 +235,56 @@ private extension SubsVC {
         }
     }
 
-    func subscribeByApple() {
-        guard let transactionId = self.transactionId else {
-            print("transactionId is empty")
-            return
-        }
+    func subscribeByApple(transactionId: String, uniqId: String, transactionPrice: Float, transactionDate: Double) {
+        print("subscribe by apple \n transactionId: \(transactionId) \n uniqId: \(uniqId) \n cost: \(transactionPrice) \n created: \(transactionDate)")
 
-        guard let transactionIdentifier = self.transactionIdentifier else {
-            print("transactionIdentifier is empty")
-            return
-        }
+        self.transactionId = transactionId
 
-        guard let transactionPrice = self.transactionPrice else {
-            print("transactionPrice is empty")
-            return
-        }
+        guard let vc = Utils.shared.mainStoryboard().instantiateViewController(withIdentifier: ProcessVC.className) as? ProcessVC else { return }
+        vc.type = .processPayment
+        vc.planString = self.selectedTarifName ?? ""
+        vc.delegate = self
+        self.present(vc, animated: true)
 
-        guard let transactionDate = self.transactionDate else {
-            print("transactionDate is empty")
-            return
-        }
+        self.processVC = vc
 
-        AppService().subsribe(transactionId: transactionId, uniqId: transactionIdentifier, cost: transactionPrice, created: transactionDate) { [weak self] (result) in
+        AppService().subsribe(transactionId: transactionId, uniqId: uniqId, cost: transactionPrice, created: transactionDate) { [weak self] (result) in
             guard let self = self else { return }
             switch result {
-            case .succsess(let state):
+            case .success(let state):
                 if state {
-                    self.transactionId = nil
-                    self.transactionIdentifier = nil
-                    self.transactionPrice = nil
-                    self.transactionDate = nil
-
-                    SubscribtionManager.shared.getStatus()
+                    self.checkStatusTimer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.getStatusTransaction), userInfo: nil, repeats: true)
                 } else {
-                    print("error subscribe")
+                    vc.changeStatus(type: .errorPayment)
                 }
             case .failure(let error):
+                vc.changeStatus(type: .errorPayment)
                 print(error.textError)
             }
         }
     }
 
-    func requestTarrifs() {
-        ProgressHUD.animate()
+    @objc
+    func getStatusTransaction() {
+        guard UserDefaultsManager.shared.timerFinishSubscribtion == nil else {
+            self.processVC?.changeStatus(type: .successPayment)
+            self.updateSubscribtion()
+            self.checkStatusTimer?.invalidate()
+            return
+        }
+
+        SubscribtionManager.shared.getStatus()
+    }
+
+    func requestTarrifs(withShowingProgress: Bool = true) {
+        if withShowingProgress {
+            ProgressHUD.animate()
+        }
         AppService().getTarifs(complition: { [weak self] (result) in
             ProgressHUD.dismiss()
             guard let self = self else { return }
             switch result {
-            case .succsess(let tarifs):
+            case .success(let tarifs):
                 UserDefaultsManager.shared.tarifs = tarifs
                 self.tarifs = tarifs
                 self.heightTarifTableViewConstraint.constant = CGFloat(76 * tarifs.count)
@@ -280,17 +303,13 @@ private extension SubsVC {
         print("Purchase Success requestData: \(transaction.transactionState)")
         let successStates: [SKPaymentTransactionState] = [.purchased, .restored]
         if successStates.contains(transaction.transactionState) {
-            if let date = transaction.transactionDate {
-                self.transactionDate = date.timeIntervalSince1970
-            } else {
-                self.transactionDate = Date().timeIntervalSince1970
+
+            if let transactionIdentifier = transaction.transactionIdentifier, let product = self.productsArray.first(where: { $0.productIdentifier ==  transaction.payment.productIdentifier }) {
+                self.subscribeByApple(transactionId: transactionIdentifier, uniqId: transaction.payment.productIdentifier, transactionPrice: Float(product.price), transactionDate: transaction.transactionDate?.timeIntervalSince1970 ?? Date().timeIntervalSince1970)
             }
-            self.transactionIdentifier = transaction.payment.productIdentifier
         }
 
         SKPaymentQueue.default().finishTransaction(transaction)
-
-        self.receiptValidation()
     }
 
     func failed(transaction: SKPaymentTransaction) {
@@ -322,6 +341,7 @@ private extension SubsVC {
         SKPaymentQueue.default().finishTransaction(transaction)
     }
 
+    /*
     func receiptValidation() {
         let verifyReceiptURL = self.isSandbox ?  "https://sandbox.itunes.apple.com/verifyReceipt" : "https://buy.itunes.apple.com/verifyReceipt"
         guard let receiptFileURL = Bundle.main.appStoreReceiptURL else {
@@ -332,58 +352,59 @@ private extension SubsVC {
             return
         }
         let recieptString = receiptData.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
-        self.transactionId = recieptString
+//        print("recieptString: \(recieptString)")
+
         let jsonDict: [String: AnyObject] = ["receipt-data": recieptString as AnyObject,
                                              "password": "password" as AnyObject]
 
-        do {
-            let requestData = try JSONSerialization.data(withJSONObject: jsonDict, options: JSONSerialization.WritingOptions.prettyPrinted)
-            let storeURL = URL(string: verifyReceiptURL)!
-            var storeRequest = URLRequest(url: storeURL)
-            storeRequest.httpMethod = "POST"
-            storeRequest.httpBody = requestData
-            let session = URLSession(configuration: URLSessionConfiguration.default)
-            let task = session.dataTask(with: storeRequest, completionHandler: { [weak self] (data, response, error) in
-                guard let self = self else { return }
-                do {
-                    if let jsonResponse = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers) as? NSDictionary{
-                        print("Response :",jsonResponse)
-
-                        if let date = self.getExpirationDateFromResponse(jsonResponse) {
-                            print("Expired at: \(date)")
-
-                            var addingValue = 0
-                            var addingComponent: Calendar.Component = .month
-                            if let firstProduct = self.productsArray.first(where: { $0.productIdentifier == self.transactionIdentifier ?? "" }) {
-                                addingValue = firstProduct.subscriptionPeriod?.numberOfUnits ?? 0
-                                switch firstProduct.subscriptionPeriod?.unit {
-                                case .day: addingComponent = .day
-                                case .week:
-                                    addingValue = 7 * addingValue
-                                    addingComponent = .day
-                                case .month:
-                                    addingComponent = .month
-                                case .year:
-                                    addingComponent = .year
-                                default: break
-                                }
-                            }
-                            self.transactionDate = date.adding(addingComponent, value: -addingValue).timeIntervalSince1970
-                        }
-
-                        if self.isSandbox {
-                            self.transactionDate = Date().timeIntervalSince1970
-                        }
-                        self.subscribeByApple()
-                    }
-                } catch let parseError {
-                    print(parseError)
-                }
-            })
-            task.resume()
-        } catch let parseError {
-            print(parseError)
-        }
+//        do {
+//            let requestData = try JSONSerialization.data(withJSONObject: jsonDict, options: JSONSerialization.WritingOptions.prettyPrinted)
+//            let storeURL = URL(string: verifyReceiptURL)!
+//            var storeRequest = URLRequest(url: storeURL)
+//            storeRequest.httpMethod = "POST"
+//            storeRequest.httpBody = requestData
+//            let session = URLSession(configuration: URLSessionConfiguration.default)
+//            let task = session.dataTask(with: storeRequest, completionHandler: { [weak self] (data, response, error) in
+//                guard let self = self else { return }
+//                do {
+//                    if let jsonResponse = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers) as? NSDictionary{
+//                        print("Response :",jsonResponse)
+//
+//                        if let date = self.getExpirationDateFromResponse(jsonResponse) {
+//                            print("Expired at: \(date)")
+//
+//                            var addingValue = 0
+//                            var addingComponent: Calendar.Component = .month
+//                            if let firstProduct = self.productsArray.first(where: { $0.productIdentifier == self.transactionIdentifier ?? "" }) {
+//                                addingValue = firstProduct.subscriptionPeriod?.numberOfUnits ?? 0
+//                                switch firstProduct.subscriptionPeriod?.unit {
+//                                case .day: addingComponent = .day
+//                                case .week:
+//                                    addingValue = 7 * addingValue
+//                                    addingComponent = .day
+//                                case .month:
+//                                    addingComponent = .month
+//                                case .year:
+//                                    addingComponent = .year
+//                                default: break
+//                                }
+//                            }
+//                            self.transactionDate = date.adding(addingComponent, value: -addingValue).timeIntervalSince1970
+//                        }
+//
+//                        if self.isSandbox {
+//                            self.transactionDate = Date().timeIntervalSince1970
+//                        }
+//                        self.subscribeByApple()
+//                    }
+//                } catch let parseError {
+//                    print(parseError)
+//                }
+//            })
+//            task.resume()
+//        } catch let parseError {
+//            print(parseError)
+//        }
     }
 
     func getExpirationDateFromResponse(_ jsonResponse: NSDictionary) -> Date? {
@@ -397,7 +418,7 @@ private extension SubsVC {
 
         return formatter.date(from: expiresDate)
     }
-
+*/
 
     func sendPushToken() {
         let fcmToken = UserDefaultsManager.shared.curentPushToken
@@ -405,7 +426,7 @@ private extension SubsVC {
 
         AppService().pushToken(pushToken: fcmToken) { result in
             switch result {
-            case .succsess(let state):
+            case .success(let state):
                 print("success sending fcm token")
             case .failure(let textError):
                 print(textError)
@@ -433,19 +454,8 @@ private extension SubsVC {
 extension SubsVC: SKPaymentTransactionObserver {
     func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
         ProgressHUD.dismiss()
-        for transaction in transactions {
-            switch transaction.transactionState {
-            case .purchased:
-                complete(transaction: transaction)
-            case .failed:
-                failed(transaction: transaction)
-            case .restored:
-                complete(transaction: transaction)
-            case .deferred, .purchasing:
-                break
-            @unknown default:
-                break
-            }
+        if let lastTransaction = transactions.sorted(by: { ($0.transactionDate?.timeIntervalSince1970 ?? 0) > ($1.transactionDate?.timeIntervalSince1970 ?? 0) }).first(where: { $0.transactionState == .purchased || $0.transactionState == .restored }) {
+            complete(transaction: lastTransaction)
         }
     }
 }
@@ -453,11 +463,6 @@ extension SubsVC: SKProductsRequestDelegate {
     func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
         if !response.products.isEmpty {
             productsArray = response.products
-            productsArray.forEach { prod in
-                self.transactionPrice = prod.price.floatValue
-                self.transactionIdentifier = prod.productIdentifier
-            }
-            self.subscribeByApple()
         }
     }
 }
@@ -468,5 +473,14 @@ extension SubsVC: PKPaymentAuthorizationViewControllerDelegate {
 
     func paymentAuthorizationViewController(_ controller: PKPaymentAuthorizationViewController, didAuthorizePayment payment: PKPayment, handler completion: @escaping (PKPaymentAuthorizationResult) -> Void) {
         completion(PKPaymentAuthorizationResult(status: .success, errors: nil))
+    }
+}
+extension SubsVC: ProcessVCDelegate {
+    func mainActionTouched(vc: UIViewController, type: ProcessType) {
+        vc.dismiss(animated: true)
+        self.processVC = nil
+        if type == .successPayment {
+            SubscribtionManager.shared.getStatus()
+        }
     }
 }

@@ -13,7 +13,7 @@ class SubscribtionManager {
     func getStatus() {
         AppService().getStatus(complition: { result in
             switch result {
-            case .succsess(let statusEntity):
+            case .success(let statusEntity):
                 UserDefaultsManager.shared.timerFinishSubscribtion = statusEntity.isSuccess ? Date().timeIntervalSince1970 + Double(statusEntity.secLeft ?? 0) : nil
 
                 NotificationCenter.default.post(name: .finishSubscribtionUpdated, object: nil)

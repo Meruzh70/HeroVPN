@@ -141,7 +141,7 @@ private extension HomeVC {
     func getConfiguration() {
         AppService().getConfig { result in
             switch result {
-            case .succsess(let data):
+            case .success(let data):
                 if let json = try? JSON.init(data: data) {
                     let configuration = Configuration(fromJson: json)
                     //print("configuration: \(configuration.parsedData)")

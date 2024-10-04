@@ -5,7 +5,7 @@ import Foundation
 
 // types for result response
 enum ResultResponce<T: Decodable> {
-    case succsess(T)
+    case success(T)
     case failure(ResponseError)
 }
 

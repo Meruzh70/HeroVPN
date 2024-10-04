@@ -195,7 +195,7 @@ extension AppDelegate: MessagingDelegate {
 
         AppService().pushToken(pushToken: fcmToken) { result in
             switch result {
-            case .succsess(let state):
+            case .success(let state):
                 print("success sending fcm token")
             case .failure(let textError):
                 print(textError)

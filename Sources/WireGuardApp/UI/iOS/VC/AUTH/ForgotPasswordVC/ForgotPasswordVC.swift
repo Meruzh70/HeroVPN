@@ -51,7 +51,7 @@ private extension ForgotPasswordVC {
         AppService().forgot(email: email) { result in
             ProgressHUD.dismiss()
             switch result {
-            case .succsess(let state):
+            case .success(let state):
                 if state {
                     guard let vc = Utils.shared.mainStoryboard().instantiateViewController(withIdentifier: VerificationVC.className) as? VerificationVC else { return }
                     vc.needChangePassword = true

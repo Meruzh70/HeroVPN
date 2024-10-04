@@ -91,7 +91,7 @@ private extension SignUpVC {
         AppService().register(name: name, email: email, password: password) { result in
             ProgressHUD.dismiss()
             switch result {
-            case .succsess(let state):
+            case .success(let state):
                 if state {
                     let vc = Utils.shared.mainStoryboard().instantiateViewController(withIdentifier: VerificationVC.className)
                     self.present(vc, animated: true)

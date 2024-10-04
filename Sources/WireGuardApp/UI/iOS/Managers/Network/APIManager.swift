@@ -39,7 +39,7 @@ class APIManager {
             .responseDecodable(of: U.self) { (response) in
             switch response.result {
             case .success(let result):
-                completion(.succsess(result))
+                completion(.success(result))
             case .failure(let error):
                 completion(.failure(self.errorHandling(error: error, data: response.data)))
             }
@@ -56,7 +56,7 @@ class APIManager {
             .responseData { (response) in
                 switch response.result {
                 case .success(let data):
-                    completion(.succsess(data))
+                    completion(.success(data))
                 case .failure(let error):
                     completion(.failure(self.errorHandling(error: error, data: response.data)))
                 }

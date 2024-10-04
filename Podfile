@@ -17,7 +17,6 @@ target 'HeroVPNiOS' do
   pod 'Firebase/Messaging', '10.29.0'
   pod 'Firebase/Crashlytics', '10.29.0'
 
-
   post_install do |installer|
     installer.generated_projects.each do |project|
       project.targets.each do |target|
@@ -44,13 +43,13 @@ target 'HeroVPNmacOSLoginItemHelper' do
 
 end
 
-target 'HeroVPNNetworkExtensioniOS' do
-  # Comment the next line if you don't want to use dynamic frameworks
-  use_frameworks!
+# target 'HeroVPNNetworkExtensioniOS' do
+#   # Comment the next line if you don't want to use dynamic frameworks
+#   use_frameworks!
   
-  # Pods for HeroVPNNetworkExtensioniOS
+#   # Pods for HeroVPNNetworkExtensioniOS
 
-end
+# end
 
 target 'HeroVPNNetworkExtensionmacOS' do
   # Comment the next line if you don't want to use dynamic frameworks

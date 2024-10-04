@@ -89,7 +89,7 @@ private extension AuthVC {
         AppService().login(email: email, password: password) { result in
             ProgressHUD.dismiss()
             switch result {
-            case .succsess(let name):
+            case .success(let name):
                 UserDefaultsManager.shared.userName = name
                 NotificationCenter.default.post(name: .needOpenMainTabBar, object: nil)
             case .failure(let error):
@@ -144,13 +144,11 @@ extension AuthVC: ASAuthorizationControllerDelegate {
             }
         }
 
-        print("apple sign in name: \(name) apple token:\(codeStr)")
-
         ProgressHUD.animate()
-        AppService().loginApple(appleToken: codeStr) { result in
+        AppService().loginApple(name: name, appleToken: codeStr) { result in
             ProgressHUD.dismiss()
             switch result {
-            case .succsess(let name):
+            case .success(let name):
                 UserDefaultsManager.shared.userName = name
                 NotificationCenter.default.post(name: .needOpenMainTabBar, object: nil)
             case .failure(let error):
