@@ -4,13 +4,23 @@
 import UIKit
 
 enum ProcessType {
-    case processPayment, successPayment, errorPayment
+    case processPayment, successPayment, errorPayment, confirmDelete
+
+    var topTitle: String {
+        return switch self {
+        case .processPayment: ""
+        case .successPayment: ""
+        case .errorPayment: ""
+        case .confirmDelete: "Delete account"
+        }
+    }
 
     var title: String {
         return switch self {
         case .processPayment: "Please Wait..."
         case .successPayment: "Success! You're Subscribed!"
         case .errorPayment: "Processing"
+        case .confirmDelete: "Delete account"
         }
     }
 
@@ -19,14 +29,25 @@ enum ProcessType {
         case .processPayment: "We're Processing Your Payment. This May Take a Moment."
         case .successPayment: "You're Now Protected with Our %@ Plan and Ready to Explore the Internet Safely."
         case .errorPayment: "We Apologize, but It Seems There Was an Issue with Your Payment for the %@ Plan. Please Verify Your Details and Try Again."
+        case .confirmDelete: "Are you sure you want to delete your account?"
         }
     }
 
-    var titleAction: String {
+    var mainTitleAction: String {
         return switch self {
         case .processPayment: ""
         case .successPayment: "Go to Homepage"
         case .errorPayment: "Go to Payment"
+        case .confirmDelete: "Delete account"
+        }
+    }
+
+    var additionalTitleAction: String {
+        return switch self {
+        case .processPayment: ""
+        case .successPayment: ""
+        case .errorPayment: ""
+        case .confirmDelete: "Cancel"
         }
     }
 
@@ -45,23 +66,52 @@ enum ProcessType {
     var imageName: String {
         return switch self {
         case .successPayment: "success"
-        case .errorPayment: "error"
+        case .errorPayment, .confirmDelete: "error"
         default: ""
         }
+    }
+
+    var showingTopTitle: Bool {
+        return self == .confirmDelete
+    }
+
+    var showingBackButton: Bool {
+        return self == .confirmDelete
+    }
+
+    var showingAdditionalButton: Bool {
+        return self == .confirmDelete
     }
 }
 
 protocol ProcessVCDelegate: AnyObject {
     func mainActionTouched(vc: UIViewController, type: ProcessType)
+    func additionalActionTouched(vc: UIViewController, type: ProcessType)
+}
+extension ProcessVCDelegate {
+    func mainActionTouched(vc: UIViewController, type: ProcessType) {
+
+    }
+
+    func additionalActionTouched(vc: UIViewController, type: ProcessType) {
+
+    }
 }
 
-class ProcessVC: UIViewController {
+class ProcessVC: BackVC {
+
+
+    @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var topTitleLabel: UILabel!
 
     @IBOutlet weak var backStateView: UIView!
     @IBOutlet weak var stateImageView: UIImageView!
     @IBOutlet weak var loaderView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var subtitleLabel: UILabel!
+
+    @IBOutlet weak var additionalActionBackgroundView: UIView!
+    @IBOutlet weak var additionalActionButton: UIButton!
 
     @IBOutlet weak var mainActionBackgroundView: UIView!
     @IBOutlet weak var mainActionButton: UIButton!
@@ -85,18 +135,30 @@ class ProcessVC: UIViewController {
 }
 private extension ProcessVC {
     func configureUI() {
-        self.mainActionBackgroundView.setBlueGradient()
+        if self.type == .confirmDelete {
+            self.mainActionBackgroundView.setRedGradient()
+        } else {
+            self.mainActionBackgroundView.setBlueGradient()
+        }
+        self.additionalActionBackgroundView.setGrayGradient()
 
         self.backStateView.layer.cornerRadius = self.backStateView.frame.width / 2
         self.backStateView.clipsToBounds = true
 
+        self.backButton.addTarget(self, action: #selector(backTouch), for: .touchUpInside)
         self.mainActionButton.addTarget(self, action: #selector(mainActionTouch), for: .touchUpInside)
+        self.additionalActionButton.addTarget(self, action: #selector(additionalActionTouch), for: .touchUpInside)
     }
 
     func stateChanged() {
+        self.backButton.isHidden = !self.type.showingBackButton
+        self.topTitleLabel.isHidden = !self.type.showingTopTitle
+        self.topTitleLabel.text = self.type.topTitle
+
         self.titleLabel.text = self.type.title
         self.subtitleLabel.text = String(format: self.type.subtitle, arguments: [self.planString])
-        self.mainActionButton.setAttributedTitle(NSAttributedString(string: self.type.titleAction, attributes: [NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont.montserratSemiBold(size: 16)]), for: .normal)
+        self.mainActionButton.setAttributedTitle(NSAttributedString(string: self.type.mainTitleAction, attributes: [NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont.montserratSemiBold(size: 16)]), for: .normal)
+        self.additionalActionButton.setAttributedTitle(NSAttributedString(string: self.type.additionalTitleAction, attributes: [NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont.montserratSemiBold(size: 16)]), for: .normal)
 
         self.mainActionBackgroundView.isHidden = !self.type.showingMainButton
         self.loaderView.isHidden = !self.type.showingLoaderView
@@ -108,5 +170,10 @@ private extension ProcessVC {
     @objc
     func mainActionTouch() {
         self.delegate?.mainActionTouched(vc: self, type: self.type)
+    }
+
+    @objc
+    func additionalActionTouch() {
+        self.delegate?.additionalActionTouched(vc: self, type: self.type)
     }
 }

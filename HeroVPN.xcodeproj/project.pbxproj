@@ -227,6 +227,8 @@
 		FC0BF4142CB016540018FFD7 /* Montserrat-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FCB9BB1C2C894A0E0093969D /* Montserrat-ExtraLightItalic.ttf */; };
 		FC0BF4152CB016540018FFD7 /* Montserrat-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FCB9BB1F2C894A0E0093969D /* Montserrat-LightItalic.ttf */; };
 		FC0BF4172CB017070018FFD7 /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0BF4162CB017070018FFD7 /* UIFont+Extension.swift */; };
+		FC0BF4192CB13EE40018FFD7 /* PersonalDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0BF4182CB13EE40018FFD7 /* PersonalDetailsVC.swift */; };
+		FC0BF41C2CB1442C0018FFD7 /* BackVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0BF41B2CB1442C0018FFD7 /* BackVC.swift */; };
 		FC46FCDC2C8767B3000C5303 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC46FCDB2C8767B3000C5303 /* Main.storyboard */; };
 		FC46FCDD2C8767B3000C5303 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC46FCDB2C8767B3000C5303 /* Main.storyboard */; };
 		FC46FCE42C88B6C1000C5303 /* StartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC46FCE32C88B6C1000C5303 /* StartVC.swift */; };
@@ -518,6 +520,8 @@
 		ED1F834CCC44FE50C13A19F7 /* Pods-HeroVPNmacOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeroVPNmacOS.release.xcconfig"; path = "Target Support Files/Pods-HeroVPNmacOS/Pods-HeroVPNmacOS.release.xcconfig"; sourceTree = "<group>"; };
 		FC0BF3FF2CAFC7060018FFD7 /* ProcessVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessVC.swift; sourceTree = "<group>"; };
 		FC0BF4162CB017070018FFD7 /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
+		FC0BF4182CB13EE40018FFD7 /* PersonalDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalDetailsVC.swift; sourceTree = "<group>"; };
+		FC0BF41B2CB1442C0018FFD7 /* BackVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackVC.swift; sourceTree = "<group>"; };
 		FC46FCDB2C8767B3000C5303 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		FC46FCE32C88B6C1000C5303 /* StartVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartVC.swift; sourceTree = "<group>"; };
 		FC46FCE52C88B6D1000C5303 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
@@ -1008,6 +1012,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		FC0BF41A2CB143E10018FFD7 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				FC0BF3FF2CAFC7060018FFD7 /* ProcessVC.swift */,
+				FC0BF41B2CB1442C0018FFD7 /* BackVC.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		FC46FCDE2C88B66A000C5303 /* VC */ = {
 			isa = PBXGroup;
 			children = (
@@ -1096,6 +1109,7 @@
 		FC46FCF62C88B7DD000C5303 /* MAIN */ = {
 			isa = PBXGroup;
 			children = (
+				FC0BF41A2CB143E10018FFD7 /* Common */,
 				FC9B213E2C89C3B300B508A9 /* MainTabBar */,
 				FC46FCE12C88B681000C5303 /* HomeVC */,
 				FC46FD052C88B94C000C5303 /* SubsVC */,
@@ -1148,7 +1162,6 @@
 			isa = PBXGroup;
 			children = (
 				FC46FD072C88B966000C5303 /* SubsVC.swift */,
-				FC0BF3FF2CAFC7060018FFD7 /* ProcessVC.swift */,
 			);
 			path = SubsVC;
 			sourceTree = "<group>";
@@ -1162,6 +1175,7 @@
 				FC9B214B2C8C1F0600B508A9 /* AboutVC.swift */,
 				FC9B214D2C8C1F1300B508A9 /* LanguageVC.swift */,
 				FC9B214F2C8C1F2100B508A9 /* LogoutVC.swift */,
+				FC0BF4182CB13EE40018FFD7 /* PersonalDetailsVC.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -2183,6 +2197,7 @@
 				FCB9BB502C8964C70093969D /* KeychainManager.swift in Sources */,
 				585B107E2577E294004F691E /* PrivateKey.swift in Sources */,
 				FC46FD1B2C88C13C000C5303 /* Utils.swift in Sources */,
+				FC0BF4192CB13EE40018FFD7 /* PersonalDetailsVC.swift in Sources */,
 				FC9B21402C89C3D100B508A9 /* MainTabBar.swift in Sources */,
 				6FDEF7FB21863B6100D8FBF6 /* unzip.c in Sources */,
 				FC46FCEE2C88B719000C5303 /* Onboarding1VC.swift in Sources */,
@@ -2207,6 +2222,7 @@
 				FC6AC1872C91BD2200678F17 /* UIColor+Extension.swift in Sources */,
 				FC9B214A2C8C1EFA00B508A9 /* PrivacyVC.swift in Sources */,
 				FC9B214E2C8C1F1300B508A9 /* LanguageVC.swift in Sources */,
+				FC0BF41C2CB1442C0018FFD7 /* BackVC.swift in Sources */,
 				FC46FD042C88B91D000C5303 /* ResetPasswordSuccessVC.swift in Sources */,
 				FC46FCF92C88B854000C5303 /* VerificationVC.swift in Sources */,
 				5F45419021C2D53800994C13 /* SwitchCell.swift in Sources */,

@@ -31,6 +31,22 @@ extension UIView {
         self.setGradient(colors: [UIColor.leftBlueColor.cgColor, UIColor.rightBlueColor.cgColor])
     }
 
+    func setRedGradient() {
+        guard self.layer.sublayers?.first as? CAGradientLayer == nil else { return }
+        self.backgroundColor = .clear
+        self.layer.cornerRadius = 16
+        self.clipsToBounds = true
+        self.setGradient(colors: [UIColor.errorColor.cgColor, UIColor.errorColor.cgColor])
+    }
+
+    func setGrayGradient() {
+        guard self.layer.sublayers?.first as? CAGradientLayer == nil else { return }
+        self.backgroundColor = .clear
+        self.layer.cornerRadius = 16
+        self.clipsToBounds = true
+        self.setGradient(colors: [UIColor.grayColor.cgColor, UIColor.grayColor.cgColor])
+    }
+
     func setTestGradient() {
         self.backgroundColor = .clear
 

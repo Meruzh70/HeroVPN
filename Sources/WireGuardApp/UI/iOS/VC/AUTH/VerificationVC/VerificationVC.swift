@@ -4,7 +4,7 @@
 import UIKit
 import ProgressHUD
 
-class VerificationVC: UIViewController {
+class VerificationVC: BackVC {
 
     @IBOutlet weak var backButton: UIButton!
 
@@ -49,11 +49,6 @@ private extension VerificationVC {
     func setTargets() {
         self.backButton.addTarget(self, action: #selector(backTouch), for: .touchUpInside)
         self.verifyButton.addTarget(self, action: #selector(verifyTouch), for: .touchUpInside)
-    }
-
-    @objc
-    func backTouch() {
-        self.dismiss(animated: true)
     }
 
     @objc

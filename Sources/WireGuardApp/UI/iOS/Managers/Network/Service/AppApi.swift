@@ -17,6 +17,7 @@ enum AppApi: URLRequestBuilder {
     case promocode(code: String)
     case status
     case subscribe(transactionId: String, uniqId: String, cost: Float, created: Double)
+    case delete
 
     // property for path
     var path: String {
@@ -33,6 +34,7 @@ enum AppApi: URLRequestBuilder {
         case .promocode: "/promocode"
         case .status: "/status"
         case .subscribe: "/subscribe"
+        case .delete: "/user"
         }
     }
 
@@ -78,6 +80,8 @@ enum AppApi: URLRequestBuilder {
              "uniq_id": uniqId,
              "cost": cost,
              "created": created]
+        case .delete:
+            nil
         }
     }
 
@@ -88,6 +92,7 @@ enum AppApi: URLRequestBuilder {
                 .post
         case .tarrifs, .status:
                 .get
+        case .delete: .delete
         }
     }
 }

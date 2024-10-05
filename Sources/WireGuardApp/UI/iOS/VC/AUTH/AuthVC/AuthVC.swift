@@ -9,7 +9,7 @@ import AuthenticationServices
 //    func signUp()
 //}
 
-class AuthVC: UIViewController {
+class AuthVC: BackVC {
 
     @IBOutlet weak var backButton: UIButton!
 
@@ -51,11 +51,6 @@ private extension AuthVC {
         self.forgotPasswordButton.addTarget(self, action: #selector(forgotPasswordTouch), for: .touchUpInside)
         self.appleSignInButton.addTarget(self, action: #selector(appleSignInTouch), for: .touchUpInside)
         self.signUpButton.addTarget(self, action: #selector(signUpTouch), for: .touchUpInside)
-    }
-
-    @objc
-    func backTouch() {
-        self.dismiss(animated: true)
     }
 
     @objc

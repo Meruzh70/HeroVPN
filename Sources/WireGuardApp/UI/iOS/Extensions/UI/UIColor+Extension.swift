@@ -31,4 +31,12 @@ extension UIColor {
     static var rightBlueColor: UIColor {
         return .init(hex: "#0888E1")
     }
+
+    static var errorColor: UIColor {
+        return .init(hex: "#EB445A")
+    }
+
+    static var grayColor: UIColor {
+        return .init(hex: "#343434")
+    }
 }

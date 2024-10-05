@@ -4,7 +4,7 @@
 import UIKit
 import ProgressHUD
 
-class ResetPasswordVC: UIViewController {
+class ResetPasswordVC: BackVC {
 
     @IBOutlet weak var backButton: UIButton!
 
@@ -38,11 +38,6 @@ private extension ResetPasswordVC {
         self.showPasswordButton.addTarget(self, action: #selector(showPasswordTouch), for: .touchUpInside)
         self.showConfirmPasswordButton.addTarget(self, action: #selector(showConfirmPasswordTouch), for: .touchUpInside)
         self.resetButton.addTarget(self, action: #selector(resetTouch), for: .touchUpInside)
-    }
-
-    @objc
-    func backTouch() {
-        self.dismiss(animated: true)
     }
 
     @objc

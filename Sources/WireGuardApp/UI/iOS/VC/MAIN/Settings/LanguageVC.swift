@@ -3,7 +3,7 @@
 
 import UIKit
 
-class LanguageVC: UIViewController {
+class LanguageVC: BackVC {
 
     @IBOutlet weak var backButton: UIButton!
 
@@ -16,10 +16,5 @@ class LanguageVC: UIViewController {
 private extension LanguageVC {
     func setTargets() {
         self.backButton.addTarget(self, action: #selector(backTouch), for: .touchUpInside)
-    }
-
-    @objc
-    func backTouch() {
-        self.dismiss(animated: true)
     }
 }

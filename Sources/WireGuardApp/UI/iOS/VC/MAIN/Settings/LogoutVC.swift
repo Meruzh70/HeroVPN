@@ -3,7 +3,7 @@
 
 import UIKit
 
-class LogoutVC: UIViewController {
+class LogoutVC: BackVC {
 
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
@@ -20,11 +20,6 @@ private extension LogoutVC {
         self.backButton.addTarget(self, action: #selector(backTouch), for: .touchUpInside)
         self.cancelButton.addTarget(self, action: #selector(backTouch), for: .touchUpInside)
         self.logoutButton.addTarget(self, action: #selector(logoutTouch), for: .touchUpInside)
-    }
-
-    @objc
-    func backTouch() {
-        self.dismiss(animated: true)
     }
 
     @objc

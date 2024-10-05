@@ -4,7 +4,7 @@
 import UIKit
 import ProgressHUD
 
-class ForgotPasswordVC: UIViewController {
+class ForgotPasswordVC: BackVC {
 
     @IBOutlet weak var backButton: UIButton!
 
@@ -29,11 +29,6 @@ private extension ForgotPasswordVC {
     func setTargets() {
         self.backButton.addTarget(self, action: #selector(backTouch), for: .touchUpInside)
         self.sendButton.addTarget(self, action: #selector(sendTouch), for: .touchUpInside)
-    }
-
-    @objc
-    func backTouch() {
-        self.dismiss(animated: true)
     }
 
     @objc

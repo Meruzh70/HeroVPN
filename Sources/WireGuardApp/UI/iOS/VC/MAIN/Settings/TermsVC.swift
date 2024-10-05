@@ -3,7 +3,7 @@
 
 import UIKit
 
-class TermsVC: UIViewController {
+class TermsVC: BackVC {
 
     @IBOutlet weak var backButton: UIButton!
 
@@ -16,10 +16,5 @@ class TermsVC: UIViewController {
 private extension TermsVC {
     func setTargets() {
         self.backButton.addTarget(self, action: #selector(backTouch), for: .touchUpInside)
-    }
-
-    @objc
-    func backTouch() {
-        self.dismiss(animated: true)
     }
 }

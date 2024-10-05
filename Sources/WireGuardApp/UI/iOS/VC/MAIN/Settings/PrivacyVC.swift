@@ -3,7 +3,7 @@
 
 import UIKit
 
-class PrivacyVC: UIViewController {
+class PrivacyVC: BackVC {
 
     @IBOutlet weak var backButton: UIButton!
 
@@ -16,10 +16,5 @@ class PrivacyVC: UIViewController {
 private extension PrivacyVC {
     func setTargets() {
         self.backButton.addTarget(self, action: #selector(backTouch), for: .touchUpInside)
-    }
-
-    @objc
-    func backTouch() {
-        self.dismiss(animated: true)
     }
 }

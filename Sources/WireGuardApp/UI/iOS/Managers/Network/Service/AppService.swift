@@ -177,4 +177,17 @@ class AppService {
             }
         }
     }
+
+    // functuon for delete user
+    func delete(complition: @escaping (ResultResponce<Bool>) -> Void) {
+        let service: AppApi = .delete
+        apiManager.perform(service: service, decodeType: DefaultEntity.self) { (result) in
+            switch result {
+            case .success(let defaultResponse):
+                complition(.success(defaultResponse.isSuccess))
+            case .failure(let error):
+                complition(.failure(error))
+            }
+        }
+    }
 }

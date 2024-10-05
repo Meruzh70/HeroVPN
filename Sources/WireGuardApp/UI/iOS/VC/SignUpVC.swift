@@ -8,7 +8,7 @@ import ProgressHUD
 //    func auth()
 //}
 
-class SignUpVC: UIViewController {
+class SignUpVC: BackVC {
 
     @IBOutlet weak var backButton: UIButton!
 
@@ -47,11 +47,6 @@ private extension SignUpVC {
         self.showPasswordButton.addTarget(self, action: #selector(showPasswordTouch), for: .touchUpInside)
         self.singUpButton.addTarget(self, action: #selector(singUpTouch), for: .touchUpInside)
         self.signInButton.addTarget(self, action: #selector(signInTouch), for: .touchUpInside)
-    }
-
-    @objc
-    func backTouch() {
-        self.dismiss(animated: true)
     }
 
     @objc
