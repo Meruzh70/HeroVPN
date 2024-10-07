@@ -61,16 +61,16 @@ class Connection {
 
     func changeConfiguration(conf: Configuration) {
 
-        guard let privateKey = PrivateKey(base64Key: conf.clientPrivateKey) else {
+        guard let privateKey = PrivateKey(base64Key: conf.awgContainer.clientPrivateKey) else {
             print("error private key")
             return
         }
         var interfaceConfig = InterfaceConfiguration(privateKey: privateKey)
 
-        if let addressRange = IPAddressRange(from: conf.address) {
+        if let addressRange = IPAddressRange(from: conf.awgContainer.address) {
             interfaceConfig.addresses = [addressRange]
         }
-        interfaceConfig.listenPort = UInt16(conf.port)
+        interfaceConfig.listenPort = UInt16(conf.awgContainer.port)
 
         var dnsServers: [DNSServer] = []
         var dnsSearch: [String] = []
@@ -87,26 +87,26 @@ class Connection {
         interfaceConfig.dns = dnsServers
         interfaceConfig.dnsSearch = dnsSearch
 
-        interfaceConfig.junkPacketCount = UInt16(conf.jc)
-        interfaceConfig.junkPacketMinSize = UInt16(conf.jMin)
-        interfaceConfig.junkPacketMaxSize = UInt16(conf.jMax)
+        interfaceConfig.junkPacketCount = UInt16(conf.awgContainer.jc)
+        interfaceConfig.junkPacketMinSize = UInt16(conf.awgContainer.jMin)
+        interfaceConfig.junkPacketMaxSize = UInt16(conf.awgContainer.jMax)
 
-        interfaceConfig.initPacketJunkSize = UInt16(conf.s1)
-        interfaceConfig.responsePacketJunkSize = UInt16(conf.s2)
+        interfaceConfig.initPacketJunkSize = UInt16(conf.awgContainer.s1)
+        interfaceConfig.responsePacketJunkSize = UInt16(conf.awgContainer.s2)
 
-        interfaceConfig.initPacketMagicHeader = UInt32(conf.h1)
-        interfaceConfig.responsePacketMagicHeader = UInt32(conf.h2)
-        interfaceConfig.underloadPacketMagicHeader = UInt32(conf.h3)
-        interfaceConfig.transportPacketMagicHeader = UInt32(conf.h4)
+        interfaceConfig.initPacketMagicHeader = UInt32(conf.awgContainer.h1)
+        interfaceConfig.responsePacketMagicHeader = UInt32(conf.awgContainer.h2)
+        interfaceConfig.underloadPacketMagicHeader = UInt32(conf.awgContainer.h3)
+        interfaceConfig.transportPacketMagicHeader = UInt32(conf.awgContainer.h4)
 
         var peerConfigurations = [PeerConfiguration]()
-        if let publicKey = PublicKey(base64Key: conf.serverPubKey) {
+        if let publicKey = PublicKey(base64Key: conf.awgContainer.serverPubKey) {
             var peerConfig = PeerConfiguration(publicKey: publicKey)
-            peerConfig.preSharedKey = PreSharedKey(base64Key: conf.pskKey)
-            peerConfig.endpoint = Endpoint(from: conf.endPoint)
-            peerConfig.persistentKeepAlive = UInt16(conf.keepALive)
+            peerConfig.preSharedKey = PreSharedKey(base64Key: conf.awgContainer.pskKey)
+            peerConfig.endpoint = Endpoint(from: conf.awgContainer.endPoint)
+            peerConfig.persistentKeepAlive = UInt16(conf.awgContainer.keepALive)
 
-            if let allowedIpAddressRange = IPAddressRange(from: conf.allowedIps) {
+            if let allowedIpAddressRange = IPAddressRange(from: conf.awgContainer.allowedIps) {
                 peerConfig.allowedIPs = [allowedIpAddressRange]
             }
 

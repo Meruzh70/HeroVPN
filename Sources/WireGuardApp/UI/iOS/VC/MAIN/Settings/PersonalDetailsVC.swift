@@ -38,13 +38,17 @@ extension PersonalDetailsVC: ProcessVCDelegate {
         AppService().delete { result in
             ProgressHUD.dismiss()
             switch result {
-            case .success(let name):
-                UserDefaultsManager.shared.userName = nil
-                UserDefaultsManager.shared.timerFinishSubscribtion = nil
-                KeychainManager.shared.removeAll()
-                Connection.shared.changeConnection(isOn: false)
-        //        Connection.shared.removeConfiguration()
-                NotificationCenter.default.post(name: .needOpenAuth, object: nil)
+            case .success(let state):
+                if state {
+                    UserDefaultsManager.shared.userName = nil
+                    UserDefaultsManager.shared.timerFinishSubscribtion = nil
+                    KeychainManager.shared.removeAll()
+                    Connection.shared.changeConnection(isOn: false)
+            //        Connection.shared.removeConfiguration()
+                    NotificationCenter.default.post(name: .needOpenAuth, object: nil)
+                } else {
+                    self.showAlert("Error delete account")
+                }
             case .failure(let error):
                 self.showAlert(error.textError)
             }

@@ -51,10 +51,6 @@ enum ProcessType {
         }
     }
 
-    var showingMainButton: Bool {
-        return self != .processPayment
-    }
-
     var showingLoaderView: Bool {
         return self == .processPayment
     }
@@ -78,10 +74,6 @@ enum ProcessType {
     var showingBackButton: Bool {
         return self == .confirmDelete
     }
-
-    var showingAdditionalButton: Bool {
-        return self == .confirmDelete
-    }
 }
 
 protocol ProcessVCDelegate: AnyObject {
@@ -99,7 +91,6 @@ extension ProcessVCDelegate {
 }
 
 class ProcessVC: BackVC {
-
 
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var topTitleLabel: UILabel!
@@ -128,19 +119,29 @@ class ProcessVC: BackVC {
         self.stateChanged()
     }
 
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+
+        self.configureButtons()
+    }
+
     func changeStatus(type: ProcessType) {
         self.type = type
         self.stateChanged()
     }
 }
 private extension ProcessVC {
-    func configureUI() {
+    func configureButtons() {
         if self.type == .confirmDelete {
             self.mainActionBackgroundView.setRedGradient()
         } else {
             self.mainActionBackgroundView.setBlueGradient()
         }
         self.additionalActionBackgroundView.setGrayGradient()
+    }
+
+    func configureUI() {
+//        self.configureButtons()
 
         self.backStateView.layer.cornerRadius = self.backStateView.frame.width / 2
         self.backStateView.clipsToBounds = true
@@ -160,7 +161,8 @@ private extension ProcessVC {
         self.mainActionButton.setAttributedTitle(NSAttributedString(string: self.type.mainTitleAction, attributes: [NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont.montserratSemiBold(size: 16)]), for: .normal)
         self.additionalActionButton.setAttributedTitle(NSAttributedString(string: self.type.additionalTitleAction, attributes: [NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont.montserratSemiBold(size: 16)]), for: .normal)
 
-        self.mainActionBackgroundView.isHidden = !self.type.showingMainButton
+        self.mainActionBackgroundView.isHidden = self.type.mainTitleAction.isEmpty
+        self.additionalActionBackgroundView.isHidden = self.type.additionalTitleAction.isEmpty
         self.loaderView.isHidden = !self.type.showingLoaderView
 
         self.backStateView.isHidden = !self.type.showingStateImage

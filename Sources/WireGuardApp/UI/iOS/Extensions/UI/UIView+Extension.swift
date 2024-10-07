@@ -32,7 +32,9 @@ extension UIView {
     }
 
     func setRedGradient() {
-        guard self.layer.sublayers?.first as? CAGradientLayer == nil else { return }
+        if self.layer.sublayers?.first as? CAGradientLayer != nil {
+            self.layer.sublayers?.remove(at: 0)
+        }
         self.backgroundColor = .clear
         self.layer.cornerRadius = 16
         self.clipsToBounds = true
