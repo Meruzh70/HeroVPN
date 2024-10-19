@@ -229,6 +229,8 @@
 		FC0BF4172CB017070018FFD7 /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0BF4162CB017070018FFD7 /* UIFont+Extension.swift */; };
 		FC0BF4192CB13EE40018FFD7 /* PersonalDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0BF4182CB13EE40018FFD7 /* PersonalDetailsVC.swift */; };
 		FC0BF41C2CB1442C0018FFD7 /* BackVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0BF41B2CB1442C0018FFD7 /* BackVC.swift */; };
+		FC0BF43C2CC120200018FFD7 /* InfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0BF43B2CC1201F0018FFD7 /* InfoVC.swift */; };
+		FC0BF43E2CC124A70018FFD7 /* InfoEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0BF43D2CC124A70018FFD7 /* InfoEntity.swift */; };
 		FC46FCDC2C8767B3000C5303 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC46FCDB2C8767B3000C5303 /* Main.storyboard */; };
 		FC46FCDD2C8767B3000C5303 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC46FCDB2C8767B3000C5303 /* Main.storyboard */; };
 		FC46FCE42C88B6C1000C5303 /* StartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC46FCE32C88B6C1000C5303 /* StartVC.swift */; };
@@ -271,9 +273,6 @@
 		FC9B21402C89C3D100B508A9 /* MainTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9B213F2C89C3D100B508A9 /* MainTabBar.swift */; };
 		FC9B21442C8AC6A200B508A9 /* AuthEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9B21432C8AC6A200B508A9 /* AuthEntity.swift */; };
 		FC9B21462C8B141D00B508A9 /* DefaultEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9B21452C8B141D00B508A9 /* DefaultEntity.swift */; };
-		FC9B21482C8C1EE800B508A9 /* TermsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9B21472C8C1EE800B508A9 /* TermsVC.swift */; };
-		FC9B214A2C8C1EFA00B508A9 /* PrivacyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9B21492C8C1EFA00B508A9 /* PrivacyVC.swift */; };
-		FC9B214C2C8C1F0600B508A9 /* AboutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9B214B2C8C1F0600B508A9 /* AboutVC.swift */; };
 		FC9B214E2C8C1F1300B508A9 /* LanguageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9B214D2C8C1F1300B508A9 /* LanguageVC.swift */; };
 		FC9B21502C8C1F2100B508A9 /* LogoutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9B214F2C8C1F2100B508A9 /* LogoutVC.swift */; };
 		FC9B21532C8D6C4E00B508A9 /* HeroTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9B21522C8D6C4E00B508A9 /* HeroTextField.swift */; };
@@ -522,6 +521,8 @@
 		FC0BF4162CB017070018FFD7 /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
 		FC0BF4182CB13EE40018FFD7 /* PersonalDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalDetailsVC.swift; sourceTree = "<group>"; };
 		FC0BF41B2CB1442C0018FFD7 /* BackVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackVC.swift; sourceTree = "<group>"; };
+		FC0BF43B2CC1201F0018FFD7 /* InfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoVC.swift; sourceTree = "<group>"; };
+		FC0BF43D2CC124A70018FFD7 /* InfoEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoEntity.swift; sourceTree = "<group>"; };
 		FC46FCDB2C8767B3000C5303 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		FC46FCE32C88B6C1000C5303 /* StartVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartVC.swift; sourceTree = "<group>"; };
 		FC46FCE52C88B6D1000C5303 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
@@ -566,9 +567,6 @@
 		FC9B213F2C89C3D100B508A9 /* MainTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBar.swift; sourceTree = "<group>"; };
 		FC9B21432C8AC6A200B508A9 /* AuthEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthEntity.swift; sourceTree = "<group>"; };
 		FC9B21452C8B141D00B508A9 /* DefaultEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultEntity.swift; sourceTree = "<group>"; };
-		FC9B21472C8C1EE800B508A9 /* TermsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsVC.swift; sourceTree = "<group>"; };
-		FC9B21492C8C1EFA00B508A9 /* PrivacyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyVC.swift; sourceTree = "<group>"; };
-		FC9B214B2C8C1F0600B508A9 /* AboutVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutVC.swift; sourceTree = "<group>"; };
 		FC9B214D2C8C1F1300B508A9 /* LanguageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageVC.swift; sourceTree = "<group>"; };
 		FC9B214F2C8C1F2100B508A9 /* LogoutVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutVC.swift; sourceTree = "<group>"; };
 		FC9B21522C8D6C4E00B508A9 /* HeroTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroTextField.swift; sourceTree = "<group>"; };
@@ -1170,12 +1168,10 @@
 			isa = PBXGroup;
 			children = (
 				FC46FD092C88B96F000C5303 /* SettingsVC.swift */,
-				FC9B21472C8C1EE800B508A9 /* TermsVC.swift */,
-				FC9B21492C8C1EFA00B508A9 /* PrivacyVC.swift */,
-				FC9B214B2C8C1F0600B508A9 /* AboutVC.swift */,
 				FC9B214D2C8C1F1300B508A9 /* LanguageVC.swift */,
 				FC9B214F2C8C1F2100B508A9 /* LogoutVC.swift */,
 				FC0BF4182CB13EE40018FFD7 /* PersonalDetailsVC.swift */,
+				FC0BF43B2CC1201F0018FFD7 /* InfoVC.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -1387,6 +1383,7 @@
 				FC6AC1842C91B75E00678F17 /* RegEntity.swift */,
 				FC6AC1882C93421D00678F17 /* TarifEntity.swift */,
 				FC8FDBD82C9423F900A68657 /* StatusEntity.swift */,
+				FC0BF43D2CC124A70018FFD7 /* InfoEntity.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -2135,6 +2132,7 @@
 				6F29A94722787B1600DC6A6B /* QuickActionItem.swift in Sources */,
 				585B105A2577E293004F691E /* InterfaceConfiguration.swift in Sources */,
 				6FF3527221C2616C0008484E /* ringlogger.c in Sources */,
+				FC0BF43E2CC124A70018FFD7 /* InfoEntity.swift in Sources */,
 				6F0F44CB222D55FD00B0FF04 /* EditableTextCell.swift in Sources */,
 				585B105E2577E293004F691E /* PeerConfiguration.swift in Sources */,
 				6FF3527321C2616C0008484E /* Logger.swift in Sources */,
@@ -2145,6 +2143,7 @@
 				5F45417D21C1B23600994C13 /* UITableViewCell+Reuse.swift in Sources */,
 				FC8FDBE52C947B8A00A68657 /* Onboarding3VC.swift in Sources */,
 				FC8FDBD92C9423F900A68657 /* StatusEntity.swift in Sources */,
+				FC0BF43C2CC120200018FFD7 /* InfoVC.swift in Sources */,
 				FC8FDBD52C9348F200A68657 /* Float+Extension.swift in Sources */,
 				FCB9BB442C8961C50093969D /* APIManager.swift in Sources */,
 				5F45419221C2D55800994C13 /* CheckmarkCell.swift in Sources */,
@@ -2163,7 +2162,6 @@
 				FCB9BB462C8961E20093969D /* URLRequestBuilder.swift in Sources */,
 				6F8F0D7422267AD2000E8335 /* ChevronCell.swift in Sources */,
 				6F61F1E921B932F700483816 /* WireGuardAppError.swift in Sources */,
-				FC9B21482C8C1EE800B508A9 /* TermsVC.swift in Sources */,
 				FCB9BB4B2C8962B00093969D /* AppApi.swift in Sources */,
 				FC46FCFC2C88B874000C5303 /* ResetPasswordVC.swift in Sources */,
 				6F7774E2217181B1006A79B3 /* AppDelegate.swift in Sources */,
@@ -2220,7 +2218,6 @@
 				FC46FD0A2C88B96F000C5303 /* SettingsVC.swift in Sources */,
 				585B10922577E294004F691E /* key.c in Sources */,
 				FC6AC1872C91BD2200678F17 /* UIColor+Extension.swift in Sources */,
-				FC9B214A2C8C1EFA00B508A9 /* PrivacyVC.swift in Sources */,
 				FC9B214E2C8C1F1300B508A9 /* LanguageVC.swift in Sources */,
 				FC0BF41C2CB1442C0018FFD7 /* BackVC.swift in Sources */,
 				FC46FD042C88B91D000C5303 /* ResetPasswordSuccessVC.swift in Sources */,
@@ -2246,7 +2243,6 @@
 				FC46FCF42C88B7AA000C5303 /* ForgotPasswordVC.swift in Sources */,
 				6F7774E1217181B1006A79B3 /* MainViewController.swift in Sources */,
 				6FFA5DA42197085D0001E2F7 /* ActivateOnDemandOption.swift in Sources */,
-				FC9B214C2C8C1F0600B508A9 /* AboutVC.swift in Sources */,
 				FC6AC1922C93447800678F17 /* TarifTableViewCell.swift in Sources */,
 				5F4541B221CBFAEE00994C13 /* String+ArrayConversion.swift in Sources */,
 				585B108A2577E294004F691E /* Endpoint.swift in Sources */,

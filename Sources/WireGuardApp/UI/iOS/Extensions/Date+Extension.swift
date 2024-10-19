@@ -16,4 +16,12 @@ extension Date {
     func monthSymbol(using calendar: Calendar = .current) -> String {
         calendar.monthSymbols[calendar.component(.month, from: self)-1]
     }
+
+    func getStringDate(format: String = "MMMM dd, YYYY") -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale.current
+        dateFormatter.dateFormat = format
+        return dateFormatter.string(from: self)
+    }
+
 }

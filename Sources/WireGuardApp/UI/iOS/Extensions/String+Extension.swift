@@ -53,4 +53,17 @@ extension String {
         let arr = self.components(separatedBy: " = ")
         return arr.last ?? ""
     }
+
+    var isValidHtmlString: Bool {
+        if self.isEmpty {
+            return false
+        }
+        return (self.range(of: "<(\"[^\"]*\"|'[^']*'|[^'\">])*>", options: .regularExpression) != nil)
+    }
+
+    var getDate: Date? {
+        let dateFormatter = ISO8601DateFormatter()
+        dateFormatter.formatOptions = [.withFullDate]
+        return dateFormatter.date(from: self)
+    }
 }

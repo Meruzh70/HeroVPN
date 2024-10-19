@@ -190,4 +190,21 @@ class AppService {
             }
         }
     }
+
+    // functuon for get info
+    func info(type: InfoType, complition: @escaping (ResultResponce<Info>) -> Void) {
+        let service: AppApi = .info(type: type)
+        apiManager.perform(service: service, decodeType: InfoEntity.self) { (result) in
+            switch result {
+            case .success(let infoEntity):
+                if infoEntity.isSuccess, let info = infoEntity.page {
+                    complition(.success(info))
+                } else {
+                    complition(.failure(.custom(infoEntity.message ?? "", [])))
+                }
+            case .failure(let error):
+                complition(.failure(error))
+            }
+        }
+    }
 }

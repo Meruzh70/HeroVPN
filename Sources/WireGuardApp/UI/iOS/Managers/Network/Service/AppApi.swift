@@ -18,6 +18,7 @@ enum AppApi: URLRequestBuilder {
     case status
     case subscribe(transactionId: String, uniqId: String, cost: Float, created: Double)
     case delete
+    case info(type: InfoType)
 
     // property for path
     var path: String {
@@ -35,6 +36,7 @@ enum AppApi: URLRequestBuilder {
         case .status: "/status"
         case .subscribe: "/subscribe"
         case .delete: "/user"
+        case .info(let type): "/page/\(type.alias)"
         }
     }
 
@@ -82,15 +84,28 @@ enum AppApi: URLRequestBuilder {
              "created": created]
         case .delete:
             nil
+        case .info:
+            nil
         }
     }
 
     // property for method
     var method: HTTPMethod {
         return switch self {
-        case .login, .loginApple, .pushToken, .signUp, .connect, .confirm, .forgot, .password, .promocode, .subscribe:
+        case .login,
+                .loginApple,
+                .pushToken,
+                .signUp,
+                .connect,
+                .confirm,
+                .forgot,
+                .password,
+                .promocode,
+                .subscribe:
                 .post
-        case .tarrifs, .status:
+        case .tarrifs,
+                .status,
+                .info:
                 .get
         case .delete: .delete
         }

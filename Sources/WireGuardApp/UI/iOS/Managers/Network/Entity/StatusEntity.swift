@@ -19,7 +19,6 @@ class StatusEntity: DefaultEntity {
              free
     }
 
-
     required init(from decoder: any Decoder) throws {
         try super.init(from: decoder)
         let container = try decoder.container(keyedBy: CodingKeys.self)
@@ -29,5 +28,4 @@ class StatusEntity: DefaultEntity {
         self.activeAt = try container.decodeIfPresent(String.self, forKey: .activeAt)
         self.free = try container.decodeIfPresent(Bool.self, forKey: .free)
     }
-
 }

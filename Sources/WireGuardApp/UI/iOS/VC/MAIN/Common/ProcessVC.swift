@@ -74,6 +74,10 @@ enum ProcessType {
     var showingBackButton: Bool {
         return self == .confirmDelete
     }
+
+    var showingTimerLabel: Bool {
+        return self == .processPayment
+    }
 }
 
 protocol ProcessVCDelegate: AnyObject {
@@ -98,14 +102,19 @@ class ProcessVC: BackVC {
     @IBOutlet weak var backStateView: UIView!
     @IBOutlet weak var stateImageView: UIImageView!
     @IBOutlet weak var loaderView: UIImageView!
+    @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var subtitleLabel: UILabel!
+    @IBOutlet weak var timerLabel: UILabel!
 
     @IBOutlet weak var additionalActionBackgroundView: UIView!
     @IBOutlet weak var additionalActionButton: UIButton!
 
     @IBOutlet weak var mainActionBackgroundView: UIView!
     @IBOutlet weak var mainActionButton: UIButton!
+
+    private var timer: Timer?
+    private var dateStartTimer: TimeInterval?
 
     var type: ProcessType = .processPayment
     var planString: String = ""
@@ -128,6 +137,10 @@ class ProcessVC: BackVC {
     func changeStatus(type: ProcessType) {
         self.type = type
         self.stateChanged()
+    }
+
+    override func backTouch() {
+
     }
 }
 private extension ProcessVC {
@@ -163,10 +176,42 @@ private extension ProcessVC {
 
         self.mainActionBackgroundView.isHidden = self.type.mainTitleAction.isEmpty
         self.additionalActionBackgroundView.isHidden = self.type.additionalTitleAction.isEmpty
-        self.loaderView.isHidden = !self.type.showingLoaderView
+//        self.loaderView.isHidden = !self.type.showingLoaderView
+        self.activityIndicatorView.isHidden = !self.type.showingLoaderView
 
         self.backStateView.isHidden = !self.type.showingStateImage
-        self.stateImageView.image = UIImage(named: self.type.imageName)
+        if !self.type.imageName.isEmpty, let image = UIImage(named: self.type.imageName) {
+            self.stateImageView.image = image
+        } else {
+            self.stateImageView.image = nil
+        }
+
+        self.timerLabel.text = nil
+        self.timerLabel.isHidden = !self.type.showingTimerLabel
+
+        if self.type == .processPayment {
+            self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.timerTick), userInfo: nil, repeats: true)
+            self.dateStartTimer = Date().timeIntervalSince1970
+        }
+    }
+
+    @objc
+    func timerTick() {
+        guard self.type == .processPayment, let dateStartTimer = dateStartTimer else {
+            self.timer?.invalidate()
+            return
+        }
+
+        let limit = 60
+        let now = Date().timeIntervalSince1970
+        let diff = Int(now - dateStartTimer)
+        if diff < limit {
+            self.timerLabel.text = "Time checking transaction: \(limit-diff) seconds"
+        } else {
+            self.timer?.invalidate()
+            self.timerLabel.isHidden = true
+            self.changeStatus(type: .errorPayment)
+        }
     }
 
     @objc

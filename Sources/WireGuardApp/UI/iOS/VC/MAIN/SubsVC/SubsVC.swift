@@ -24,6 +24,8 @@ class SubsVC: UIViewController {
     @IBOutlet weak var choosePlanLabel: UILabel!
     @IBOutlet weak var exploreLabel: UILabel!
     @IBOutlet weak var tarifTableView: UITableView!
+    @IBOutlet weak var linksTextView: UITextView!
+    @IBOutlet weak var heightLinksTextView: NSLayoutConstraint!
     @IBOutlet weak var heightTarifTableViewConstraint: NSLayoutConstraint!
     @IBOutlet weak var subscribeButton: UIButton!
 
@@ -48,6 +50,8 @@ class SubsVC: UIViewController {
     private var timer: Timer?
 
     private var checkStatusTimer: Timer?
+    private var dateStartTimer: TimeInterval?
+
     private var transactionId: String?
     private var selectedTarifName: String?
     private var processVC: ProcessVC?
@@ -186,6 +190,36 @@ private extension SubsVC {
         self.tarifTableView.allowsMultipleSelectionDuringEditing = false
         self.tarifTableView.delegate = self
         self.tarifTableView.dataSource = self
+
+        let text1 = "The subscription is automatically renewed. Subscription can be canceled at any time in iTunes or in the App Store Apple ID settings. All prices are subject to local sales taxes. Payment will be charged to iTunes Account at confirmation of purchase. Subscription will automatically renew unless auto-renew is turned off 24-hours before the end of the current period. Your account will be charged for renewal within 24 hours prior to the end of the current subscription."
+        let textLinkPrivacy = "Privacy Policy"
+        let textLinkTerms = "Terms of service"
+        let totalText = "\(text1) \(textLinkPrivacy) and \(textLinkTerms)."
+
+        let attributedString = NSMutableAttributedString(string: totalText)
+
+        let linkPrivacy = URL(string: "https://app.vpnhero.am/api/page/privacy")!
+        let linkTerms = URL(string: "https://app.vpnhero.am/api/page/terms_of_service")!
+
+        let startIndexPrivacy = totalText.range(of: textLinkPrivacy)?.lowerBound.utf16Offset(in: totalText) ?? 0
+        let startIndexTerms =  totalText.range(of: textLinkTerms)?.lowerBound.utf16Offset(in: totalText) ?? 0
+
+        attributedString.setAttributes([.foregroundColor: UIColor.white.withAlphaComponent(0.5), .font: UIFont.montserratRegular(size: 12)], range: NSMakeRange(0, totalText.count))
+        attributedString.setAttributes([.link: linkPrivacy, .font: UIFont.montserratMedium(size: 12)], range: NSMakeRange(startIndexPrivacy, textLinkPrivacy.count))
+        attributedString.setAttributes([.link: linkTerms, .font: UIFont.montserratMedium(size: 12)], range: NSMakeRange(startIndexTerms, textLinkTerms.count))
+
+        self.linksTextView.attributedText = attributedString
+        self.linksTextView.isUserInteractionEnabled = true
+        self.linksTextView.isEditable = false
+        self.linksTextView.isScrollEnabled = false
+        self.linksTextView.delegate = self
+
+        self.linksTextView.linkTextAttributes = [
+            .foregroundColor: UIColor.white,
+            .underlineStyle: NSUnderlineStyle.single.rawValue
+        ]
+
+        self.heightLinksTextView.constant = self.linksTextView.contentSize.height
     }
 
     func fetchAvailableProducts() {
@@ -197,7 +231,10 @@ private extension SubsVC {
 
     @objc
     func subscribeButtonTouch() {
-        guard self.selectedIndex > -1 else { return }
+        guard self.selectedIndex > -1 else {
+            self.showAlert("Should choose subscription")
+            return
+        }
 
         guard let product = self.productsArray.first(where: { $0.productIdentifier == self.tarifs[self.selectedIndex].uniqId }) else {
             self.showAlert("Product not found")
@@ -254,6 +291,7 @@ private extension SubsVC {
             case .success(let state):
                 if state {
                     self.checkStatusTimer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.getStatusTransaction), userInfo: nil, repeats: true)
+                    self.dateStartTimer = Date().timeIntervalSince1970
                 } else {
                     vc.changeStatus(type: .errorPayment)
                 }
@@ -269,6 +307,13 @@ private extension SubsVC {
         guard UserDefaultsManager.shared.timerFinishSubscribtion == nil else {
             self.processVC?.changeStatus(type: .successPayment)
             self.updateSubscribtion()
+            self.dateStartTimer = nil
+            self.checkStatusTimer?.invalidate()
+            return
+        }
+        
+        guard let dateStartTimer = self.dateStartTimer, Date().timeIntervalSince1970 - dateStartTimer < 60 else {
+            self.dateStartTimer = nil
             self.checkStatusTimer?.invalidate()
             return
         }
@@ -482,5 +527,25 @@ extension SubsVC: ProcessVCDelegate {
         if type == .successPayment {
             SubscribtionManager.shared.getStatus()
         }
+    }
+}
+extension SubsVC: UITextViewDelegate {
+    func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
+
+        if URL.absoluteString.contains("privacy") {
+            if let vc = Utils.shared.mainStoryboard().instantiateViewController(withIdentifier: InfoVC.className) as? InfoVC {
+                vc.type = .privacy
+                self.present(vc, animated: true)
+            }
+            return false
+        } else if URL.absoluteString.contains("terms_of_service") {
+            if let vc = Utils.shared.mainStoryboard().instantiateViewController(withIdentifier: InfoVC.className) as? InfoVC {
+                vc.type = .terms
+                self.present(vc, animated: true)
+            }
+            return false
+        }
+
+        return true
     }
 }

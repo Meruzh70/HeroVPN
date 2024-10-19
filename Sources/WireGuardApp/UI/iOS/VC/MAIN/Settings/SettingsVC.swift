@@ -47,19 +47,22 @@ private extension SettingsVC {
 
     @objc
     func termsTouch() {
-        let vc = Utils.shared.mainStoryboard().instantiateViewController(withIdentifier: TermsVC.className)
+        guard let vc = Utils.shared.mainStoryboard().instantiateViewController(withIdentifier: InfoVC.className) as? InfoVC else { return }
+        vc.type = .terms
         self.present(vc, animated: true)
     }
 
     @objc
     func privacyPolicyTouch() {
-        let vc = Utils.shared.mainStoryboard().instantiateViewController(withIdentifier: PrivacyVC.className)
+        guard let vc = Utils.shared.mainStoryboard().instantiateViewController(withIdentifier: InfoVC.className) as? InfoVC else { return }
+        vc.type = .privacy
         self.present(vc, animated: true)
     }
 
     @objc
     func aboutTouch() {
-        let vc = Utils.shared.mainStoryboard().instantiateViewController(withIdentifier: AboutVC.className)
+        guard let vc = Utils.shared.mainStoryboard().instantiateViewController(withIdentifier: InfoVC.className) as? InfoVC else { return }
+        vc.type = .about
         self.present(vc, animated: true)
     }
 
