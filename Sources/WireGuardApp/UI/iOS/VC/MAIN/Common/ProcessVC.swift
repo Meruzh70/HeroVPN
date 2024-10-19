@@ -140,7 +140,11 @@ class ProcessVC: BackVC {
     }
 
     override func backTouch() {
+        if type == .processPayment {
 
+        } else {
+            super.backTouch()
+        }
     }
 }
 private extension ProcessVC {
