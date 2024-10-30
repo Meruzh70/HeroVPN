@@ -1647,10 +1647,10 @@ Password</string>
                         <rect key="frame" x="0.0" y="0.0" width="393" height="769"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U4o-Al-SVq" customClass="TPKeyboardAvoidingScrollView">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U4o-Al-SVq" customClass="TPKeyboardAvoidingScrollView">
                                 <rect key="frame" x="0.0" y="59" width="393" height="710"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fFg-D0-Inr">
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fFg-D0-Inr">
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="997"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dollerIcon" translatesAutoresizingMaskIntoConstraints="NO" id="aik-FM-lFu">
@@ -1660,7 +1660,7 @@ Password</string>
                                                     <constraint firstAttribute="width" constant="68" id="uyL-P7-rWU"/>
                                                 </constraints>
                                             </imageView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ggd-Mu-Hko">
+                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ggd-Mu-Hko">
                                                 <rect key="frame" x="0.0" y="138" width="393" height="827"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pxo-cI-qce">
@@ -1833,7 +1833,7 @@ Password</string>
                                                             <constraint firstAttribute="bottom" secondItem="gk9-lx-NPn" secondAttribute="bottom" id="top-n2-pFa"/>
                                                         </constraints>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ysU-7l-z28">
+                                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ysU-7l-z28">
                                                         <rect key="frame" x="0.0" y="145" width="393" height="682"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose Your Plan" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g0M-pp-k2T">
@@ -1862,42 +1862,52 @@ Password</string>
                                                                     <constraint firstAttribute="height" constant="304" id="6cc-FU-Jim"/>
                                                                 </constraints>
                                                             </tableView>
-                                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PrQ-JF-Dm7">
+                                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PrQ-JF-Dm7">
                                                                 <rect key="frame" x="16" y="410" width="361" height="200"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="200" id="zhV-Xm-f20"/>
-                                                                </constraints>
                                                                 <string key="text">The subscription is automatically renewed. Subscription can be canceled at any time in iTunes or in the App Store Apple ID settings. All prices are subject to local sales taxes. Payment will be charged to iTunes Account at confirmation of purchase. Subscription will automatically renew unless auto-renew is turned off 24-hours before the end of the current period. Your account will be charged for renewal within 24 hours prior to the end of the current subscription. Privacy Policy and Terms of service.</string>
                                                                 <color key="textColor" systemColor="labelColor"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                             </textView>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CiB-10-VQf">
+                                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x7K-Db-XdM">
                                                                 <rect key="frame" x="16" y="626" width="361" height="56"/>
+                                                                <subviews>
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CiB-10-VQf">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="361" height="56"/>
+                                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="56" id="YG8-ul-DyT"/>
+                                                                        </constraints>
+                                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                        <state key="normal" title="Buy"/>
+                                                                    </button>
+                                                                </subviews>
+                                                                <color key="backgroundColor" systemColor="systemPurpleColor"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="height" constant="56" id="YG8-ul-DyT"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="CiB-10-VQf" secondAttribute="trailing" id="72c-7P-XPK"/>
+                                                                    <constraint firstItem="CiB-10-VQf" firstAttribute="leading" secondItem="x7K-Db-XdM" secondAttribute="leading" id="IAT-QG-yBq"/>
+                                                                    <constraint firstItem="CiB-10-VQf" firstAttribute="top" secondItem="x7K-Db-XdM" secondAttribute="top" id="Mtq-LA-U1T"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="CiB-10-VQf" secondAttribute="bottom" id="cNm-JI-vh9"/>
                                                                 </constraints>
-                                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                                <state key="normal" image="subs"/>
-                                                            </button>
+                                                            </view>
                                                         </subviews>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="trailing" secondItem="ats-Pc-t5p" secondAttribute="trailing" constant="16" id="21J-kc-8JZ"/>
                                                             <constraint firstAttribute="trailing" secondItem="g0M-pp-k2T" secondAttribute="trailing" constant="16" id="66x-1q-9qE"/>
                                                             <constraint firstItem="ats-Pc-t5p" firstAttribute="leading" secondItem="ysU-7l-z28" secondAttribute="leading" constant="16" id="CzA-C1-OjS"/>
+                                                            <constraint firstItem="x7K-Db-XdM" firstAttribute="leading" secondItem="ysU-7l-z28" secondAttribute="leading" constant="16" id="Mpf-rB-Lbh"/>
                                                             <constraint firstItem="PrQ-JF-Dm7" firstAttribute="leading" secondItem="ysU-7l-z28" secondAttribute="leading" constant="16" id="Pc4-0q-F7r"/>
                                                             <constraint firstItem="3Yc-CE-TEv" firstAttribute="leading" secondItem="ysU-7l-z28" secondAttribute="leading" id="Qr7-wD-QqE"/>
                                                             <constraint firstItem="ats-Pc-t5p" firstAttribute="top" secondItem="g0M-pp-k2T" secondAttribute="bottom" constant="5" id="ReI-wT-IzE"/>
                                                             <constraint firstAttribute="trailing" secondItem="PrQ-JF-Dm7" secondAttribute="trailing" constant="16" id="UJZ-Oq-agj"/>
-                                                            <constraint firstItem="CiB-10-VQf" firstAttribute="top" secondItem="PrQ-JF-Dm7" secondAttribute="bottom" constant="16" id="UQv-x3-3gD"/>
-                                                            <constraint firstAttribute="bottom" secondItem="CiB-10-VQf" secondAttribute="bottom" id="V87-xk-z7m"/>
                                                             <constraint firstItem="3Yc-CE-TEv" firstAttribute="top" secondItem="ats-Pc-t5p" secondAttribute="bottom" constant="32" id="VEe-iV-RZX"/>
-                                                            <constraint firstItem="CiB-10-VQf" firstAttribute="leading" secondItem="ysU-7l-z28" secondAttribute="leading" constant="16" id="WHY-cg-4sT"/>
                                                             <constraint firstItem="g0M-pp-k2T" firstAttribute="leading" secondItem="ysU-7l-z28" secondAttribute="leading" constant="16" id="WoB-2Q-apC"/>
-                                                            <constraint firstAttribute="trailing" secondItem="CiB-10-VQf" secondAttribute="trailing" constant="16" id="YS3-Ij-fgV"/>
+                                                            <constraint firstAttribute="bottom" secondItem="x7K-Db-XdM" secondAttribute="bottom" id="cTR-Lw-nBO"/>
+                                                            <constraint firstAttribute="trailing" secondItem="x7K-Db-XdM" secondAttribute="trailing" constant="16" id="kbh-D1-c4p"/>
                                                             <constraint firstAttribute="trailing" secondItem="3Yc-CE-TEv" secondAttribute="trailing" id="lR0-mE-vfI"/>
+                                                            <constraint firstItem="x7K-Db-XdM" firstAttribute="top" secondItem="PrQ-JF-Dm7" secondAttribute="bottom" constant="16" id="tSO-XY-aAl"/>
                                                             <constraint firstItem="PrQ-JF-Dm7" firstAttribute="top" secondItem="3Yc-CE-TEv" secondAttribute="bottom" constant="16" id="vCN-Hf-Kug"/>
                                                             <constraint firstItem="g0M-pp-k2T" firstAttribute="top" secondItem="ysU-7l-z28" secondAttribute="top" constant="8" id="vtD-Cy-ujN"/>
                                                         </constraints>
@@ -1976,6 +1986,8 @@ Password</string>
                         <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="0.0"/>
                     </tabBarItem>
                     <connections>
+                        <outlet property="buyBackgroundView" destination="x7K-Db-XdM" id="kza-4d-qsF"/>
+                        <outlet property="buyButton" destination="CiB-10-VQf" id="CE5-nA-uoX"/>
                         <outlet property="choosePlanLabel" destination="g0M-pp-k2T" id="yQ7-Gn-WaP"/>
                         <outlet property="choosePlanView" destination="ysU-7l-z28" id="wX7-pD-JLl"/>
                         <outlet property="currentPlanLabel" destination="1Fw-jl-Fqv" id="H9f-b6-8A0"/>
@@ -1983,7 +1995,6 @@ Password</string>
                         <outlet property="daysLabel" destination="9yu-2G-6Gb" id="nnG-cj-NLE"/>
                         <outlet property="daysLeftLabel" destination="23P-ti-WYf" id="a3A-vh-tIM"/>
                         <outlet property="exploreLabel" destination="ats-Pc-t5p" id="uZL-IU-bGZ"/>
-                        <outlet property="heightLinksTextView" destination="zhV-Xm-f20" id="Epg-MX-RjQ"/>
                         <outlet property="heightTarifTableViewConstraint" destination="6cc-FU-Jim" id="Dji-DB-NpU"/>
                         <outlet property="hoursLabel" destination="R2y-PU-TC1" id="rCz-52-RbU"/>
                         <outlet property="hoursLeftLabel" destination="y9a-zi-cn1" id="gqL-d1-a5z"/>
@@ -1995,7 +2006,6 @@ Password</string>
                         <outlet property="promocodeView" destination="PkE-bH-BFN" id="is7-NT-DUf"/>
                         <outlet property="secondsLabel" destination="UJ0-zV-ebE" id="ol1-uE-hNi"/>
                         <outlet property="secondsLeftLabel" destination="UPx-oB-Xqm" id="rc5-aV-Zki"/>
-                        <outlet property="subscribeButton" destination="CiB-10-VQf" id="Xgt-uU-yBz"/>
                         <outlet property="subscribeForFreeButton" destination="zN0-Dw-Bxd" id="2xA-fR-uYF"/>
                         <outlet property="tarifTableView" destination="3Yc-CE-TEv" id="vFk-NO-ogG"/>
                     </connections>
@@ -2675,7 +2685,6 @@ Password</string>
         <image name="slider2" width="61" height="8"/>
         <image name="slider3" width="61" height="8"/>
         <image name="subFree" width="361" height="56"/>
-        <image name="subs" width="361" height="56"/>
         <image name="subsSelected" width="63.333332061767578" height="44"/>
         <image name="subscription" width="63.333332061767578" height="44"/>
         <image name="success" width="90" height="90"/>
@@ -2692,7 +2701,10 @@ Password</string>
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemIndigoColor">
-            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemPurpleColor">
+            <color red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -5,6 +5,7 @@ import UIKit
 import ProgressHUD
 import PassKit
 import StoreKit
+import PassKit
 
 class SubsVC: UIViewController {
 
@@ -25,9 +26,10 @@ class SubsVC: UIViewController {
     @IBOutlet weak var exploreLabel: UILabel!
     @IBOutlet weak var tarifTableView: UITableView!
     @IBOutlet weak var linksTextView: UITextView!
-    @IBOutlet weak var heightLinksTextView: NSLayoutConstraint!
     @IBOutlet weak var heightTarifTableViewConstraint: NSLayoutConstraint!
-    @IBOutlet weak var subscribeButton: UIButton!
+
+    @IBOutlet weak var buyBackgroundView: UIView!
+    @IBOutlet weak var buyButton: UIButton!
 
     @IBOutlet weak var promocodeView: UIView!
     @IBOutlet weak var promocodeTextField: HeroTextField!
@@ -43,17 +45,19 @@ class SubsVC: UIViewController {
     private let isSandbox = false
 #endif
 
-    private var paymentRequest: PKPaymentRequest?
-
-    private var productsArray: [SKProduct] = []
+    // private var productsArray: [SKProduct] = []
 
     private var timer: Timer?
 
     private var checkStatusTimer: Timer?
     private var dateStartTimer: TimeInterval?
 
-    private var transactionId: String?
-    private var selectedTarifName: String?
+    private var paymentRequest: PKPaymentRequest?
+    private var transactionId: String = ""
+    private var successPayment: Bool = false
+    private var amount: Float = 0
+    private var uniqId = ""
+
     private var processVC: ProcessVC?
 
     override func viewDidLoad() {
@@ -63,7 +67,7 @@ class SubsVC: UIViewController {
 //        self.choosePlanView.isHidden = true
         self.promocodeView.isHidden = true
 
-        SKPaymentQueue.default().add(self)
+//        SKPaymentQueue.default().add(self)
 
         self.configureUI()
         self.setTargets()
@@ -81,13 +85,14 @@ class SubsVC: UIViewController {
     }
 
     deinit {
-        SKPaymentQueue.default().remove(self)
+//        SKPaymentQueue.default().remove(self)
         NotificationCenter.default.removeObserver(self)
     }
 }
 extension SubsVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.selectedIndex = self.selectedIndex != indexPath.row ? indexPath.row : -1
+        self.buyButton.alpha = self.selectedIndex == -1 ? 0.5 : 1
         self.tarifTableView.reloadData()
     }
 }
@@ -114,7 +119,7 @@ extension SubsVC: UITableViewDataSource {
 
 private extension SubsVC {
     func setTargets() {
-        self.subscribeButton.addTarget(self, action: #selector(subscribeButtonTouch), for: .touchUpInside)
+        self.buyButton.addTarget(self, action: #selector(subscribeButtonTouch), for: .touchUpInside)
         self.subscribeForFreeButton.addTarget(self, action: #selector(subsctibeForFreeButtonTouch), for: .touchUpInside)
     }
 
@@ -174,6 +179,12 @@ private extension SubsVC {
     }
 
     func configureUI() {
+        self.buyBackgroundView.setBlueGradient()
+        self.buyButton.titleLabel?.font = .montserratSemiBold(size: 16)
+        self.buyButton.setTitle("Buy", for: .normal)
+
+        self.buyButton.alpha = 0.5
+
         self.currentPlanView.isHidden = true
         self.updateSubscribtion()
 
@@ -191,7 +202,7 @@ private extension SubsVC {
         self.tarifTableView.delegate = self
         self.tarifTableView.dataSource = self
 
-        let text1 = "The subscription is automatically renewed. Subscription can be canceled at any time in iTunes or in the App Store Apple ID settings. All prices are subject to local sales taxes. Payment will be charged to iTunes Account at confirmation of purchase. Subscription will automatically renew unless auto-renew is turned off 24-hours before the end of the current period. Your account will be charged for renewal within 24 hours prior to the end of the current subscription."
+        let text1 = "The tariff is purchased once. For additional information contact us from settings."
         let textLinkPrivacy = "Privacy Policy"
         let textLinkTerms = "Terms of service"
         let totalText = "\(text1) \(textLinkPrivacy) and \(textLinkTerms)."
@@ -214,41 +225,49 @@ private extension SubsVC {
         self.linksTextView.isScrollEnabled = false
         self.linksTextView.delegate = self
 
+        self.linksTextView.textContainerInset = .zero;
+        self.linksTextView.textContainer.lineFragmentPadding = 0;
+
         self.linksTextView.linkTextAttributes = [
             .foregroundColor: UIColor.white,
             .underlineStyle: NSUnderlineStyle.single.rawValue
         ]
-
-        self.heightLinksTextView.constant = self.linksTextView.contentSize.height
     }
 
-    func fetchAvailableProducts() {
-        let productIdentifiers = Set(self.tarifs.map({ $0.uniqId }))
-        let productRequest = SKProductsRequest(productIdentifiers: productIdentifiers)
-        productRequest.delegate = self
-        productRequest.start()
-    }
+//    func fetchAvailableProducts() {
+//        let productIdentifiers = Set(self.tarifs.map({ $0.uniqId }))
+//        let productRequest = SKProductsRequest(productIdentifiers: productIdentifiers)
+//        productRequest.delegate = self
+//        productRequest.start()
+//    }
 
     @objc
     func subscribeButtonTouch() {
         guard self.selectedIndex > -1 else {
-            self.showAlert("Should choose subscription")
+            self.showAlert("Should choose plan")
             return
         }
 
+        self.requestForPay()
+
+        /*
         guard let product = self.productsArray.first(where: { $0.productIdentifier == self.tarifs[self.selectedIndex].uniqId }) else {
             self.showAlert("Product not found")
             return
         }
+         */
 
-        self.selectedTarifName = self.tarifs[self.selectedIndex].nameEn
 
+
+
+        /*
         if SKPaymentQueue.canMakePayments() {
             let payment = SKPayment(product: product)
             SKPaymentQueue.default().add(payment)
         } else {
             self.showAlert("Purchases are disabled on your device")
         }
+         */
     }
 
     @objc
@@ -279,7 +298,7 @@ private extension SubsVC {
 
         guard let vc = Utils.shared.mainStoryboard().instantiateViewController(withIdentifier: ProcessVC.className) as? ProcessVC else { return }
         vc.type = .processPayment
-        vc.planString = self.selectedTarifName ?? ""
+        vc.planString = self.tarifs[self.selectedIndex].nameEn
         vc.delegate = self
         self.present(vc, animated: true)
 
@@ -311,7 +330,7 @@ private extension SubsVC {
             self.checkStatusTimer?.invalidate()
             return
         }
-        
+
         guard let dateStartTimer = self.dateStartTimer, Date().timeIntervalSince1970 - dateStartTimer < 60 else {
             self.dateStartTimer = nil
             self.checkStatusTimer?.invalidate()
@@ -335,13 +354,14 @@ private extension SubsVC {
                 self.heightTarifTableViewConstraint.constant = CGFloat(76 * tarifs.count)
                 self.tarifTableView.reloadData()
 
-                self.fetchAvailableProducts()
+//                self.fetchAvailableProducts()
             case .failure(let error):
                 self.showAlert(error.textError)
             }
         })
     }
 
+    /*
     func complete(transaction: SKPaymentTransaction) {
         UserDefaults.standard.set(true, forKey: "isPaidUser")
 
@@ -385,6 +405,7 @@ private extension SubsVC {
         }
         SKPaymentQueue.default().finishTransaction(transaction)
     }
+    */
 
     /*
     func receiptValidation() {
@@ -479,47 +500,80 @@ private extension SubsVC {
         }
     }
 
-//    func requestForPay() {
-//        let request = PKPaymentRequest()
-//        request.merchantIdentifier = "merchant.am.vpnhero.app"
-//        request.supportedNetworks = [.visa, .masterCard]
-//        request.supportedCountries = ["RU"]
-//        request.merchantCapabilities = .capability3DS
-//        request.countryCode = "RU"
-//        request.currencyCode = "RUB"
-//        request.paymentSummaryItems = [PKPaymentSummaryItem(label: self.products[self.selectedIndex].title, amount: NSDecimalNumber(decimal: self.products[self.selectedIndex].discountCost))]
-//        self.paymentRequest = request
+    func requestForPay() {
+        self.amount = self.tarifs[self.selectedIndex].priceDiscount ?? self.tarifs[self.selectedIndex].price
+        self.uniqId = self.tarifs[self.selectedIndex].uniqId
+
+        guard self.amount > 0 else {
+            self.showAlert("Error configure pay request")
+            return
+        }
+
+        let request = PKPaymentRequest()
+        request.merchantIdentifier = "merchant.am.vpnhero.app"
+        request.supportedCountries = ["US"]
+        request.countryCode = "US"
+        request.currencyCode = "USD"
+
+        let paymentNetworks = [PKPaymentNetwork.visa, .masterCard, .discover]
+        request.supportedNetworks = paymentNetworks
+        request.merchantCapabilities = .capability3DS
+
+//        let item = PKPaymentSummaryItem(label: "VPN plan for \(self.tarifs[self.selectedIndex].nameEn)", amount: NSDecimalNumber(string: "\(self.amount)"))
+        let item = PKPaymentSummaryItem(label: "VPN plan for \(self.tarifs[self.selectedIndex].nameEn)", amount: NSDecimalNumber(string: "\(0.5)"))
+        request.paymentSummaryItems = [item]
+
+        self.paymentRequest = request
+
+        if let applePayVC = PKPaymentAuthorizationViewController(paymentRequest: request) {
+            applePayVC.delegate = self
+            self.present(applePayVC, animated: true, completion: nil)
+        }
+
+//        if PKPaymentAuthorizationViewController.canMakePayments(usingNetworks: paymentNetworks) {
+//            request.supportedNetworks = paymentNetworks
+//            request.merchantCapabilities = .capability3DS
 //
-//        guard let controller = PKPaymentAuthorizationViewController(paymentRequest: request) else { return }
-//        controller.delegate = self
-//        present(controller, animated: true, completion: nil)
+//            let item = PKPaymentSummaryItem(label: "VPN plan for \(self.tarifs[self.selectedIndex].nameEn)", amount: NSDecimalNumber(string: "\(self.amount)"))
+//            request.paymentSummaryItems = [item]
+//
+//            self.paymentRequest = request
+//
+//            if let applePayVC = PKPaymentAuthorizationViewController(paymentRequest: request) {
+//                applePayVC.delegate = self
+//                self.present(applePayVC, animated: true, completion: nil)
+//            }
+//        } else {
+//            self.showAlert("Apple Pay is not available on this device")
+//        }
+    }
+
+
+}
+//extension SubsVC: SKPaymentTransactionObserver {
+//    func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
+//        ProgressHUD.dismiss()
+//        if let lastTransaction = transactions.sorted(by: { ($0.transactionDate?.timeIntervalSince1970 ?? 0) > ($1.transactionDate?.timeIntervalSince1970 ?? 0) }).first(where: { $0.transactionState == .purchased || $0.transactionState == .restored }) {
+//            complete(transaction: lastTransaction)
+//        }
 //    }
-
-}
-extension SubsVC: SKPaymentTransactionObserver {
-    func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
-        ProgressHUD.dismiss()
-        if let lastTransaction = transactions.sorted(by: { ($0.transactionDate?.timeIntervalSince1970 ?? 0) > ($1.transactionDate?.timeIntervalSince1970 ?? 0) }).first(where: { $0.transactionState == .purchased || $0.transactionState == .restored }) {
-            complete(transaction: lastTransaction)
-        }
-    }
-}
-extension SubsVC: SKProductsRequestDelegate {
-    func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
-        if !response.products.isEmpty {
-            productsArray = response.products
-        }
-    }
-}
-extension SubsVC: PKPaymentAuthorizationViewControllerDelegate {
-    func paymentAuthorizationViewControllerDidFinish(_ controller: PKPaymentAuthorizationViewController) {
-        controller.dismiss(animated: true)
-    }
-
-    func paymentAuthorizationViewController(_ controller: PKPaymentAuthorizationViewController, didAuthorizePayment payment: PKPayment, handler completion: @escaping (PKPaymentAuthorizationResult) -> Void) {
-        completion(PKPaymentAuthorizationResult(status: .success, errors: nil))
-    }
-}
+//}
+//extension SubsVC: SKProductsRequestDelegate {
+//    func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
+//        if !response.products.isEmpty {
+//            productsArray = response.products
+//        }
+//    }
+//}
+//extension SubsVC: PKPaymentAuthorizationViewControllerDelegate {
+//    func paymentAuthorizationViewControllerDidFinish(_ controller: PKPaymentAuthorizationViewController) {
+//        controller.dismiss(animated: true)
+//    }
+//
+//    func paymentAuthorizationViewController(_ controller: PKPaymentAuthorizationViewController, didAuthorizePayment payment: PKPayment, handler completion: @escaping (PKPaymentAuthorizationResult) -> Void) {
+//        completion(PKPaymentAuthorizationResult(status: .success, errors: nil))
+//    }
+//}
 extension SubsVC: ProcessVCDelegate {
     func mainActionTouched(vc: UIViewController, type: ProcessType) {
         vc.dismiss(animated: true)
@@ -547,5 +601,31 @@ extension SubsVC: UITextViewDelegate {
         }
 
         return true
+    }
+}
+extension SubsVC: PKPaymentAuthorizationViewControllerDelegate {
+    func paymentAuthorizationViewControllerDidFinish(_ controller: PKPaymentAuthorizationViewController) {
+        self.dismiss(animated: true, completion: nil)
+    }
+
+    func paymentAuthorizationViewController(_ controller: PKPaymentAuthorizationViewController, didAuthorizePayment payment: PKPayment, completion: @escaping (PKPaymentAuthorizationStatus) -> Void) {
+
+        print(payment.token)
+        // Get response from the server and set the PKPaymentAuthorizationStatus
+        let status = PKPaymentAuthorizationStatus(rawValue: 0)!
+
+        self.transactionId = payment.token.transactionIdentifier
+
+        switch status.rawValue {
+        case 0:
+            self.successPayment = true
+
+            self.subscribeByApple(transactionId: self.transactionId, uniqId: self.uniqId, transactionPrice: self.amount, transactionDate: Date().timeIntervalSince1970)
+
+            // perform Functionality on Apple Pay Successfull Payment
+        default:
+            self.successPayment = false
+
+        }
     }
 }
