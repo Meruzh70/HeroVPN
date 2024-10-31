@@ -511,8 +511,8 @@ private extension SubsVC {
 
         let request = PKPaymentRequest()
         request.merchantIdentifier = "merchant.am.vpnhero.app"
-        request.supportedCountries = ["US"]
-        request.countryCode = "US"
+//        request.supportedCountries = ["US"]
+        request.countryCode = "AM"
         request.currencyCode = "USD"
 
         let paymentNetworks = [PKPaymentNetwork.visa, .masterCard, .discover]
