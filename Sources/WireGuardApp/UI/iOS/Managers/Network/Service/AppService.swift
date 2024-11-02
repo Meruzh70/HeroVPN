@@ -207,4 +207,21 @@ class AppService {
             }
         }
     }
+
+    // function for get info about transaction
+    func getTransaction(transactionId: String, complition: @escaping (ResultResponce<String>) -> Void) {
+        let service: AppApi = .transaction(transactionId: transactionId)
+        apiManager.perform(service: service, decodeType: TransactionEntity.self) { (result) in
+            switch result {
+            case .success(let transactionEntity):
+                if let state = transactionEntity.state {
+                    complition(.success(state))
+                } else {
+                    complition(.failure(.custom(transactionEntity.message ?? "", [])))
+                }
+            case .failure(let error):
+                complition(.failure(error))
+            }
+        }
+    }
 }

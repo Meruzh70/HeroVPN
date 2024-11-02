@@ -33,6 +33,7 @@ class APIManager {
         lock.lock(); defer { lock.unlock() }
         if let request = service.urlRequest, let url = request.url {
             print("Request for: \(url.absoluteString)")
+            print("Parameters: \(service.parameters)")
         }
         session.request(service)
             .validate(statusCode: avalibelStatusCodes)
@@ -50,6 +51,7 @@ class APIManager {
     func perform<T: URLRequestBuilder>(service: T, completion: @escaping (ResultResponce<Data>) -> Void) {
         if let request = service.urlRequest, let url = request.url {
             print("Request for: \(url.absoluteString)")
+            print("Parameters: \(service.parameters)")
         }
         session.request(service)
             .validate(statusCode: avalibelStatusCodes)

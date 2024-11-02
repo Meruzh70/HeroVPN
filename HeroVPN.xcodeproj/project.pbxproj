@@ -258,6 +258,7 @@
 		FC60AFD42CCFEA7D005AB6B8 /* StripeCardScan in Frameworks */ = {isa = PBXBuildFile; productRef = FC60AFD32CCFEA7D005AB6B8 /* StripeCardScan */; };
 		FC60AFD62CCFEA7D005AB6B8 /* StripeFinancialConnections in Frameworks */ = {isa = PBXBuildFile; productRef = FC60AFD52CCFEA7D005AB6B8 /* StripeFinancialConnections */; };
 		FC60AFD82CCFEA7D005AB6B8 /* StripeIdentity in Frameworks */ = {isa = PBXBuildFile; productRef = FC60AFD72CCFEA7D005AB6B8 /* StripeIdentity */; };
+		FC60AFDA2CD66DD8005AB6B8 /* TransactionEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC60AFD92CD66DD8005AB6B8 /* TransactionEntity.swift */; };
 		FC6AC1852C91B75E00678F17 /* RegEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6AC1842C91B75E00678F17 /* RegEntity.swift */; };
 		FC6AC1872C91BD2200678F17 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6AC1862C91BD2200678F17 /* UIColor+Extension.swift */; };
 		FC6AC1892C93421D00678F17 /* TarifEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6AC1882C93421D00678F17 /* TarifEntity.swift */; };
@@ -549,6 +550,7 @@
 		FC46FD172C88BB25000C5303 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		FC46FD1A2C88C13C000C5303 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		FC46FD1D2C88C25D000C5303 /* NSObject+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Extension.swift"; sourceTree = "<group>"; };
+		FC60AFD92CD66DD8005AB6B8 /* TransactionEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionEntity.swift; sourceTree = "<group>"; };
 		FC6AC1842C91B75E00678F17 /* RegEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegEntity.swift; sourceTree = "<group>"; };
 		FC6AC1862C91BD2200678F17 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		FC6AC1882C93421D00678F17 /* TarifEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TarifEntity.swift; sourceTree = "<group>"; };
@@ -1394,6 +1396,7 @@
 				FC6AC1882C93421D00678F17 /* TarifEntity.swift */,
 				FC8FDBD82C9423F900A68657 /* StatusEntity.swift */,
 				FC0BF43D2CC124A70018FFD7 /* InfoEntity.swift */,
+				FC60AFD92CD66DD8005AB6B8 /* TransactionEntity.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -2251,6 +2254,7 @@
 				FCB9BB552C8967160093969D /* Configuration.swift in Sources */,
 				FC9B21372C89BCAD00B508A9 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				6FDEF806218725D200D8FBF6 /* SettingsTableViewController.swift in Sources */,
+				FC60AFDA2CD66DD8005AB6B8 /* TransactionEntity.swift in Sources */,
 				FCB9BB522C8964FA0093969D /* Data+Extension.swift in Sources */,
 				5F4541A221C2D6DF00994C13 /* BorderedTextButton.swift in Sources */,
 				FC46FD182C88BB25000C5303 /* UserDefaultsManager.swift in Sources */,

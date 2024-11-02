@@ -312,10 +312,10 @@ private extension SubsVC {
                     self.checkStatusTimer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.getStatusTransaction), userInfo: nil, repeats: true)
                     self.dateStartTimer = Date().timeIntervalSince1970
                 } else {
-                    vc.changeStatus(type: .errorPayment)
+                    self.processVC?.changeStatus(type: .errorPayment)
                 }
             case .failure(let error):
-                vc.changeStatus(type: .errorPayment)
+                self.processVC?.changeStatus(type: .errorPayment)
                 print(error.textError)
             }
         }
@@ -337,7 +337,20 @@ private extension SubsVC {
             return
         }
 
-        SubscribtionManager.shared.getStatus()
+        AppService().getTransaction(transactionId: self.transactionId) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let state):
+                if state.isConfirm {
+                    self.processVC?.changeStatus(type: .confirmDelete)
+                    self.updateSubscribtion()
+                } else if state.isFailure {
+                    self.processVC?.changeStatus(type: .errorPayment)
+                }
+            case .failure(let error):
+                self.showAlert(error.textError)
+            }
+        }
     }
 
     func requestTarrifs(withShowingProgress: Bool = true) {
@@ -515,7 +528,9 @@ private extension SubsVC {
         request.countryCode = "AM"
         request.currencyCode = "USD"
 
-        let paymentNetworks = [PKPaymentNetwork.visa, .masterCard, .discover]
+//        let paymentNetworks = [PKPaymentNetwork.visa, .masterCard, .discover]
+        let paymentNetworks = [PKPaymentNetwork.amex, .discover, .masterCard, .visa]
+
         request.supportedNetworks = paymentNetworks
         request.merchantCapabilities = .capability3DS
 
@@ -525,27 +540,16 @@ private extension SubsVC {
 
         self.paymentRequest = request
 
-        if let applePayVC = PKPaymentAuthorizationViewController(paymentRequest: request) {
-            applePayVC.delegate = self
-            self.present(applePayVC, animated: true, completion: nil)
+        if PKPaymentAuthorizationViewController.canMakePayments(usingNetworks: paymentNetworks) {
+            guard let paymentVC = PKPaymentAuthorizationViewController(paymentRequest: request) else {
+                self.showAlert("Unable to present Apple Pay authorization")
+                return
+            }
+            paymentVC.delegate = self
+            self.present(paymentVC, animated: true, completion: nil)
+        } else {
+            self.showAlert("Could not make a payments")
         }
-
-//        if PKPaymentAuthorizationViewController.canMakePayments(usingNetworks: paymentNetworks) {
-//            request.supportedNetworks = paymentNetworks
-//            request.merchantCapabilities = .capability3DS
-//
-//            let item = PKPaymentSummaryItem(label: "VPN plan for \(self.tarifs[self.selectedIndex].nameEn)", amount: NSDecimalNumber(string: "\(self.amount)"))
-//            request.paymentSummaryItems = [item]
-//
-//            self.paymentRequest = request
-//
-//            if let applePayVC = PKPaymentAuthorizationViewController(paymentRequest: request) {
-//                applePayVC.delegate = self
-//                self.present(applePayVC, animated: true, completion: nil)
-//            }
-//        } else {
-//            self.showAlert("Apple Pay is not available on this device")
-//        }
     }
 
 
@@ -609,6 +613,10 @@ extension SubsVC: PKPaymentAuthorizationViewControllerDelegate {
     }
 
     func paymentAuthorizationViewController(_ controller: PKPaymentAuthorizationViewController, didAuthorizePayment payment: PKPayment, completion: @escaping (PKPaymentAuthorizationStatus) -> Void) {
+
+        dismiss(animated: true, completion: nil)
+
+        UIPasteboard.general.string = payment.token.transactionIdentifier
 
         print(payment.token)
         // Get response from the server and set the PKPaymentAuthorizationStatus

@@ -66,4 +66,16 @@ extension String {
         dateFormatter.formatOptions = [.withFullDate]
         return dateFormatter.date(from: self)
     }
+
+    var isConfirm: Bool {
+        return self == "confirm"
+    }
+
+    var isWaiting: Bool {
+        return self == "waiting"
+    }
+
+    var isFailure: Bool {
+        return self == "failure"
+    }
 }

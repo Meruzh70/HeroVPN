@@ -19,6 +19,7 @@ enum AppApi: URLRequestBuilder {
     case subscribe(transactionId: String, uniqId: String, cost: Float, created: Double)
     case delete
     case info(type: InfoType)
+    case transaction(transactionId: String)
 
     // property for path
     var path: String {
@@ -37,6 +38,7 @@ enum AppApi: URLRequestBuilder {
         case .subscribe: "/subscribe"
         case .delete: "/user"
         case .info(let type): "/page/\(type.alias)"
+        case .transaction(let transactionId): "/transaction/\(transactionId)"
         }
     }
 
@@ -86,6 +88,8 @@ enum AppApi: URLRequestBuilder {
             nil
         case .info:
             nil
+        case .transaction:
+            nil
         }
     }
 
@@ -105,7 +109,8 @@ enum AppApi: URLRequestBuilder {
                 .post
         case .tarrifs,
                 .status,
-                .info:
+                .info,
+                .transaction:
                 .get
         case .delete: .delete
         }
