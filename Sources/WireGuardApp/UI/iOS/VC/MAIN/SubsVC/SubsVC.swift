@@ -84,6 +84,11 @@ class SubsVC: UIViewController {
         self.startTimer()
     }
 
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        self.buyBackgroundView.setBlueGradient()
+    }
+
     deinit {
 //        SKPaymentQueue.default().remove(self)
         NotificationCenter.default.removeObserver(self)
@@ -179,7 +184,6 @@ private extension SubsVC {
     }
 
     func configureUI() {
-        self.buyBackgroundView.setBlueGradient()
         self.buyButton.titleLabel?.font = .montserratSemiBold(size: 16)
         self.buyButton.setTitle("Buy", for: .normal)
 
@@ -534,8 +538,7 @@ private extension SubsVC {
         request.supportedNetworks = paymentNetworks
         request.merchantCapabilities = .capability3DS
 
-//        let item = PKPaymentSummaryItem(label: "VPN plan for \(self.tarifs[self.selectedIndex].nameEn)", amount: NSDecimalNumber(string: "\(self.amount)"))
-        let item = PKPaymentSummaryItem(label: "VPN plan for \(self.tarifs[self.selectedIndex].nameEn)", amount: NSDecimalNumber(string: "\(0.5)"))
+        let item = PKPaymentSummaryItem(label: "VPN plan for \(self.tarifs[self.selectedIndex].nameEn)", amount: NSDecimalNumber(string: "\(self.amount)"))
         request.paymentSummaryItems = [item]
 
         self.paymentRequest = request
