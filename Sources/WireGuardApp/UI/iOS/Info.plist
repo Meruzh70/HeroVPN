@@ -69,7 +69,7 @@
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
-	<string>22</string>
+	<string>23</string>
 	<key>FirebaseMessagingAutoInitEnabled</key>
 	<string>0</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
